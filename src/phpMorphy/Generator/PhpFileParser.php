@@ -41,7 +41,7 @@ class phpMorphy_Generator_PhpFileParser {
      * @param string $fileName
      * @return phpMorphy_Generator_PhpFileParser_FileDescriptor
      */
-    static function parseFile($fileName) {
+    public static function parseFile($fileName) {
         return self::parseString(file_get_contents($fileName));
     }
 
@@ -50,7 +50,7 @@ class phpMorphy_Generator_PhpFileParser {
      * @param string $string
      * @return phpMorphy_Generator_PhpFileParser_FileDescriptor
      */
-    static function parseString($string) {
+    public static function parseString($string) {
         return self::parseArray(token_get_all($string));
     }
 
@@ -59,7 +59,7 @@ class phpMorphy_Generator_PhpFileParser {
      * @param array $tokens
      * @return phpMorphy_Generator_PhpFileParser_FileDescriptor
      */
-    static function parseArray(array $tokens) {
+    public static function parseArray(array $tokens) {
         $that = new phpMorphy_Generator_PhpFileParser;
 
         $that->tokens = $tokens;

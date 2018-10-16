@@ -28,7 +28,7 @@ class phpMorphy_Aot_GramTab_GramInfoHelper_Russian
      * @param string[] $grammems
      * @return string
      */
-    function convertPartOfSpeech($partOfSpeech, $grammems) {
+    public function convertPartOfSpeech($partOfSpeech, $grammems) {
         if($partOfSpeech == 'Г') {
             if(in_array('прч', $grammems)) {
                 return 'ПРИЧАСТИЕ';
@@ -46,7 +46,7 @@ class phpMorphy_Aot_GramTab_GramInfoHelper_Russian
      * @param string $partOfSpeech
      * @return bool
      */
-    function isPartOfSpeechProductive($partOfSpeech) {
+    public function isPartOfSpeechProductive($partOfSpeech) {
         static $map = array(
             "С" => 1,
             "ИНФИНИТИВ" => 1,

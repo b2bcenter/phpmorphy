@@ -25,18 +25,18 @@ class phpMorphy_Source_Dba implements phpMorphy_Source_SourceInterface {
 
     protected $handle;
 
-    function __construct($fileName, $options = null) {
+    public function __construct($fileName, $options = null) {
         $this->handle = $this->openFile($fileName, $this->repairOptions($options));
     }
 
-    function close() {
+    public function close() {
         if(isset($this->handle)) {
             dba_close($this->handle);
             $this->handle = null;
         }
     }
 
-    static function getDefaultHandler() {
+    public static function getDefaultHandler() {
         return self::DEFAULT_HANDLER;
     }
 
@@ -66,7 +66,7 @@ class phpMorphy_Source_Dba implements phpMorphy_Source_SourceInterface {
         return (array)$options + $defaults;
     }
 
-    function getValue($key) {
+    public function getValue($key) {
         return dba_fetch($key, $this->handle);
     }
 }

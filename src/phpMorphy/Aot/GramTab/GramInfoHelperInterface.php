@@ -26,11 +26,11 @@ interface phpMorphy_Aot_GramTab_GramInfoHelperInterface {
      * @param string[] $grammems
      * @return string
      */
-    function convertPartOfSpeech($partOfSpeech, $grammems);
+    public function convertPartOfSpeech($partOfSpeech, $grammems);
 
     /**
      * @param string $partOfSpeech
      * @return bool
      */
-    function isPartOfSpeechProductive($partOfSpeech);
+    public function isPartOfSpeechProductive($partOfSpeech);
 }

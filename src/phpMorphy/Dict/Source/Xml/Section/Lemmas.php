@@ -29,7 +29,7 @@ class phpMorphy_Dict_Source_Xml_Section_Lemmas extends phpMorphy_Dict_Source_Xml
         return 'lemmas';
     }
 
-    function rewind() {
+    public function rewind() {
         $this->count = 0;
         $this->current = null;
 

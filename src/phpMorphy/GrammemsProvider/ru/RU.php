@@ -41,15 +41,15 @@ class phpMorphy_GrammemsProvider_ru_RU extends phpMorphy_GrammemsProvider_ForFac
         'безличный глагол' => array('БЕЗЛ'),
     );
 
-    function getSelfEncoding() {
+    public function getSelfEncoding() {
         return self::INTERNAL_ENCODING;
     }
 
-    function getGrammemsMap() {
+    public function getGrammemsMap() {
         return self::$grammems_map;
     }
 
-    static function instance(phpMorphy_MorphyInterface $morphy) {
+    public static function instance(phpMorphy_MorphyInterface $morphy) {
         $key = $morphy->getEncoding();
 
         if(!isset(self::$instances[$key])) {

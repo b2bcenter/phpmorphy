@@ -36,7 +36,7 @@ abstract class phpMorphy_GramTab_Decorator implements phpMorphy_GramTab_GramTabI
     /**
      * @param $object phpMorphy_GramTab_GramTabInterface
      */
-    function __construct(phpMorphy_GramTab_GramTabInterface $object) {
+    public function __construct(phpMorphy_GramTab_GramTabInterface $object) {
         $this->setDecorateeObject($object);
     }
     
@@ -109,7 +109,7 @@ abstract class phpMorphy_GramTab_Decorator implements phpMorphy_GramTab_GramTabI
     /**
      * Implement deep copy paradigm
      */
-    function __clone() {
+    public function __clone() {
         if(isset($this->object)) {
             $this->object = clone $this->object;
         }

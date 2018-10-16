@@ -25,12 +25,12 @@ class phpMorphy_Dict_Source_ValidatingSource_Iterator extends IteratorIterator {
     /** @var Closure */
     private $callback;
 
-    function __construct($iterator, $callback) {
+    public function __construct($iterator, $callback) {
         parent::__construct(is_array($iterator) ? new ArrayIterator($iterator) : $iterator);
         $this->callback = $callback;
     }
 
-    function current() {
+    public function current() {
         $value = parent::current();
 
         $fn = $this->callback;

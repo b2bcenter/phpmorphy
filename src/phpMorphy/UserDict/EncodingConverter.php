@@ -40,7 +40,7 @@ class phpMorphy_UserDict_EncodingConverter {
      * @param string $internalEncoding
      * @param MB_CASE_UPPER|MB_CASE_LOWER $internalCase
      */
-    function __construct($morphyEncoding, $morphyCase, $internalEncoding, $internalCase = MB_CASE_UPPER) {
+    public function __construct($morphyEncoding, $morphyCase, $internalEncoding, $internalCase = MB_CASE_UPPER) {
         if(!$this->checkEncoding($morphyEncoding)) {
             throw new phpMorphy_Exception("Invalid morphy encoding '$morphyEncoding'");
         }
@@ -59,7 +59,7 @@ class phpMorphy_UserDict_EncodingConverter {
             $this->internal_case === $this->morphy_case);
     }
 
-    function isAffect() {
+    public function isAffect() {
         return $this->is_affect;
     }
     
@@ -79,7 +79,7 @@ class phpMorphy_UserDict_EncodingConverter {
      * @param string $string
      * @return string
      */
-    function toMorphy($string) {
+    public function toMorphy($string) {
         return $this->convert(
             $string,
             $this->internal_encoding,
@@ -94,7 +94,7 @@ class phpMorphy_UserDict_EncodingConverter {
      * @param bool $withCase
      * @return string
      */
-    function toInternal($string, $withCase = false) {
+    public function toInternal($string, $withCase = false) {
         return $this->convert(
             $string,
             $this->morphy_encoding,

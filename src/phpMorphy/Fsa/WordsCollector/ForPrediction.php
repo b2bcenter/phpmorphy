@@ -26,13 +26,13 @@ class phpMorphy_Fsa_WordsCollector_ForPrediction extends phpMorphy_Fsa_WordsColl
         $annot_decoder,
         $collected = 0;
 
-    function __construct($limit, phpMorphy_AnnotDecoder_AnnotDecoderInterface $annotDecoder) {
+    public function __construct($limit, phpMorphy_AnnotDecoder_AnnotDecoderInterface $annotDecoder) {
         parent::__construct($limit);
 
         $this->annot_decoder = $annotDecoder;
     }
 
-    function collect($path, $annotRaw) {
+    public function collect($path, $annotRaw) {
         if($this->collected > $this->limit) {
             return false;
         }
@@ -62,13 +62,13 @@ class phpMorphy_Fsa_WordsCollector_ForPrediction extends phpMorphy_Fsa_WordsColl
         return true;
     }
 
-    function clear() {
+    public function clear() {
         parent::clear();
         $this->collected = 0;
         $this->used_poses = array();
     }
 
-    function decodeAnnot($annotRaw) {
+    public function decodeAnnot($annotRaw) {
         return $this->annot_decoder->decode($annotRaw, true);
     }
 }

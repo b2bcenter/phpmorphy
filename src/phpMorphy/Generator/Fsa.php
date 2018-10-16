@@ -25,7 +25,7 @@ class phpMorphy_Generator_Fsa {
      * @param string $outputDirectory
      * @return void
      */
-    static function generate($outputDirectory) {
+    public static function generate($outputDirectory) {
         $helpers_ary = array('Sparse', 'Tree');
         $storage_ary = array('File', 'Mem', 'Shm');
 

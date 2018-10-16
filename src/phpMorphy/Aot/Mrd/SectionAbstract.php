@@ -30,7 +30,7 @@ abstract class phpMorphy_Aot_Mrd_SectionAbstract implements Iterator, Countable 
 		$current_line,
 		$section_size;
 
-	function __construct(SeekableIterator $file, $encoding, $startLine) {
+	public function __construct(SeekableIterator $file, $encoding, $startLine) {
 		$this->file_it = $file;
 
 		$this->encoding = $this->prepareEncoding($encoding);
@@ -52,28 +52,28 @@ abstract class phpMorphy_Aot_Mrd_SectionAbstract implements Iterator, Countable 
 		return new SplFileObject($fileName);
 	}
 
-	function getSectionLinesCount() {
+	public function getSectionLinesCount() {
 		return $this->count() + 1;
 	}
 
-	function count() {
+	public function count() {
 		return $this->section_size;
 	}
 
-	function key() {
+	public function key() {
 		return $this->current_line;
 	}
 
-	function getPosition() {
+	public function getPosition() {
 		return $this->current_line;
 	}
 
-	function rewind() {
+	public function rewind() {
 		$this->current_line = 0;
 		$this->file_it->seek($this->start_line + 1);
 	}
 
-	function valid() {
+	public function valid() {
 		if($this->current_line >= $this->section_size) {
 			return false;
 		}
@@ -87,11 +87,11 @@ abstract class phpMorphy_Aot_Mrd_SectionAbstract implements Iterator, Countable 
 		return true;
 	}
 
-	function current() {
+	public function current() {
 		return $this->processLine(rtrim($this->file_it->current()));
 	}
 
-	function next() {
+	public function next() {
 		$this->file_it->next();
 		$this->current_line++;
 	}

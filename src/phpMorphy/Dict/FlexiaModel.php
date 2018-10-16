@@ -24,22 +24,22 @@ class phpMorphy_Dict_FlexiaModel extends phpMorphy_Util_Collection_ArrayBased/*_
     protected
         $id;
 
-    function __construct($id) {
+    public function __construct($id) {
         parent::__construct(/*$this->createStorageCollection(), 'phpMorphy_Dict_Flexia'*/);
 
         $this->setId($id);
 
     }
     
-    function setId($id) {
+    public function setId($id) {
         $this->id = $id;
     }
 
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
-    function getFlexias() {
+    public function getFlexias() {
         return $this->getData();
     }
 
@@ -49,7 +49,7 @@ class phpMorphy_Dict_FlexiaModel extends phpMorphy_Util_Collection_ArrayBased/*_
     }
     */
 
-    function __toString() {
+    public function __toString() {
         return phpMorphy_Dict_ModelsFormatter::create()->formatFlexiaModel($this);
     }
 }

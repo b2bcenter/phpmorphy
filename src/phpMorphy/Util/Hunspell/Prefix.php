@@ -25,7 +25,7 @@ class phpMorphy_Util_Hunspell_Prefix extends phpMorphy_Util_Hunspell_AffixAbstra
 		return "~^{$find}~iu";
 	}
 
-	function generateWord($word) {
+	public function generateWord($word) {
 		if(!$this->isMatch($word)) {
 			return false;
 		}

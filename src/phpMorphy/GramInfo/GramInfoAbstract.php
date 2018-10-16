@@ -52,7 +52,7 @@ abstract class phpMorphy_GramInfo_GramInfoAbstract implements phpMorphy_GramInfo
      * @param bool $isLazy
      * @return phpMorphy_GramInfo_GramInfoInterface
      */
-    static function create(phpMorphy_Storage_StorageInterface $storage, $isLazy) {
+    public static function create(phpMorphy_Storage_StorageInterface $storage, $isLazy) {
         if($isLazy) {
             return new phpMorphy_GramInfo_Proxy($storage);
         }
@@ -74,42 +74,42 @@ abstract class phpMorphy_GramInfo_GramInfoAbstract implements phpMorphy_GramInfo
     /**
      * @return string
      */
-    function getLocale() {
+    public function getLocale() {
         return $this->header['lang'];
     }
 
     /**
      * @return string
      */
-    function getEncoding() {
+    public function getEncoding() {
         return $this->header['encoding'];
     }
 
     /**
      * @return bool
      */
-    function isInUpperCase() {
+    public function isInUpperCase() {
         return null;
     }
 
     /**
      * @return int
      */
-    function getCharSize() {
+    public function getCharSize() {
         return $this->header['char_size'];
     }
 
     /**
      * @return string
      */
-    function getEnds() {
+    public function getEnds() {
         return $this->ends;
     }
 
     /**
      * @return array
      */
-    function getHeader() {
+    public function getHeader() {
         return $this->header;
     }
 

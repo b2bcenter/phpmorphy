@@ -28,7 +28,7 @@ class phpMorphy_Aot_GramTab_GramInfoHelper_English
      * @param string[] $grammems
      * @return string
      */
-    function convertPartOfSpeech($partOfSpeech, $grammems) {
+    public function convertPartOfSpeech($partOfSpeech, $grammems) {
         return $partOfSpeech;
     }
 
@@ -36,7 +36,7 @@ class phpMorphy_Aot_GramTab_GramInfoHelper_English
      * @param string $partOfSpeech
      * @return bool
      */
-    function isPartOfSpeechProductive($partOfSpeech) {
+    public function isPartOfSpeechProductive($partOfSpeech) {
         static $map = array(
             "NOUN" => 1,
             "VERB" => 1,

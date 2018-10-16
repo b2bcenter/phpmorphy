@@ -24,22 +24,22 @@ class phpMorphy_Generator_StorageHelper_Shm implements phpMorphy_Generator_Stora
     /**
      * @return string
      */
-    function getType() {
+    public function getType() {
         return 'shm';
     }
 
     /**
      * @return string
      */
-    function prolog() { return '$__shm = $this->resource[\'shm_id\']; $__offset = $this->resource[\'offset\']'; }
+    public function prolog() { return '$__shm = $this->resource[\'shm_id\']; $__offset = $this->resource[\'offset\']'; }
 
     /**
      * @return string
      */
-    function seek($offset) { return ''; }
+    public function seek($offset) { return ''; }
 
     /**
      * @return string
      */
-    function read($offset, $len) { return "shmop_read(\$__shm, \$__offset + ($offset), $len)"; }
+    public function read($offset, $len) { return "shmop_read(\$__shm, \$__offset + ($offset), $len)"; }
 }

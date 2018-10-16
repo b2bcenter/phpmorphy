@@ -31,7 +31,7 @@ class phpMorphy_Util_Iterator_ArrayAccessAdapter implements Iterator {
     /**
      * @param ArrayAccess $object
      */
-    function __construct(ArrayAccess $object) {
+    public function __construct(ArrayAccess $object) {
         $this->object = $object;
         $this->rewind();
     }

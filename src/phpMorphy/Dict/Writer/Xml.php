@@ -27,12 +27,12 @@ class phpMorphy_Dict_Writer_Xml extends phpMorphy_Dict_Writer_WriterAbstract {
 
     private $path;
 
-    function __construct($outPath) {
+    public function __construct($outPath) {
         parent::__construct();
         $this->path = $outPath;
     }
 
-    function write(phpMorphy_Dict_Source_SourceInterface $source) {
+    public function write(phpMorphy_Dict_Source_SourceInterface $source) {
         $this->getObserver()->onStart();
 
         try {

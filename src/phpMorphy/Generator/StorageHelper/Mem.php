@@ -24,22 +24,22 @@ class phpMorphy_Generator_StorageHelper_Mem implements phpMorphy_Generator_Stora
     /**
      * @return string
      */
-    function getType() {
+    public function getType() {
         return 'mem';
     }
 
     /**
      * @return string
      */
-    function prolog() { return '$__mem = $this->resource'; }
+    public function prolog() { return '$__mem = $this->resource'; }
 
     /**
      * @return string
      */
-    function seek($offset) { return ''; }
+    public function seek($offset) { return ''; }
 
     /**
      * @return string
      */
-    function read($offset, $len) { return "\$GLOBALS['__phpmorphy_substr'](\$__mem, $offset, $len)"; }
+    public function read($offset, $len) { return "\$GLOBALS['__phpmorphy_substr'](\$__mem, $offset, $len)"; }
 }

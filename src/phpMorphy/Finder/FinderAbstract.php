@@ -32,7 +32,7 @@ abstract class phpMorphy_Finder_FinderAbstract implements phpMorphy_Finder_Finde
     /**
      * @param phpMorphy_AnnotDecoder_AnnotDecoderInterface $annotDecoder
      */
-    function __construct(phpMorphy_AnnotDecoder_AnnotDecoderInterface $annotDecoder) {
+    public function __construct(phpMorphy_AnnotDecoder_AnnotDecoderInterface $annotDecoder) {
         $this->annot_decoder = $annotDecoder;
     }
 
@@ -40,7 +40,7 @@ abstract class phpMorphy_Finder_FinderAbstract implements phpMorphy_Finder_Finde
      * @param string $word
      * @return array
      */
-    function findWord($word) {
+    public function findWord($word) {
         if($this->prev_word === $word) {
             return $this->prev_result;
         }
@@ -56,7 +56,7 @@ abstract class phpMorphy_Finder_FinderAbstract implements phpMorphy_Finder_Finde
     /**
      * @return phpMorphy_AnnotDecoder_AnnotDecoderInterface
      */
-    function getAnnotDecoder() {
+    public function getAnnotDecoder() {
         return $this->annot_decoder;
     }
 
@@ -65,7 +65,7 @@ abstract class phpMorphy_Finder_FinderAbstract implements phpMorphy_Finder_Finde
      * @param bool $withBase
      * @return array
      */
-    function decodeAnnot($raw, $withBase) {
+    public function decodeAnnot($raw, $withBase) {
         return $this->annot_decoder->decode($raw, $withBase);
     }
 

@@ -30,7 +30,7 @@ class phpMorphy_Util_Iterator_Transform extends IteratorIterator {
         $this->function = $function;
     }
 
-	function current() {
+	public function current() {
         $fn = $this->function;
 		return $fn(parent::current());
 	}

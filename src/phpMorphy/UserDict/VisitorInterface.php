@@ -26,17 +26,17 @@ interface phpMorphy_UserDict_VisitorInterface {
      * @param string $lexem
      * @param phpMorphy_UserDict_Pattern $pattern
      */
-    function addLexem($lexem, phpMorphy_UserDict_Pattern $pattern);
+    public function addLexem($lexem, phpMorphy_UserDict_Pattern $pattern);
 
     /**
      * @param phpMorphy_UserDict_Pattern $pattern
      * @param bool $deleteFromInternal
      * @param bool $deleteFromExternal
      */
-    function deleteLexem(phpMorphy_UserDict_Pattern $pattern, $deleteFromInternal, $deleteFromExternal);
+    public function deleteLexem(phpMorphy_UserDict_Pattern $pattern, $deleteFromInternal, $deleteFromExternal);
 
     /**
      *
      */
-    function editLexem(phpMorphy_UserDict_XmlDiff_Command_Edit $command);
+    public function editLexem(phpMorphy_UserDict_XmlDiff_Command_Edit $command);
 }

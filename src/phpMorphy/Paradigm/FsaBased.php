@@ -49,7 +49,7 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
      * @param phpMorphy_Helper $helper
      *
      */
-    function __construct($word, $annot, phpMorphy_Helper $helper) {
+    public function __construct($word, $annot, phpMorphy_Helper $helper) {
         $this->word = (string)$word;
         $this->annot = array($annot);
 
@@ -62,7 +62,7 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
     /**
      * @return string
      */
-    function getHash() {
+    public function getHash() {
         if(0 == $this->count()) {
             return 0;
         }
@@ -78,7 +78,7 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
     /**
      * @return string
      */
-    function getPseudoRoot() {
+    public function getPseudoRoot() {
         if(!isset($this->cached_pseudo_root)) {
             list($this->cached_pseudo_root) = $this->helper->getPseudoRoot($this->word, $this->annot);
         }
@@ -89,7 +89,7 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
     /**
      * @return string
      */
-    function getBaseForm() {
+    public function getBaseForm() {
         if(!isset($this->cached_base)) {
             list($this->cached_base) = $this->helper->getBaseForm($this->word, $this->annot);
         }
@@ -100,14 +100,14 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
     /**
      * @return string
      */
-    function getLemma() {
+    public function getLemma() {
         return $this->getBaseForm();
     }
 
     /**
      * @return string[]
      */
-    function getAllForms() {
+    public function getAllForms() {
         if(!isset($this->all_forms)) {
             $this->all_forms = $this->helper->getAllForms($this->word, $this->annot);
         }
@@ -120,7 +120,7 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
      * @param int $index
      * @return phpMorphy_WordForm_WithFormNo
      */
-    function getWordForm($index) {
+    public function getWordForm($index) {
         if(self::IS_USE_FORMS_CASHE) {
             if(!isset($this->cached_forms[$index])) {
                 $this->cached_forms[$index] = $this->createWordForm($this->getWordFormAsArray($index), $index);
@@ -132,7 +132,7 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
         }
     }
 
-    function getWordFormAsArray($index) {
+    public function getWordFormAsArray($index) {
         if(!$this->offsetExists($index)) {
             throw new phpMorphy_Exception("Invalid index '$index' given");
         }
@@ -171,7 +171,7 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
     /**
      * @return phpMorphy_WordForm_WithFormNo[]
      */
-    function getFoundWordForm() {
+    public function getFoundWordForm() {
         $low = $this->found_form_indices['low'];
         $high = $this->found_form_indices['high'];
         $result = array();
@@ -187,8 +187,8 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
      * @param string[]|int[] $grammems
      * @return bool
      */
-    function hasGrammems($grammems) {
-        settype($grammems, 'array');
+    public function hasGrammems($grammems) {
+        $grammems = (array) $grammems;
 
         foreach($this as $wf) {
             if($wf->hasGrammems($grammems)) {
@@ -203,8 +203,8 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
      * @param string[]|int[] $grammems
      * @return phpMorphy_WordForm_WithFormNo[]
      */
-    function getWordFormsByGrammems($grammems) {
-        settype($grammems, 'array');
+    public function getWordFormsByGrammems($grammems) {
+        $grammems = (array) $grammems;
         $result = array();
 
         foreach($this as $wf) {
@@ -221,8 +221,8 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
      * @param string[]|int[] $poses
      * @return bool
      */
-    function hasPartOfSpeech($poses) {
-        settype($poses, 'array');
+    public function hasPartOfSpeech($poses) {
+        $poses = (array) $poses;
 
         foreach($this as $wf) {
             if(in_array($wf->getPartOfSpeech(), $poses, true)) {
@@ -237,8 +237,8 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
      * @param string[]|int[] $poses
      * @return phpMorphy_WordForm_WithFormNo[]
      */
-    function getWordFormsByPartOfSpeech($poses) {
-        settype($poses, 'array');
+    public function getWordFormsByPartOfSpeech($poses) {
+        $poses = (array) $poses;
         $result = array();
 
         foreach($this as $wf) {
@@ -254,7 +254,7 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
     /**
      * @return int
      */
-    function count() {
+    public function count() {
         return count($this->forms_array);
     }
 
@@ -262,7 +262,7 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
      * @param int $offset
      * @return bool
      */
-    function offsetExists($offset) {
+    public function offsetExists($offset) {
         return isset($this->forms_array[$offset]);
     }
 
@@ -272,7 +272,7 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
      * @param mixed $value
      * @return void
      */
-    function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value) {
         throw new phpMorphy_Exception(__CLASS__ . " is not mutable");
     }
 
@@ -280,7 +280,7 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
      * @param int $offset
      * @return phpMorphy_WordForm_WithFormNo
      */
-    function offsetGet($offset) {
+    public function offsetGet($offset) {
         return $this->getWordForm($offset);
     }
     
@@ -289,14 +289,14 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
      * @param int $off
      * @return void
      */
-    function offsetUnset($offset) {
+    public function offsetUnset($offset) {
         throw new phpMorphy_Exception(__CLASS__ . " is not mutable");
     }
 
     /**
      * @return ArrayIterator
      */
-    function getIterator() {
+    public function getIterator() {
         $result = array();
         for($i = 0, $c = $this->count(); $i < $c; $i++) {
             $result[] = $this->getWordForm($i);
@@ -305,7 +305,7 @@ class phpMorphy_Paradigm_FsaBased implements phpMorphy_Paradigm_ParadigmInterfac
         return new ArrayIterator($result);
     }
 
-    function __get($name) {
+    public function __get($name) {
         switch($name) {
             case 'forms_array':
                 $this->initializeFormsArray();

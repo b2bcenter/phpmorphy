@@ -27,7 +27,7 @@ class phpMorphy_Loader {
     /**
      * @param string $rootPath
      */
-    function __construct($rootPath) {
+    public function __construct($rootPath) {
         $this->root_path = (string)$rootPath;
     }
     
@@ -35,7 +35,7 @@ class phpMorphy_Loader {
      * @param string $class
      * @return string
      */
-    static function classNameToFilePath($class) {
+    public static function classNameToFilePath($class) {
         return str_replace('_', DIRECTORY_SEPARATOR, $class) . '.php';
     }
 
@@ -43,7 +43,7 @@ class phpMorphy_Loader {
      * @param string $filePath
      * @return string
      */
-    static function filePathToClassName($filePath) {
+    public static function filePathToClassName($filePath) {
         return str_replace(DIRECTORY_SEPARATOR, '_', basename($filePath, '.php'));
     }
 
@@ -51,7 +51,7 @@ class phpMorphy_Loader {
      * @param string $class
      * @return bool
      */
-    function loadClass($class) {
+    public function loadClass($class) {
         if(class_exists($class, false) || interface_exists($class, false)) {
             return false;
         }
@@ -75,7 +75,7 @@ class phpMorphy_Loader {
     /**
      * @return string
      */
-    function getRootPath() {
+    public function getRootPath() {
         return $this->root_path;
     }
 }

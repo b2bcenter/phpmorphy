@@ -27,12 +27,12 @@ class phpMorphy_Dict_Source_Mutable_Container implements IteratorAggregate, Coun
         $refcount = array(),
         $items_map;
 
-    function __construct($useIdentity) {
+    public function __construct($useIdentity) {
         $this->use_identity = (bool)$useIdentity;
         $this->clear();
     }
 
-    function append($model, $reuseIfExists) {
+    public function append($model, $reuseIfExists) {
         if(null !== $this->items_map) {
             $identity_string = serialize($model);
 
@@ -59,7 +59,7 @@ class phpMorphy_Dict_Source_Mutable_Container implements IteratorAggregate, Coun
         return $new_model;
     }
 
-    function getById($id) {
+    public function getById($id) {
         if(!$this->hasId($id)) {
             throw new phpMorphy_Exception("Can`t find model with '$id' id");
         }
@@ -67,7 +67,7 @@ class phpMorphy_Dict_Source_Mutable_Container implements IteratorAggregate, Coun
         return $this->container[$id];
     }
 
-    function deleteById($id, $holdUnused = true) {
+    public function deleteById($id, $holdUnused = true) {
         if(!$this->hasId($id)) {
             throw new phpMorphy_Exception("Can`t find model with '$id' id");
         }
@@ -84,7 +84,7 @@ class phpMorphy_Dict_Source_Mutable_Container implements IteratorAggregate, Coun
         }
     }
 
-    function deleteUnused() {
+    public function deleteUnused() {
         foreach($this->refcount as $id => $refcount) {
             if($refcount < 1) {
                 $this->deleteById($id, false);
@@ -92,21 +92,21 @@ class phpMorphy_Dict_Source_Mutable_Container implements IteratorAggregate, Coun
         }
     }
 
-    function clear() {
+    public function clear() {
         $this->container = array();
         $this->refcount = array();
         $this->items_map = $this->use_identity ? array() : null;
     }
 
-    function getIterator() {
+    public function getIterator() {
         return new ArrayIterator($this->container);
     }
 
-    function hasId($id) {
+    public function hasId($id) {
         return isset($this->container[$id]);
     }
 
-    function count() {
+    public function count() {
         return count($this->container);
     }
 }

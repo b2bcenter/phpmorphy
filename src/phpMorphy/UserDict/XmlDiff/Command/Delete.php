@@ -36,7 +36,7 @@ class phpMorphy_UserDict_XmlDiff_Command_Delete extends
      * @param phpMorphy_UserDict_LogInterface $log
      * @return bool
      */
-    function execute(
+    public function execute(
         phpMorphy_UserDict_Pattern $pattern,
         $deleteFromInternal,
         $deleteFromExternal,

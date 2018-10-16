@@ -27,7 +27,7 @@ class phpMorphy_Dict_Source_Xml_Section_Ancodes extends phpMorphy_Dict_Source_Xm
 
         $current;
 
-    function __construct($xmlFile) {
+    public function __construct($xmlFile) {
         $this->poses = iterator_to_array(new phpMorphy_Dict_Source_Xml_Section_Poses($xmlFile));
         $this->grammems = iterator_to_array(new phpMorphy_Dict_Source_Xml_Section_Grammems($xmlFile));
 
@@ -38,7 +38,7 @@ class phpMorphy_Dict_Source_Xml_Section_Ancodes extends phpMorphy_Dict_Source_Xm
         return 'ancodes';
     }
 
-    function rewind() {
+    public function rewind() {
         $this->current = null;
 
         parent::rewind();

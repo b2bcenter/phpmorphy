@@ -24,7 +24,7 @@ class phpMorphy_GramInfo_RuntimeCache extends phpMorphy_GramInfo_Decorator {
     protected
         $flexia = array();
 
-    function readFlexiaData($info) {
+    public function readFlexiaData($info) {
         $offset = $info['offset'];
 
         if(!isset($this->flexia[$offset])) {

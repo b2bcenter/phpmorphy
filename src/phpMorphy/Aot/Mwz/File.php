@@ -25,20 +25,20 @@ class phpMorphy_Aot_Mwz_File {
         $mwz_path,
         $values = array();
 
-    function __construct($filePath) {
+    public function __construct($filePath) {
         $this->mwz_path = $filePath;
         $this->parseFile($filePath);
     }
 
-    function export() {
+    public function export() {
         return $this->values;
     }
 
-    function keyExists($key) {
+    public function keyExists($key) {
         return array_key_exists($key, $this->values);
     }
 
-    function getValue($key) {
+    public function getValue($key) {
         if(!$this->keyExists($key)) {
             throw new phpMorphy_Aot_Mrd_Exception("Key $key not exists in mwz file '$this->mwz_path'");
         }
@@ -46,11 +46,11 @@ class phpMorphy_Aot_Mwz_File {
         return $this->values[$key];
     }
 
-    function getMrdPath() {
+    public function getMrdPath() {
         return dirname($this->mwz_path) . DIRECTORY_SEPARATOR . $this->getValue('MRD_FILE');
     }
 
-    function getEncoding() {
+    public function getEncoding() {
         $lang = $this->getLanguage();
 
         if(false === ($default = $this->getEncodingForLang($lang))) {
@@ -60,11 +60,11 @@ class phpMorphy_Aot_Mwz_File {
         return $default;
     }
 
-    function getLanguage() {
+    public function getLanguage() {
         return strtolower($this->getValue('LANG'));
     }
 
-    static function getEncodingForLang($lang) {
+    public static function getEncodingForLang($lang) {
         switch(strtolower($lang)) {
             case 'russian':
                 return 'windows-1251';

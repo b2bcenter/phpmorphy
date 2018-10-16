@@ -25,25 +25,25 @@ class phpMorphy_Semaphore_Nix implements phpMorphy_Semaphore_SemaphoreInterface 
 
     private $sem_id = false;
 
-    function __construct($key) {
+    public function __construct($key) {
         if(false === ($this->sem_id = sem_get($key, 1, self::DEFAULT_PERM, true))) {
             throw new phpMorphy_Exception("Can`t get semaphore for '$key' key");
         }
     }
 
-    function lock() {
+    public function lock() {
         if(false === sem_acquire($this->sem_id)) {
             throw new phpMorphy_Exception("Can`t acquire semaphore");
         }
     }
 
-    function unlock() {
+    public function unlock() {
         if(false === sem_release($this->sem_id)) {
             throw new phpMorphy_Exception("Can`t release semaphore");
         }
     }
 
-    function remove() {
+    public function remove() {
         sem_remove($this->sem_id);
     }
 }

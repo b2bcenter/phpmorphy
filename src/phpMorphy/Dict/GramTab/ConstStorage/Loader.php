@@ -30,29 +30,29 @@ class phpMorphy_Dict_GramTab_ConstStorage_Loader {
         $cache = array()
         ;
 
-    function __construct($fileName) {
+    public function __construct($fileName) {
         if(false === ($this->xml = $xml = simplexml_load_file($fileName))) {
             throw new Exception("Can`t parse map xml file '$fileName'");
         }
     }
 
-    function getLanguage() {
+    public function getLanguage() {
         return (string)$this->xml->options->lang;
     }
 
-    function getLanguageShort() {
+    public function getLanguageShort() {
         return (string)$this->xml->options->lang_short;
     }
 
-    function getPartsOfSpeech() {
+    public function getPartsOfSpeech() {
         return $this->invokeAndPutInCache('readPoses');
     }
 
-    function getGrammems() {
+    public function getGrammems() {
         return $this->invokeAndPutInCache('readGrammems');
     }
 
-    function getMetaGrammems() {
+    public function getMetaGrammems() {
         return $this->invokeAndPutInCache('readMetaGrammems');
     }
 

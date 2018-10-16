@@ -24,56 +24,56 @@ class phpMorphy_Generator_Fsa_HelperTree extends phpMorphy_Generator_Fsa_HelperA
     /**
      * @return string
      */
-    function getType() {
+    public function getType() {
         return 'Tree';
     }
 
     /**
      * @return string
      */
-    function checkLLast($var) {
+    public function checkLLast($var) {
         return "($var & 0x0200)";
     }
 
     /**
      * @return string
      */
-    function checkRLast($var) {
+    public function checkRLast($var) {
         return "($var & 0x0400)";
     }
 
     /**
      * @return string
      */
-    function getRootTransOffset() {
+    public function getRootTransOffset() {
         return $this->getOffsetInFsa(0);
     }
 
     /**
      * @return string
      */
-    function getAnnotIdx($var) {
+    public function getAnnotIdx($var) {
         return "(($var & 0xFF) << 21) | (($var >> 11) & 0x1FFFFF)";
     }
 
     /**
      * @return string
      */
-    function getDest($var) {
+    public function getDest($var) {
         return "(($var) >> 11) & 0x1FFFFF";
     }
 
     /**
      * @return string
      */
-    function getIndexByTrans($transVar, $charVar) {
+    public function getIndexByTrans($transVar, $charVar) {
         return "($transVar >> 11) & 0x1FFFFF";
     }
 
     /**
      * @return string
      */
-    function getAnnotIndexByTrans($transVar) {
+    public function getAnnotIndexByTrans($transVar) {
         return $this->getIndexByTrans($transVar, 'Generated from ' . __FILE__ . ':' . __LINE__);
     }
 }

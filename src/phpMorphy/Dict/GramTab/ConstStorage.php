@@ -28,7 +28,7 @@ class phpMorphy_Dict_GramTab_ConstStorage {
         $grammems_map,
         $meta_grammems_map;
 
-    function __construct(
+    public function __construct(
         phpMorphy_Dict_GramTab_ConstStorage_Loader $loader
     ) {
         $this->lang = $loader->getLanguage();
@@ -39,7 +39,7 @@ class phpMorphy_Dict_GramTab_ConstStorage {
         $this->meta_grammems_map = $loader->getMetaGrammems();
     }
 
-    function merge(phpMorphy_Dict_GramTab_ConstStorage $other) {
+    public function merge(phpMorphy_Dict_GramTab_ConstStorage $other) {
         if(true !== ($error = $this->checkForIdIntersection($this->poses_map, $other->getPosesMap(), 'Part of speech'))) {
             throw new Exception($error);
         }
@@ -89,31 +89,31 @@ class phpMorphy_Dict_GramTab_ConstStorage {
         return true;
     }
 
-    function getLanguage() {
+    public function getLanguage() {
         return $this->lang;
     }
 
-    function getLanguageShort() {
+    public function getLanguageShort() {
         return $this->lang_short;
     }
 
-    function getGrammemsMap() {
+    public function getGrammemsMap() {
         return $this->grammems_map;
     }
 
-    function getPosesMap() {
+    public function getPosesMap() {
         return $this->poses_map;
     }
 
-    function getMetaGrammemsMap() {
+    public function getMetaGrammemsMap() {
         return $this->meta_grammems_map;
     }
 
-    function getGrammemsConsts() {
+    public function getGrammemsConsts() {
         return $this->getConsts($this->grammems_map);
     }
 
-    function getPosesConsts() {
+    public function getPosesConsts() {
         return $this->getConsts($this->poses_map);
     }
 
@@ -127,26 +127,26 @@ class phpMorphy_Dict_GramTab_ConstStorage {
         return $result;
     }
 
-    function getPartOfSpeechIdByName($name) {
+    public function getPartOfSpeechIdByName($name) {
         $result = $this->getMapItem($this->poses_map, $name, 'part of speech');
         return $result['id'];
     }
 
-    function getGrammemIdByName($name) {
+    public function getGrammemIdByName($name) {
         $result = $this->getMapItem($this->grammems_map, $name, 'grammem');
         return $result['id'];
     }
 
-    function getGrammemShiftByName($name) {
+    public function getGrammemShiftByName($name) {
         $result = $this->getMapItem($this->grammems_map, $name, 'grammem');
         return $result['shift'];
     }
 
-    function hasGrammemName($name) {
+    public function hasGrammemName($name) {
         return isset($this->grammems_map[$name]);
     }
 
-    function hasPartOfSpeechName($name) {
+    public function hasPartOfSpeechName($name) {
         return isset($this->poses_map[$name]);
     }
 

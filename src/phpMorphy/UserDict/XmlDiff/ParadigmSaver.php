@@ -25,7 +25,7 @@ class phpMorphy_UserDict_XmlDiff_ParadigmSaver {
     /** @var phpMorphy_Dict_Source_Mutable */
     private $source;
 
-    function __construct(phpMorphy_Dict_Source_Mutable $source) {
+    public function __construct(phpMorphy_Dict_Source_Mutable $source) {
         $this->source = $source;
     }
 
@@ -33,7 +33,7 @@ class phpMorphy_UserDict_XmlDiff_ParadigmSaver {
      * @param phpMorphy_Paradigm_ParadigmInterface $paradigm
      * @return phpMorphy_Dict_Lemma
      */
-    function save(phpMorphy_Paradigm_ParadigmInterface $paradigm) {
+    public function save(phpMorphy_Paradigm_ParadigmInterface $paradigm) {
         return $this->createLemma($paradigm);
     }
 

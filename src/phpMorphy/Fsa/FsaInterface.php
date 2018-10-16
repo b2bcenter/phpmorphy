@@ -25,19 +25,19 @@ interface phpMorphy_Fsa_FsaInterface {
      * Return root transition of fsa
      * @return int
      */
-    function getRootTrans();
+    public function getRootTrans();
 
     /**
      * Returns root state object
      * @return phpMorphy_Fsa_State
      */
-    function getRootState();
+    public function getRootState();
 
     /**
      * Returns alphabet i.e. all chars used in automat
      * @return string[]
      */
-    function getAlphabet();
+    public function getAlphabet();
 
     /**
      * Return annotation for given transition(if annotation flag is set for given trans)
@@ -45,7 +45,7 @@ interface phpMorphy_Fsa_FsaInterface {
      * @param array $trans
      * @return string|null
      */
-    function getAnnot($trans);
+    public function getAnnot($trans);
 
     /**
      * Find word in automat
@@ -55,7 +55,7 @@ interface phpMorphy_Fsa_FsaInterface {
      * @param bool $readAnnot read annot or simple check if word exists in automat
      * @return bool TRUE if word is found, FALSE otherwise
      */
-    function walk($trans, $word, $readAnnot = true);
+    public function walk($trans, $word, $readAnnot = true);
 
     /**
      * Traverse automat and collect words
@@ -68,7 +68,7 @@ interface phpMorphy_Fsa_FsaInterface {
      * @param bool $readAnnot read annot
      * @param string $path string to be append to all words
      */
-    function collect($startNode, $callback, $readAnnot = true, $path = '');
+    public function collect($startNode, $callback, $readAnnot = true, $path = '');
 
     /**
      * Read state at given index
@@ -76,7 +76,7 @@ interface phpMorphy_Fsa_FsaInterface {
      * @param int $index
      * @return array
      */
-    function readState($index);
+    public function readState($index);
 
     /**
      * Unpack transition from binary form to array
@@ -84,5 +84,5 @@ interface phpMorphy_Fsa_FsaInterface {
      * @param string|string[] $rawTranses may be array for convert more than one transitions
      * @return array
      */
-    function unpackTranses($rawTranses);
+    public function unpackTranses($rawTranses);
 }

@@ -36,7 +36,7 @@ class phpMorphy_UserDict_Log_CLI implements phpMorphy_UserDict_LogInterface {
         $output_file
         ;
 
-    function __construct(
+    public function __construct(
         $isVerbose,
         phpMorphy_UserDict_Log_ErrorsHandlerInterface $errorsHandler,
         phpMorphy_UserDict_EncodingConverter $encodingConverter
@@ -48,17 +48,17 @@ class phpMorphy_UserDict_Log_CLI implements phpMorphy_UserDict_LogInterface {
         $this->output_file = STDERR;
     }
 
-    function addLexem($lexem) {
+    public function addLexem($lexem) {
         $lexem = $this->setCurrentLexem($lexem);
         $this->infoMessage("Add '$lexem' lexem");
     }
 
-    function deleteLexem($lexem) {
+    public function deleteLexem($lexem) {
         $lexem = $this->setCurrentLexem($lexem);
         $this->infoMessage("Delete '$lexem' lexem");
     }
 
-    function editLexem($lexem) {
+    public function editLexem($lexem) {
         $lexem = $this->setCurrentLexem($lexem);
         $this->infoMessage("Edit '$lexem' lexem");
     }
@@ -68,7 +68,7 @@ class phpMorphy_UserDict_Log_CLI implements phpMorphy_UserDict_LogInterface {
         return $this->current_lexem;
     }
 
-    function errorAmbiguity(phpMorphy_UserDict_Pattern $pattern, $variants, $isError = true) {
+    public function errorAmbiguity(phpMorphy_UserDict_Pattern $pattern, $variants, $isError = true) {
         $descs = array();
 
         foreach($variants as $form) {
@@ -85,11 +85,11 @@ class phpMorphy_UserDict_Log_CLI implements phpMorphy_UserDict_LogInterface {
         );
     }
 
-    function errorCantDeduceForm($patternWord, $isError = true) {
+    public function errorCantDeduceForm($patternWord, $isError = true) {
         $this->dispatchMessage("Can`t deduce from '" . $this->toInternalEncoding($patternWord) . "'", $isError);
     }
 
-    function errorPatternNotFound(phpMorphy_UserDict_Pattern $pattern, $isError = true) {
+    public function errorPatternNotFound(phpMorphy_UserDict_Pattern $pattern, $isError = true) {
         $this->dispatchMessage("Pattern '" . $this->toInternalEncoding($pattern) . "' didn`t match anything", $isError);
     }
 
@@ -98,13 +98,13 @@ class phpMorphy_UserDict_Log_CLI implements phpMorphy_UserDict_LogInterface {
         return $this->$method($message);
     }
 
-    function errorMessage($message) {
+    public function errorMessage($message) {
         $fmt_message = "[EE] Error occurred while processing '$this->current_lexem' lexem: $message" . PHP_EOL;
         fprintf($this->output_file, $fmt_message);
         $this->errors_handler->handle($message);
     }
 
-    function infoMessage($message) {
+    public function infoMessage($message) {
         if($this->is_verbose) {
             fprintf($this->output_file, "[II] $message" . PHP_EOL);
         }

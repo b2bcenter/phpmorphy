@@ -21,7 +21,7 @@
 */
 
 class phpMorphy_Dict_GramTab_ConstStorage_Specials extends phpMorphy_Dict_GramTab_ConstStorage {
-    function getDeletedTagName() {
+    public function getDeletedTagName() {
         return 'DELETED';
     }
 }

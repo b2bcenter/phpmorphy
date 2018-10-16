@@ -36,7 +36,7 @@ abstract class phpMorphy_Dict_FlexiaModelDecorator extends phpMorphy_Dict_Flexia
     /**
      * @param $object phpMorphy_Dict_FlexiaModel
      */
-    function __construct(phpMorphy_Dict_FlexiaModel $object) {
+    public function __construct(phpMorphy_Dict_FlexiaModel $object) {
         $this->setDecorateeObject($object);
     }
     
@@ -109,7 +109,7 @@ abstract class phpMorphy_Dict_FlexiaModelDecorator extends phpMorphy_Dict_Flexia
     /**
      * Implement deep copy paradigm
      */
-    function __clone() {
+    public function __clone() {
         if(isset($this->object)) {
             $this->object = clone $this->object;
         }

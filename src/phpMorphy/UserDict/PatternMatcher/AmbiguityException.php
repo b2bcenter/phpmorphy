@@ -27,7 +27,7 @@ class phpMorphy_UserDict_PatternMatcher_AmbiguityException extends phpMorphy_Use
     /** @var phpMorphy_WordForm_WordFormInterface[] */
     private $suitable_forms = array();
 
-    function __construct(phpMorphy_UserDict_Pattern $pattern, array $suitableForms) {
+    public function __construct(phpMorphy_UserDict_Pattern $pattern, array $suitableForms) {
         $this->pattern = $pattern;
         $this->suitable_forms = $suitableForms;
 

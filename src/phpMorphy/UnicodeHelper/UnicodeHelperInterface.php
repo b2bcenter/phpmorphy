@@ -26,26 +26,26 @@ interface phpMorphy_UnicodeHelper_UnicodeHelperInterface {
      * @param string $string
      * @return int
      */
-    function getFirstCharSize($string);
+    public function getFirstCharSize($string);
 
     /**
      * @abstract
      * @param string $string
      * @return string
      */
-    function strrev($string);
+    public function strrev($string);
 
     /**
      * @abstract
      * @param string $string
      * @return string
      */
-    function clearIncompleteCharsAtEnd($string);
+    public function clearIncompleteCharsAtEnd($string);
 
     /**
      * @abstract
      * @param string $string
      * @return int
      */
-    function strlen($string);
+    public function strlen($string);
 }

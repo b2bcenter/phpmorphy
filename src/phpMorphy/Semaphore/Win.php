@@ -27,7 +27,7 @@ class phpMorphy_Semaphore_Win implements phpMorphy_Semaphore_SemaphoreInterface 
 
     protected $dir_path;
 
-    function __construct($key) {
+    public function __construct($key) {
         $this->dir_path = $this->getTempDir() . DIRECTORY_SEPARATOR . self::DIR_NAME . "_$key";
 
         register_shutdown_function(array($this, 'unlock'));
@@ -43,7 +43,7 @@ class phpMorphy_Semaphore_Win implements phpMorphy_Semaphore_SemaphoreInterface 
         return $result;
     }
 
-    function lock() {
+    public function lock() {
         for($i = 0; $i < self::MAX_SLEEP_TIME; $i += self::USLEEP_TIME) {
             if(!file_exists($this->dir_path)) {
                 if(false !== @mkdir($this->dir_path, 0644)) {
@@ -57,10 +57,10 @@ class phpMorphy_Semaphore_Win implements phpMorphy_Semaphore_SemaphoreInterface 
         throw new phpMorphy_Exception("Can`t acquire semaphore");
     }
 
-    function unlock() {
+    public function unlock() {
         @rmdir($this->dir_path);
     }
 
-    function remove() {
+    public function remove() {
     }
 }

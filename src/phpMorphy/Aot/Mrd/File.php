@@ -29,7 +29,7 @@ class phpMorphy_Aot_Mrd_File {
 		$lemmas
 		;
 
-	function __construct($fileName, $encoding) {
+	public function __construct($fileName, $encoding) {
 		$line = 0;
 		$this->initSections($line, $fileName, $encoding);
 	}
@@ -78,7 +78,7 @@ class phpMorphy_Aot_Mrd_File {
 		return 'phpMorphy_Aot_Mrd_Section_' . ucfirst(strtolower($sectionName));
 	}
 
-	function __get($propName) {
+	public function __get($propName) {
 		if(!preg_match('/^\w+_section$/', $propName)) {
 			throw new phpMorphy_Aot_Mrd_Exception("Unsupported prop name given $propName");
 		}

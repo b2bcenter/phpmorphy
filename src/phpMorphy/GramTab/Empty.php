@@ -21,12 +21,12 @@
 */
 
 class phpMorphy_GramTab_Empty implements phpMorphy_GramTab_GramTabInterface {
-    function getGrammems($ancodeId) { return array(); }
-    function getPartOfSpeech($ancodeId) { return 0; }
-    function resolveGrammemIds($ids) { return is_array($ids) ? array() : ''; }
-    function resolvePartOfSpeechId($id) { return ''; }
-    function includeConsts() { }
-    function ancodeToString($ancodeId, $commonAncode = null) { return ''; }
-    function stringToAncode($string) { return null; }
-    function toString($partOfSpeechId, $grammemIds) { return ''; }
+    public function getGrammems($ancodeId) { return array(); }
+    public function getPartOfSpeech($ancodeId) { return 0; }
+    public function resolveGrammemIds($ids) { return is_array($ids) ? array() : ''; }
+    public function resolvePartOfSpeechId($id) { return ''; }
+    public function includeConsts() { }
+    public function ancodeToString($ancodeId, $commonAncode = null) { return ''; }
+    public function stringToAncode($string) { return null; }
+    public function toString($partOfSpeechId, $grammemIds) { return ''; }
 }

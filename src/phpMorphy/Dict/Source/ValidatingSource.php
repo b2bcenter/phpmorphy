@@ -27,7 +27,7 @@ class phpMorphy_Dict_Source_ValidatingSource
     /** @var phpMorphy_Dict_Source_ValidatingSource_ValidatorInterface */
     private $validator;
 
-    function __construct(phpMorphy_Dict_Source_SourceInterface $object) {
+    public function __construct(phpMorphy_Dict_Source_SourceInterface $object) {
         parent::__construct($object);
         $this->validator = new phpMorphy_Dict_Source_ValidatingSource_Validator();
     }
@@ -38,7 +38,7 @@ class phpMorphy_Dict_Source_ValidatingSource
         );
     }
 
-    static function wrap(phpMorphy_Dict_Source_SourceInterface $source) {
+    public static function wrap(phpMorphy_Dict_Source_SourceInterface $source) {
         if($source instanceof phpMorphy_Dict_Source_ValidatingSource) {
             return $source;
         }
@@ -49,7 +49,7 @@ class phpMorphy_Dict_Source_ValidatingSource
     /**
      * @return Iterator over objects of phpMorphy_Dict_Lemma
      */
-    function getLemmas() {
+    public function getLemmas() {
         $validator = $this->validator;
 
         if(count($validator->getAncodesValidator()) < 1) {
@@ -95,14 +95,14 @@ class phpMorphy_Dict_Source_ValidatingSource
     /**
      * @return Iterator over objects of phpMorphy_Dict_AccentModel
      */
-    function getAccents() {
+    public function getAccents() {
         return parent::getAccents();
     }
 
     /**
      * @return Iterator over objects of phpMorphy_Dict_PrefixSet
      */
-    function getPrefixes() {
+    public function getPrefixes() {
         $section = $this->validator->getPrefixesValidator();
 
         return new phpMorphy_Dict_Source_ValidatingSource_Iterator(
@@ -116,7 +116,7 @@ class phpMorphy_Dict_Source_ValidatingSource
     /**
      * @return Iterator over objects of phpMorphy_Dict_FlexiaModel
      */
-    function getFlexias() {
+    public function getFlexias() {
         $validator = $this->validator;
         $section = $validator->getFlexiasValidator();
 
@@ -143,7 +143,7 @@ class phpMorphy_Dict_Source_ValidatingSource
     /**
      * @return Iterator over objects of phpMorphy_Dict_Ancode
      */
-    function getAncodes() {
+    public function getAncodes() {
         $section = $this->validator->getAncodesValidator();
 
         return new phpMorphy_Dict_Source_ValidatingSource_Iterator(
@@ -154,11 +154,11 @@ class phpMorphy_Dict_Source_ValidatingSource
         );
     }
 
-    function getGrammems() {
+    public function getGrammems() {
         return $this->getDecorateeObject()->getGrammems();
     }
 
-    function getPoses() {
+    public function getPoses() {
         return $this->getDecorateeObject()->getPoses();
     }
 }

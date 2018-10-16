@@ -28,7 +28,7 @@ class phpMorphy_Dict_Source_Xml_Section_Grammems extends phpMorphy_Dict_Source_X
         return 'grammems';
     }
 
-    function rewind() {
+    public function rewind() {
         $this->current = null;
 
         parent::rewind();

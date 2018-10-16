@@ -25,5 +25,5 @@
 class phpMorphy_UserDict_Log_ErrorsHandlerPass
     implements phpMorphy_UserDict_Log_ErrorsHandlerInterface {
 
-    function handle($message) { }
+    public function handle($message) { }
 }

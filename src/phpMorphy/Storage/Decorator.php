@@ -36,7 +36,7 @@ abstract class phpMorphy_Storage_Decorator implements phpMorphy_Storage_StorageI
     /**
      * @param $object phpMorphy_Storage_StorageInterface
      */
-    function __construct(phpMorphy_Storage_StorageInterface $object) {
+    public function __construct(phpMorphy_Storage_StorageInterface $object) {
         $this->setDecorateeObject($object);
     }
     
@@ -109,7 +109,7 @@ abstract class phpMorphy_Storage_Decorator implements phpMorphy_Storage_StorageI
     /**
      * Implement deep copy paradigm
      */
-    function __clone() {
+    public function __clone() {
         if(isset($this->object)) {
             $this->object = clone $this->object;
         }

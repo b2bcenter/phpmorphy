@@ -27,7 +27,7 @@ class phpMorphy_Generator_Template {
     /**
      * @param string $dir
      */
-    function __construct($dir) {
+    public function __construct($dir) {
         $this->template_dir = (string)$dir;
     }
 
@@ -36,7 +36,7 @@ class phpMorphy_Generator_Template {
      * @param array $opts
      * @return string
      */
-    function get($templateFile, $opts) {
+    public function get($templateFile, $opts) {
         ob_start();
 
         extract($opts);

@@ -28,7 +28,7 @@ class phpMorphy_Generator_Decorator_PhpDocHelper {
      * @param bool $isAutoRegenerate
      * @return string
      */
-    static function generateHeaderPhpDoc(
+    public static function generateHeaderPhpDoc(
         $decorateeClass,
         $decoratorClass,
         $isAutoRegenerate = true
@@ -50,7 +50,7 @@ class phpMorphy_Generator_Decorator_PhpDocHelper {
      * @param string $phpCodeString
      * @return phpMorphy_Generator_Decorator_PhpDocHelperHeader
      */
-    static function parseHeaderPhpDoc($phpCodeString) {
+    public static function parseHeaderPhpDoc($phpCodeString) {
         $phpCodeString = ltrim($phpCodeString);
         if(!preg_match('/^<\?php/', $phpCodeString)) {
             $phpCodeString = '<' . '?php' . PHP_EOL . $phpCodeString;

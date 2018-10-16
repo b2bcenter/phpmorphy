@@ -25,19 +25,19 @@ interface phpMorphy_GramInfo_GramInfoInterface {
      * Returns langugage for graminfo file
      * @return string
      */
-    function getLocale();
+    public function getLocale();
 
     /**
      * Return encoding for graminfo file
      * @return string
      */
-    function getEncoding();
+    public function getEncoding();
 
     /**
     * @return bool
     * TODO: implement this latter in dict
     */
-    function isInUpperCase();
+    public function isInUpperCase();
 
     /**
      * Return size of character
@@ -48,13 +48,13 @@ interface phpMorphy_GramInfo_GramInfoInterface {
      *   etc..
      * @return int
      */
-    function getCharSize();
+    public function getCharSize();
 
     /**
      * Return end of string value (usually string with \0 value of char_size + 1 length)
      * @return string
      */
-    function getEnds();
+    public function getEnds();
 
     /**
      * Reads graminfo header
@@ -62,13 +62,13 @@ interface phpMorphy_GramInfo_GramInfoInterface {
      * @param int $offset
      * @return array
      */
-    function readGramInfoHeader($offset);
+    public function readGramInfoHeader($offset);
 
     /**
      * Returns size of header struct
      * @return int
      */
-    function getGramInfoHeaderSize();
+    public function getGramInfoHeaderSize();
 
     /**
      * Read ancodes section for header retrieved with readGramInfoHeader
@@ -76,7 +76,7 @@ interface phpMorphy_GramInfo_GramInfoInterface {
      * @param array $info
      * @return array
      */
-    function readAncodes($info);
+    public function readAncodes($info);
 
     /**
      * Read flexias section for header retrieved with readGramInfoHeader
@@ -84,35 +84,35 @@ interface phpMorphy_GramInfo_GramInfoInterface {
      * @param array $info
      * @return array
      */
-    function readFlexiaData($info);
+    public function readFlexiaData($info);
 
     /**
      * Read all graminfo headers offsets, which can be used latter for readGramInfoHeader method
      * @return int[]
      */
-    function readAllGramInfoOffsets();
+    public function readAllGramInfoOffsets();
 
     /**
      * @abstract
      * @return array
      */
-    function getHeader();
+    public function getHeader();
 
     /**
      * @abstract
      * @return array
      */
-    function readAllPartOfSpeech();
+    public function readAllPartOfSpeech();
 
     /**
      * @abstract
      * @return array
      */
-    function readAllGrammems();
+    public function readAllGrammems();
 
     /**
      * @abstract
      * @return array
      */
-    function readAllAncodes();
+    public function readAllAncodes();
 }

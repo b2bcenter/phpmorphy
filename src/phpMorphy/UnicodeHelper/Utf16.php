@@ -30,13 +30,13 @@ class phpMorphy_UnicodeHelper_Utf16 extends phpMorphy_UnicodeHelper_UnicodeHelpe
         $this->int_format_string = $isBigEndian ? 'n' : 'v';
     }
 
-    function getFirstCharSize($str) {
+    public function getFirstCharSize($str) {
         list(, $ord) = unpack($this->int_format_string, $str);
 
         return $ord >= 0xD800 && $ord <= 0xDFFF ? 4 : 2;
     }
 
-    function strrev($str) {
+    public function strrev($str) {
         $result = array();
 
         $count = $GLOBALS['__phpmorphy_strlen']($str) / 2;
@@ -62,7 +62,7 @@ class phpMorphy_UnicodeHelper_Utf16 extends phpMorphy_UnicodeHelper_UnicodeHelpe
         return call_user_func_array('pack', $words);
     }
 
-    function clearIncompleteCharsAtEnd($str) {
+    public function clearIncompleteCharsAtEnd($str) {
         $strlen = $GLOBALS['__phpmorphy_strlen']($str);
 
         if($strlen & 1) {

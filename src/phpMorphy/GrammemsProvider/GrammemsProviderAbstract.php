@@ -27,7 +27,7 @@ abstract class phpMorphy_GrammemsProvider_GrammemsProviderAbstract implements ph
         /** @var array */
         $grammems = array();
 
-    function __construct() {
+    public function __construct() {
         $this->all_grammems = $this->flatizeArray($this->getAllGrammemsGrouped());
     }
 
@@ -35,14 +35,14 @@ abstract class phpMorphy_GrammemsProvider_GrammemsProviderAbstract implements ph
      * @abstract
      * @return array
      */
-    abstract function getAllGrammemsGrouped();
+    abstract public function getAllGrammemsGrouped();
 
     /**
      * @param string $partOfSpeech
      * @param array $names
      * @return phpMorphy_GrammemsProvider_GrammemsProviderAbstract
      */
-    function includeGroups($partOfSpeech, $names) {
+    public function includeGroups($partOfSpeech, $names) {
         $grammems = $this->getAllGrammemsGrouped();
         $names = array_flip((array)$names);
 
@@ -62,7 +62,7 @@ abstract class phpMorphy_GrammemsProvider_GrammemsProviderAbstract implements ph
      * @param array $names
      * @return phpMorphy_GrammemsProvider_GrammemsProviderAbstract
      */
-    function excludeGroups($partOfSpeech, $names) {
+    public function excludeGroups($partOfSpeech, $names) {
         $grammems = $this->getAllGrammemsGrouped();
 
         foreach((array)$names as $key) {
@@ -78,7 +78,7 @@ abstract class phpMorphy_GrammemsProvider_GrammemsProviderAbstract implements ph
      * @param string $partOfSpeech
      * @return phpMorphy_GrammemsProvider_GrammemsProviderAbstract
      */
-    function resetGroups($partOfSpeech) {
+    public function resetGroups($partOfSpeech) {
         unset($this->grammems[$partOfSpeech]);
         return $this;
     }
@@ -86,7 +86,7 @@ abstract class phpMorphy_GrammemsProvider_GrammemsProviderAbstract implements ph
     /**
      * @return phpMorphy_GrammemsProvider_GrammemsProviderAbstract
      */
-    function resetGroupsForAll() {
+    public function resetGroupsForAll() {
         $this->grammems = array();
         return $this;
     }
@@ -96,7 +96,7 @@ abstract class phpMorphy_GrammemsProvider_GrammemsProviderAbstract implements ph
      * @param array $array
      * @return array
      */
-    static function flatizeArray($array) {
+    public static function flatizeArray($array) {
         return call_user_func_array('array_merge', $array);
     }
 
@@ -104,7 +104,7 @@ abstract class phpMorphy_GrammemsProvider_GrammemsProviderAbstract implements ph
      * @param string $partOfSpeech
      * @return array
      */
-    function getGrammems($partOfSpeech) {
+    public function getGrammems($partOfSpeech) {
         if(isset($this->grammems[$partOfSpeech])) {
             return $this->grammems[$partOfSpeech];
         } else {

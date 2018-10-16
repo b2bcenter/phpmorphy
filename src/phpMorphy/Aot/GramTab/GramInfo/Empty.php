@@ -21,7 +21,7 @@
 */
 
 class phpMorphy_Aot_GramTab_GramInfo_Empty extends phpMorphy_Aot_GramTab_GramInfo {
-    function __construct($ancode) {
+    public function __construct($ancode) {
         //parent::__construct('*', '', $ancode);
         parent::__construct('UNKNOWN', 'unknown, grammems', $ancode, true);
     }

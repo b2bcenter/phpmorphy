@@ -36,7 +36,7 @@ abstract class phpMorphy_Dict_Source_Decorator implements phpMorphy_Dict_Source_
     /**
      * @param $object phpMorphy_Dict_Source_SourceInterface
      */
-    function __construct(phpMorphy_Dict_Source_SourceInterface $object) {
+    public function __construct(phpMorphy_Dict_Source_SourceInterface $object) {
         $this->setDecorateeObject($object);
     }
     
@@ -109,7 +109,7 @@ abstract class phpMorphy_Dict_Source_Decorator implements phpMorphy_Dict_Source_
     /**
      * Implement deep copy paradigm
      */
-    function __clone() {
+    public function __clone() {
         if(isset($this->object)) {
             $this->object = clone $this->object;
         }

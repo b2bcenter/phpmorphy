@@ -21,7 +21,7 @@
 */
 
 class phpMorphy_Fsa_Tree_Mem extends phpMorphy_Fsa_FsaAbstract {
-    function walk($trans, $word, $readAnnot = true) {
+    public function walk($trans, $word, $readAnnot = true) {
         $__mem = $this->resource; $fsa_start = $this->fsa_start;
 
         for($i = 0, $c = $GLOBALS['__phpmorphy_strlen']($word); $i < $c; $i++) {
@@ -120,7 +120,7 @@ class phpMorphy_Fsa_Tree_Mem extends phpMorphy_Fsa_FsaAbstract {
         );
     }
 
-    function collect($startNode, $callback, $readAnnot = true, $path = '') {
+    public function collect($startNode, $callback, $readAnnot = true, $path = '') {
         $total = 0;
 
         $stack = array();
@@ -168,7 +168,7 @@ class phpMorphy_Fsa_Tree_Mem extends phpMorphy_Fsa_FsaAbstract {
         return $total;
     }
 
-    function readState($index) {
+    public function readState($index) {
         $__mem = $this->resource; $fsa_start = $this->fsa_start;
 
         $result = array();
@@ -202,8 +202,8 @@ class phpMorphy_Fsa_Tree_Mem extends phpMorphy_Fsa_FsaAbstract {
         return $result;
     }
 
-    function unpackTranses($rawTranses) {
-        settype($rawTranses, 'array');
+    public function unpackTranses($rawTranses) {
+        $rawTranses = (array) $rawTranses;
         $result = array();
 
         foreach($rawTranses as $rawTrans) {
@@ -233,7 +233,7 @@ class phpMorphy_Fsa_Tree_Mem extends phpMorphy_Fsa_FsaAbstract {
                 return $GLOBALS['__phpmorphy_substr']($__mem, $this->header['alphabet_offset'], $this->header['alphabet_size']);
     }
 
-    function getAnnot($trans) {
+    public function getAnnot($trans) {
         if(!($trans & 0x0100)) {
             return null;
         }

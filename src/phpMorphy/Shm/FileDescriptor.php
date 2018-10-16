@@ -26,13 +26,13 @@ class phpMorphy_Shm_FileDescriptor {
         $file_size,
         $offset;
 
-    function __construct($shmId, $fileSize, $offset) {
+    public function __construct($shmId, $fileSize, $offset) {
         $this->shm_id = $shmId;
         $this->file_size = $fileSize;
         $this->offset = $offset;
     }
 
-    function getShmId() { return $this->shm_id; }
-    function getFileSize() { return $this->file_size; }
-    function getOffset() { return $this->offset; }
+    public function getShmId() { return $this->shm_id; }
+    public function getFileSize() { return $this->file_size; }
+    public function getOffset() { return $this->offset; }
 }

@@ -23,19 +23,19 @@
 abstract class phpMorphy_Dict_Writer_WriterAbstract implements phpMorphy_Dict_Writer_WriterInterface {
     private $observer;
 
-    function __construct() {
+    public function __construct() {
         $this->setObserver(new phpMorphy_Dict_Writer_Observer_Empty());
     }
 
-    function setObserver(phpMorphy_Dict_Writer_Observer_ObserverInterface $observer) {
+    public function setObserver(phpMorphy_Dict_Writer_Observer_ObserverInterface $observer) {
         $this->observer = $observer;
     }
 
-    function hasObserver() {
+    public function hasObserver() {
         return isset($this->observer);
     }
 
-    function getObserver() {
+    public function getObserver() {
         return $this->observer;
     }
 

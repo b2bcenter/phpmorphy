@@ -34,7 +34,7 @@ class phpMorphy_Dict_GramTab_ConstStorage_Factory {
     /**
      * @return phpMorphy_Dict_GramTab_ConstStorage_Specials
      */
-    static function getSpecials() {
+    public static function getSpecials() {
         static $cache;
 
         if(null === $cache) {
@@ -48,7 +48,7 @@ class phpMorphy_Dict_GramTab_ConstStorage_Factory {
      * @param string $lang
      * @return phpMorphy_GramTab_Const_Helper
      */
-    static function create($lang) {
+    public static function create($lang) {
         $map = self::getLangMap();
 
         $lang = strtolower($lang);
@@ -57,8 +57,8 @@ class phpMorphy_Dict_GramTab_ConstStorage_Factory {
         $loader = new phpMorphy_Dict_GramTab_ConstStorage_Loader($filePath);
         $is_specials = $lang === self::SPECIALS_LANG;
         $clazz = $is_specials ?
-                'phpMorphy_Dict_GramTab_ConstStorage_Specials' :
-                'phpMorphy_Dict_GramTab_ConstStorage';
+                phpMorphy_Dict_GramTab_ConstStorage_Specials::class:
+                phpMorphy_Dict_GramTab_ConstStorage::class;
 
         $helper = new $clazz($loader);
 
@@ -77,7 +77,7 @@ class phpMorphy_Dict_GramTab_ConstStorage_Factory {
         return $helper;
     }
 
-    static function getAllHelpers() {
+    public static function getAllHelpers() {
         $result = array();
         $lang_map = self::getLangMap();
         $created_files = array();

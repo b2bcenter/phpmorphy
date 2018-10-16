@@ -24,15 +24,15 @@ abstract class phpMorphy_GrammemsProvider_ForFactoryAbstract extends phpMorphy_G
     protected
         $encoded_grammems;
 
-    function __construct($encoding) {
+    public function __construct($encoding) {
         $this->encoded_grammems = $this->encodeGrammems($this->getGrammemsMap(), $encoding);
 
         parent::__construct();
     }
 
-    abstract function getGrammemsMap();
+    abstract public function getGrammemsMap();
 
-    function getAllGrammemsGrouped() {
+    public function getAllGrammemsGrouped() {
         return $this->encoded_grammems;
     }
 

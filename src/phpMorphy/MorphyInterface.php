@@ -36,69 +36,69 @@ interface phpMorphy_MorphyInterface {
     /**
     * @return phpMorphy_Morphier_MorphierInterface
     */
-    function getCommonMorphier();
+    public function getCommonMorphier();
 
     /**
     * @return phpMorphy_Morphier_MorphierInterface
     */
-    function getPredictBySuffixMorphier();
+    public function getPredictBySuffixMorphier();
 
     /**
     * @return phpMorphy_Morphier_MorphierInterface
     */
-    function getPredictByDatabaseMorphier();
+    public function getPredictByDatabaseMorphier();
 
     /**
     * @return phpMorphy_Morphier_Bulk
     */
-    function getBulkMorphier();
+    public function getBulkMorphier();
 
     /**
     * @return string
     */
-    function getEncoding();
+    public function getEncoding();
 
     /**
     * @return string
     */
-    function getLocale();
+    public function getLocale();
 
     /**
      * @return bool
      */
-    function isInUpperCase();
+    public function isInUpperCase();
 
     /**
      * @return phpMorphy_GrammemsProvider_GrammemsProviderAbstract
      */
-    function getGrammemsProvider();
+    public function getGrammemsProvider();
 
     /**
      * @return phpMorphy_GrammemsProvider_GrammemsProviderAbstract
      */
-    function getDefaultGrammemsProvider();
+    public function getDefaultGrammemsProvider();
 
     /**
     * @return phpMorphy_Shm_Cache
     */
-    function getShmCache();
+    public function getShmCache();
 
     /**
     * @return bool
     */
-    function isLastPredicted();
+    public function isLastPredicted();
 
     /**
     * @return one of PREDICT_BY_NONE, PREDICT_BY_SUFFIX, PREDICT_BY_DB
     */
-    function getLastPredictionType();
+    public function getLastPredictionType();
 
     /**
     * @param mixed $word - string or array of strings
     * @param mixed $type - prediction managment
     * @return phpMorphy_Paradigm_Collection
     */
-    function findWord($word, $type = self::NORMAL);
+    public function findWord($word, $type = self::NORMAL);
 
     /**
     * Alias for getBaseForm
@@ -107,42 +107,42 @@ interface phpMorphy_MorphyInterface {
     * @param mixed $type - prediction managment
     * @return array
     */
-    function lemmatize($word, $type = self::NORMAL);
+    public function lemmatize($word, $type = self::NORMAL);
 
     /**
     * @param mixed $word - string or array of strings
     * @param mixed $type - prediction managment
     * @return array
     */
-    function getBaseForm($word, $type = self::NORMAL);
+    public function getBaseForm($word, $type = self::NORMAL);
 
     /**
     * @param mixed $word - string or array of strings
     * @param mixed $type - prediction managment
     * @return array
     */
-    function getAllForms($word, $type = self::NORMAL);
+    public function getAllForms($word, $type = self::NORMAL);
 
     /**
     * @param mixed $word - string or array of strings
     * @param mixed $type - prediction managment
     * @return array
     */
-    function getPseudoRoot($word, $type = self::NORMAL);
+    public function getPseudoRoot($word, $type = self::NORMAL);
 
     /**
     * @param mixed $word - string or array of strings
     * @param mixed $type - prediction managment
     * @return array
     */
-    function getPartOfSpeech($word, $type = self::NORMAL);
+    public function getPartOfSpeech($word, $type = self::NORMAL);
 
     /**
     * @param mixed $word - string or array of strings
     * @param mixed $type - prediction managment
     * @return array
     */
-    function getAllFormsWithAncodes($word, $type = self::NORMAL);
+    public function getAllFormsWithAncodes($word, $type = self::NORMAL);
 
     /**
     * @param mixed $word - string or array of strings
@@ -150,28 +150,28 @@ interface phpMorphy_MorphyInterface {
     * @param mixed $type - prediction managment
     * @return array
     */
-    function getAllFormsWithGramInfo($word, $asText = true, $type = self::NORMAL);
+    public function getAllFormsWithGramInfo($word, $asText = true, $type = self::NORMAL);
 
     /**
     * @param mixed $word - string or array of strings
     * @param mixed $type - prediction managment
     * @return array
     */
-    function getAncode($word, $type = self::NORMAL);
+    public function getAncode($word, $type = self::NORMAL);
 
     /**
     * @param mixed $word - string or array of strings
     * @param mixed $type - prediction managment
     * @return array
     */
-    function getGramInfo($word, $type = self::NORMAL);
+    public function getGramInfo($word, $type = self::NORMAL);
 
     /**
     * @param mixed $word - string or array of strings
     * @param mixed $type - prediction managment
     * @return array
     */
-    function getGramInfoMergeForms($word, $type = self::NORMAL);
+    public function getGramInfoMergeForms($word, $type = self::NORMAL);
 
     /**
     * @param string $word
@@ -182,7 +182,7 @@ interface phpMorphy_MorphyInterface {
     * @param mixed $type
     * @return array
     */
-    function castFormByAncode($word, $ancode, $commonAncode = null, $returnOnlyWord = false, $callback = null, $type = self::NORMAL);
+    public function castFormByAncode($word, $ancode, $commonAncode = null, $returnOnlyWord = false, $callback = null, $type = self::NORMAL);
 
     /**
     * @param string $word
@@ -193,7 +193,7 @@ interface phpMorphy_MorphyInterface {
     * @param mixed $type
     * @return array
     */
-    function castFormByGramInfo($word, $partOfSpeech, $grammems, $returnOnlyWord = false, $callback = null, $type = self::NORMAL);
+    public function castFormByGramInfo($word, $partOfSpeech, $grammems, $returnOnlyWord = false, $callback = null, $type = self::NORMAL);
 
     /**
     * @param string $word
@@ -215,5 +215,5 @@ interface phpMorphy_MorphyInterface {
     * @param mixed $type
     * @return array
     */
-    function castFormByPattern($word, $patternWord, phpMorphy_GrammemsProvider_GrammemsProviderInterface $grammemsProvider = null, $returnOnlyWord = false, $callback = null, $type = self::NORMAL);
+    public function castFormByPattern($word, $patternWord, phpMorphy_GrammemsProvider_GrammemsProviderInterface $grammemsProvider = null, $returnOnlyWord = false, $callback = null, $type = self::NORMAL);
 }

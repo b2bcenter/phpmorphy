@@ -25,105 +25,105 @@ interface phpMorphy_WordForm_WordFormInterface {
     /**
      * @return string
      */
-    function getWord();
+    public function getWord();
 
     /**
      * @return string
      */
-    function getPartOfSpeech();
+    public function getPartOfSpeech();
 
     /**
      * @return string[]
      */
-    function getGrammems();
+    public function getGrammems();
 
     /**
      * @return string
      */
-    function getCommonPrefix();
+    public function getCommonPrefix();
 
     /**
      * @return string
      */
-    function getFormPrefix();
+    public function getFormPrefix();
 
     /**
      * @return string
      */
-    function getSuffix();
+    public function getSuffix();
 
     /**
      * @return string
      */
-    function getBase();
+    public function getBase();
 
     /**
      * @return string
      */
-    function getFormGrammems();
+    public function getFormGrammems();
 
     /**
      * @return string
      */
-    function getCommonGrammems();
+    public function getCommonGrammems();
 
     /**
      * @return string
      */
-    function getPrefix();
+    public function getPrefix();
 
     /**
      * @param string[]|int[]|string|int $grammems
      * @return bool
      */
-    function hasGrammems($grammems);
+    public function hasGrammems($grammems);
 
     /**
      * @abstract
      * @param string $base
      * @return void
      */
-    function setBase($base);
+    public function setBase($base);
 
     /**
      * @abstract
      * @param string $common_prefix
      * @return void
      */
-    function setCommonPrefix($common_prefix);
+    public function setCommonPrefix($common_prefix);
 
     /**
      * @abstract
      * @param string $prefix
      * @return void
      */
-    function setFormPrefix($prefix);
+    public function setFormPrefix($prefix);
 
     /**
      * @abstract
      * @param string $suffix
      * @return void
      */
-    function setSuffix($suffix);
+    public function setSuffix($suffix);
 
     /**
      * @abstract
      * @param string $partOfSpeech
      * @return void
      */
-    function setPartOfSpeech($partOfSpeech);
+    public function setPartOfSpeech($partOfSpeech);
 
     /**
      * @abstract
      * @param string[] $grammems
      * @return void
      */
-    function setFormGrammems(array $grammems);
+    public function setFormGrammems(array $grammems);
 
     /**
      * @abstract
      * @param string[] $grammems
      * @return void
      */
-    function setCommonGrammems(array $grammems);
+    public function setCommonGrammems(array $grammems);
 }

@@ -29,26 +29,26 @@ class phpMorphy_Dict_Source_NormalizedAncodes_Ancode {
         $grammems_ids
         ;
 
-    function __construct($id, $name, $posId, $grammemsIds) {
+    public function __construct($id, $name, $posId, $grammemsIds) {
         $this->id = (int)$id;
         $this->pos_id = (int)$posId;
         $this->grammems_ids = array_map('intval', (array)$grammemsIds);
         $this->name = (string)$name;
     }
 
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
-    function getPartOfSpeechId() {
+    public function getPartOfSpeechId() {
         return $this->pos_id;
     }
 
-    function getGrammemsIds() {
+    public function getGrammemsIds() {
         return $this->grammems_ids;
     }
 
-    function getName() {
+    public function getName() {
         return $this->name;
     }
 }

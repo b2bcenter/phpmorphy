@@ -24,23 +24,23 @@ class phpMorphy_Storage_Shm extends phpMorphy_Storage_StorageAbstract {
     protected
         $descriptor;
 
-    function __construct($fileName, $shmCache) {
+    public function __construct($fileName, $shmCache) {
         $this->cache = $shmCache;
 
         parent::__construct($fileName);
     }
 
-    function getFileSize() {
+    public function getFileSize() {
         return $this->descriptor->getFileSize();
     }
 
-    function getType() { return phpMorphy_Storage_Factory::STORAGE_SHM; }
+    public function getType() { return phpMorphy_Storage_Factory::STORAGE_SHM; }
 
-    function readUnsafe($offset, $len) {
+    public function readUnsafe($offset, $len) {
         return shmop_read($this->resource['shm_id'], $this->resource['offset'] + $offset, $len);
     }
 
-    function open($fileName) {
+    public function open($fileName) {
         $this->descriptor = $this->cache->get($fileName);
 
         return array(

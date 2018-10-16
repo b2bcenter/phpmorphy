@@ -26,14 +26,14 @@ abstract class phpMorphy_Fsa_LinkAbstract {
 		$trans,
 		$raw_trans;
 
-	function phpMorphy_Fsa_LinkAbstract(phpMorphy_Fsa_FsaInterface $fsa, $trans, $rawTrans) {
+	public function __construct(phpMorphy_Fsa_FsaInterface $fsa, $trans, $rawTrans) {
 		$this->fsa = $fsa;
 		$this->trans = $trans;
 		$this->raw_trans = $rawTrans;
 	}
 
-	function isAnnotation() { }
-	function getTrans() { return $this->trans; }
-	function getFsa() { return $this->fsa; }
-	function getRawTrans() { return $this->raw_trans; }
+	public function isAnnotation() { }
+	public function getTrans() { return $this->trans; }
+	public function getFsa() { return $this->fsa; }
+	public function getRawTrans() { return $this->raw_trans; }
 };

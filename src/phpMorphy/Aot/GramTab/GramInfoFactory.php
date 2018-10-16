@@ -30,7 +30,7 @@ class phpMorphy_Aot_GramTab_GramInfoFactory {
     /**
      * @param phpMorphy_Aot_GramTab_GramInfoHelperInterface $helper
      */
-    function __construct(phpMorphy_Aot_GramTab_GramInfoHelperInterface $helper) {
+    public function __construct(phpMorphy_Aot_GramTab_GramInfoHelperInterface $helper) {
         $this->helper = $helper;
     }
 
@@ -40,7 +40,7 @@ class phpMorphy_Aot_GramTab_GramInfoFactory {
      * @param string $ancode
      * @return phpMorphy_Aot_GramTab_GramInfo
      */
-    function create($partOfSpeech, $grammems, $ancode) {
+    public function create($partOfSpeech, $grammems, $ancode) {
         $grammems = $this->parseGrammems($grammems);
         $partOfSpeech = $this->helper->convertPartOfSpeech($partOfSpeech, $grammems);
 

@@ -30,7 +30,7 @@ class phpMorphy_Source_Fsa implements phpMorphy_Source_SourceInterface {
     /**
      * @param phpMorphy_Fsa_FsaInterface $fsa
      */
-    function __construct(phpMorphy_Fsa_FsaInterface $fsa) {
+    public function __construct(phpMorphy_Fsa_FsaInterface $fsa) {
         $this->fsa = $fsa;
         $this->root = $fsa->getRootTrans();
     }
@@ -38,7 +38,7 @@ class phpMorphy_Source_Fsa implements phpMorphy_Source_SourceInterface {
     /**
      * @return phpMorphy_Fsa_FsaInterface
      */
-    function getFsa() {
+    public function getFsa() {
     	return $this->fsa;
     }
 
@@ -46,7 +46,7 @@ class phpMorphy_Source_Fsa implements phpMorphy_Source_SourceInterface {
      * @param string $key
      * @return string|false
      */
-    function getValue($key) {
+    public function getValue($key) {
         if(false === ($result = $this->fsa->walk($this->root, $key, true)) || !$result['annot']) {
             return false;
         }

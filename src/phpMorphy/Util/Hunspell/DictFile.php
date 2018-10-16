@@ -27,7 +27,7 @@ class phpMorphy_Util_Hunspell_DictFile {
 		$encoding
 		;
 
-	function __construct($fileName, phpMorphy_Util_Hunspell_AffixFile $affixFile, $encoding = null) {
+	public function __construct($fileName, phpMorphy_Util_Hunspell_AffixFile $affixFile, $encoding = null) {
 		$this->file_name = $fileName;
 		$this->affix = $affixFile;
 
@@ -46,7 +46,7 @@ class phpMorphy_Util_Hunspell_DictFile {
 		return new phpMorphy_Util_Hunspell_DictFileReader($this->file_name, $this->encoding);
 	}
 
-	function export($callback) {
+	public function export($callback) {
 		$reader = $this->createDictReader();
 		$reader->rewind();
 

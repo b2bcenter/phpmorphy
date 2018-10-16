@@ -26,14 +26,14 @@ class phpMorphy_Dict_Source_NormalizedAncodes_DecoratingIterator extends Iterato
         $manager,
         $new_class;
 
-    function __construct(Traversable $it, phpMorphy_Dict_Source_NormalizedAncodes_AncodesManager $manager, $newClass) {
+    public function __construct(Traversable $it, phpMorphy_Dict_Source_NormalizedAncodes_AncodesManager $manager, $newClass) {
         parent::__construct($it);
 
         $this->manager = $manager;
         $this->new_class = $newClass;
     }
 
-    function current() {
+    public function current() {
         return $this->decorate(parent::current());
     }
 

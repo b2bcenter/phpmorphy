@@ -26,7 +26,7 @@ class phpMorphy_Generator_GramTab_HelperPhp {
      * @param string $const
      * @return string
      */
-    function grammemConstName(phpMorphy_Dict_GramTab_ConstStorage $constsStorage, $const) {
+    public function grammemConstName(phpMorphy_Dict_GramTab_ConstStorage $constsStorage, $const) {
         return $this->constName($constsStorage, $const, 'G');
     }
 
@@ -35,7 +35,7 @@ class phpMorphy_Generator_GramTab_HelperPhp {
      * @param string $const
      * @return string
      */
-    function posConstName(phpMorphy_Dict_GramTab_ConstStorage $constsStorage, $const) {
+    public function posConstName(phpMorphy_Dict_GramTab_ConstStorage $constsStorage, $const) {
         return $this->constName($constsStorage, $const, 'P');
     }
 
@@ -44,7 +44,7 @@ class phpMorphy_Generator_GramTab_HelperPhp {
      * @param string[] $values
      * @return string
      */
-    function metaGrammemConstValue(phpMorphy_Dict_GramTab_ConstStorage $constsStorage, $values) {
+    public function metaGrammemConstValue(phpMorphy_Dict_GramTab_ConstStorage $constsStorage, $values) {
         foreach($values as &$value) {
             $value = $this->constName($constsStorage, $value, 'G');
         }

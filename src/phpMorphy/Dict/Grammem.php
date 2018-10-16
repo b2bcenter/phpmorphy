@@ -26,25 +26,25 @@ class phpMorphy_Dict_Grammem {
         $name,
         $shift;
 
-    function __construct($id, $name, $shift) {
+    public function __construct($id, $name, $shift) {
         $this->id = (int)$id;
         $this->shift = (int)$shift;
         $this->name = (string)$name;
     }
 
-    function getName() {
+    public function getName() {
         return $this->name;
     }
 
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
-    function getShift() {
+    public function getShift() {
         return $this->shift;
     }
 
-    function __toString() {
+    public function __toString() {
         return phpMorphy_Dict_ModelsFormatter::create()->formatGrammem($this);
     }
 }

@@ -21,7 +21,7 @@
 */
 
 class phpMorphy_Morphier_PredictByDatabase extends phpMorphy_Morphier_MorphierAbstract {
-    function __construct(phpMorphy_Fsa_FsaInterface $fsa, phpMorphy_Helper $helper) {
+    public function __construct(phpMorphy_Fsa_FsaInterface $fsa, phpMorphy_Helper $helper) {
         parent::__construct(
             new phpMorphy_Finder_Fsa_PredictByDatabase(
                 $fsa,

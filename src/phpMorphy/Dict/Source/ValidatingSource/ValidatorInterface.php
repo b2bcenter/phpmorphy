@@ -23,11 +23,11 @@
 
 
 interface  phpMorphy_Dict_Source_ValidatingSource_ValidatorInterface {
-    function validateFlexiaId($id);
-    function validateAccentId($id);
-    function validateSessionId($id);
-    function validatePrefixId($id);
-    function validateAncodeId($id);
-    function validatePartOfSpeechId($id);
-    function validateGrammemId($id);
+    public function validateFlexiaId($id);
+    public function validateAccentId($id);
+    public function validateSessionId($id);
+    public function validatePrefixId($id);
+    public function validateAncodeId($id);
+    public function validatePartOfSpeechId($id);
+    public function validateGrammemId($id);
 }

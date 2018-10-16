@@ -25,16 +25,16 @@ class phpMorphy_Util_Hunspell_AffixFile {
 		$flags = array(),
 		$options = array();
 
-	function __construct($fileName, $options = array()) {
+	public function __construct($fileName, $options = array()) {
 		$this->options = $options;
 		$this->parseFile($fileName);
 	}
 
-	function isFlagExists($name) {
+	public function isFlagExists($name) {
 		return array_key_exists($name, $this->flags);
 	}
 
-	function getFlag($name) {
+	public function getFlag($name) {
 		if(!$this->isFlagExists($name)) {
 			throw new phpMorphy_Util_Hunspell_Exception("Unknown $name flag");
 
@@ -44,15 +44,15 @@ class phpMorphy_Util_Hunspell_AffixFile {
 		return $this->flags[$name];
 	}
 
-	function getOptions() {
+	public function getOptions() {
 		return $this->options;
 	}
 
-	function isOptionExists($name) {
+	public function isOptionExists($name) {
 		return array_key_exists($name, $this->options);
 	}
 
-	function getOption($name) {
+	public function getOption($name) {
 		if(!$this->isOptionExists($name)) {
 			throw new phpMorphy_Util_Hunspell_Exception("Unknown $name option");
 		}
@@ -60,7 +60,7 @@ class phpMorphy_Util_Hunspell_AffixFile {
 		return $this->options[$name];
 	}
 
-	function getEncoding() {
+	public function getEncoding() {
 		try {
 			return $this->getOption('SET');
 		} catch(Exception $e) {

@@ -28,7 +28,7 @@ class phpMorphy_Aot_MrdManager {
 		$mrd,
 		$gram_info;
 
-	function open($filePath) {
+	public function open($filePath) {
 		$mwz = $this->openMwz($filePath);
 		$this->encoding = $mwz->getEncoding();
 		$mrd_path = $mwz->getMrdPath();
@@ -44,7 +44,7 @@ class phpMorphy_Aot_MrdManager {
 		$this->opened = true;
 	}
 
-	function isOpened() {
+	public function isOpened() {
 		return $this->opened;
 	}
 
@@ -54,22 +54,22 @@ class phpMorphy_Aot_MrdManager {
 		}
 	}
 
-	function getEncoding() {
+	public function getEncoding() {
 		$this->checkOpened();
 		return $this->getEncoding();
 	}
 
-	function getLanguage() {
+	public function getLanguage() {
 		$this->checkOpened();
 		return $this->language;
 	}
 
-	function getMrd() {
+	public function getMrd() {
 		$this->checkOpened();
 		return $this->mrd;
 	}
 
-	function getGramInfo() {
+	public function getGramInfo() {
 		$this->checkOpened();
 		return $this->gram_info;
 	}

@@ -27,19 +27,19 @@ abstract class phpMorphy_Generator_Fsa_HelperAbstract extends
     /**
      * @return string
      */
-    abstract function getType();
+    abstract public function getType();
 
     /**
      * @return string
      */
-    function getParentClassName() {
-        return 'phpMorphy_Fsa_FsaAbstract';
+    public function getParentClassName() {
+        return phpMorphy_Fsa_FsaAbstract::class;
     }
 
     /**
      * @return string
      */
-    function getClassName() {
+    public function getClassName() {
         $type = ucfirst($this->getType());
         $storage_type = ucfirst($this->storage->getType());
 
@@ -49,28 +49,28 @@ abstract class phpMorphy_Generator_Fsa_HelperAbstract extends
     /**
      * @return string
      */
-    function getFsaStartOffset() {
+    public function getFsaStartOffset() {
         return '$fsa_start';
     }
 
     /**
      * @return string
      */
-    function checkTerm($var) {
+    public function checkTerm($var) {
         return "($var & 0x0100)";
     }
 
     /**
      * @return string
      */
-    function getChar($var) {
+    public function getChar($var) {
         return "($var & 0xFF)";
     }
 
     /**
      * @return string
      */
-    function prolog() {
+    public function prolog() {
         if (strlen($prolog = $this->storage->prolog())) {
             $prolog .= '; ';
         }
@@ -83,21 +83,21 @@ abstract class phpMorphy_Generator_Fsa_HelperAbstract extends
     /**
      * @return string
      */
-    function unpackTrans($expression) {
+    public function unpackTrans($expression) {
         return "unpack('V', $expression)";
     }
 
     /**
      * @return string
      */
-    function getTransSize() {
+    public function getTransSize() {
         return 4;
     }
 
     /**
      * @return string
      */
-    function idx2offset($idxVar) {
+    public function idx2offset($idxVar) {
         $trans_size = $this->getTransSize();
 
         if (($trans_size & ($trans_size - 1)) == 0) {
@@ -113,7 +113,7 @@ abstract class phpMorphy_Generator_Fsa_HelperAbstract extends
     /**
      * @return string
      */
-    function readTrans($transVar, $charVar) {
+    public function readTrans($transVar, $charVar) {
         $read = $this->storage->read($this->getOffsetByTrans($transVar, $charVar),
                                      $this->getTransSize());
         return $this->unpackTrans($read);
@@ -122,14 +122,14 @@ abstract class phpMorphy_Generator_Fsa_HelperAbstract extends
     /**
      * @return string
      */
-    function seekTrans($transVar, $charVar) {
+    public function seekTrans($transVar, $charVar) {
         return $this->storage->seek($this->getOffsetByTrans($transVar, $charVar));
     }
 
     /**
      * @return string
      */
-    function readAnnotTrans($transVar) {
+    public function readAnnotTrans($transVar) {
         $read = $this->storage->read($this->getAnnotOffsetByTrans($transVar),
                                      $this->getTransSize());
         return $this->unpackTrans($read);
@@ -138,14 +138,14 @@ abstract class phpMorphy_Generator_Fsa_HelperAbstract extends
     /**
      * @return string
      */
-    function seekAnnotTrans($transVar) {
+    public function seekAnnotTrans($transVar) {
         return $this->storage->seek($this->getAnnotOffsetByTrans($transVar));
     }
 
     /**
      * @return string
      */
-    function getOffsetByTrans($transVar, $charVar) {
+    public function getOffsetByTrans($transVar, $charVar) {
         return $this->getOffsetInFsa(
             $this->idx2offset($this->getIndexByTrans($transVar, $charVar))
         );
@@ -154,7 +154,7 @@ abstract class phpMorphy_Generator_Fsa_HelperAbstract extends
     /**
      * @return string
      */
-    function getAnnotOffsetByTrans($transVar) {
+    public function getAnnotOffsetByTrans($transVar) {
         return $this->getOffsetInFsa(
             $this->idx2offset($this->getAnnotIndexByTrans($transVar))
         );
@@ -163,7 +163,7 @@ abstract class phpMorphy_Generator_Fsa_HelperAbstract extends
     /**
      * @return string
      */
-    function getOffsetInFsa($offset) {
+    public function getOffsetInFsa($offset) {
         return sprintf('%s + %s', $this->getFsaStartOffset(), $offset);
     }
 
@@ -179,60 +179,60 @@ abstract class phpMorphy_Generator_Fsa_HelperAbstract extends
     /**
      * @return string
      */
-    function tplFindCharInState() {
+    public function tplFindCharInState() {
         return $this->processTpl('find_char_in_state');
     }
 
     /**
      * @return string
      */
-    function tplUnpackTrans() {
+    public function tplUnpackTrans() {
         return $this->processTpl('unpack_trans');
     }
 
     /**
      * @return string
      */
-    function tplReadState() {
+    public function tplReadState() {
         return $this->processTpl('read_state');
     }
 
     /**
      * @return string
      */
-    function tplExtraFuncs() {
+    public function tplExtraFuncs() {
         return $this->processTpl('extra_funcs');
     }
 
     /**
      * @return string
      */
-    function tplExtraProps() {
+    public function tplExtraProps() {
         return $this->processTpl('extra_props');
     }
 
     /**
      * @return string
      */
-    abstract function getRootTransOffset();
+    abstract public function getRootTransOffset();
 
     /**
      * @return string
      */
-    abstract function getDest($var);
+    abstract public function getDest($var);
 
     /**
      * @return string
      */
-    abstract function getAnnotIdx($var);
+    abstract public function getAnnotIdx($var);
 
     /**
      * @return string
      */
-    abstract function getIndexByTrans($transVar, $charVar);
+    abstract public function getIndexByTrans($transVar, $charVar);
 
     /**
      * @return string
      */
-    abstract function getAnnotIndexByTrans($transVar);
+    abstract public function getAnnotIndexByTrans($transVar);
 }

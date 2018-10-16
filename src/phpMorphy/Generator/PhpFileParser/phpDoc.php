@@ -32,7 +32,7 @@ class phpMorphy_Generator_PhpFileParser_phpDoc {
     /**
      * @param array $token
      */
-    function __construct($token) {
+    public function __construct($token) {
         $this->startLine = $token[2];
         $this->endLine = $this->startLine + substr_count($token[1], "\n");
         $this->text = $token[1];

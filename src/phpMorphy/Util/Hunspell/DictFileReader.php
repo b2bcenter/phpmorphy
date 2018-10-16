@@ -21,7 +21,7 @@
 */
 
 class phpMorphy_Util_Hunspell_DictFileReader extends IteratorIterator {
-	function __construct($fileName, $encoding) {
+	public function __construct($fileName, $encoding) {
 		parent::__construct($this->createIterators($fileName, $encoding));
 	}
 
@@ -37,7 +37,7 @@ class phpMorphy_Util_Hunspell_DictFileReader extends IteratorIterator {
 		);
 	}
 
-	function current() {
+	public function current() {
 		$line = trim(parent::current());
 
 		$word = '';

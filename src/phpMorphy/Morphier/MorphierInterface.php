@@ -21,14 +21,14 @@
 */
 
 interface phpMorphy_Morphier_MorphierInterface {
-    function getAnnot($word);
-    function getBaseForm($word);
-    function getAllForms($word);
-    function getPseudoRoot($word);
-    function getPartOfSpeech($word);
-    function getParadigmCollection($word);
-    function getAllFormsWithAncodes($word);
-    function getAncode($word);
-    function getGrammarInfoMergeForms($word);
-    function getGrammarInfo($word);
+    public function getAnnot($word);
+    public function getBaseForm($word);
+    public function getAllForms($word);
+    public function getPseudoRoot($word);
+    public function getPartOfSpeech($word);
+    public function getParadigmCollection($word);
+    public function getAllFormsWithAncodes($word);
+    public function getAncode($word);
+    public function getGrammarInfoMergeForms($word);
+    public function getGrammarInfo($word);
 }

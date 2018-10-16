@@ -24,7 +24,7 @@ class phpMorphy_Dict_Writer_Observer_Standart implements phpMorphy_Dict_Writer_O
     protected
         $start_time;
 
-    function __construct($callback) {
+    public function __construct($callback) {
         if(!is_callable($callback)) {
             throw new Exception("Invalid callback");
         }
@@ -32,15 +32,15 @@ class phpMorphy_Dict_Writer_Observer_Standart implements phpMorphy_Dict_Writer_O
         $this->callback = $callback;
     }
 
-    function onStart() {
+    public function onStart() {
         $this->start_time = microtime(true);
     }
 
-    function onEnd() {
+    public function onEnd() {
         $this->writeMessage(sprintf("Total time = %f", microtime(true) - $this->start_time));
     }
 
-    function onLog($message) {
+    public function onLog($message) {
         $this->writeMessage(sprintf("+%0.2f %s", microtime(true) - $this->start_time, $message));
     }
 

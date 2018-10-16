@@ -27,7 +27,7 @@ class phpMorphy_Fsa_Proxy extends phpMorphy_Fsa_Decorator {
     /**
      * @param phpMorphy_Storage_StorageInterface $storage
      */
-    function __construct(phpMorphy_Storage_StorageInterface $storage) {
+    public function __construct(phpMorphy_Storage_StorageInterface $storage) {
         $this->storage = $storage;
         $this->actAsProxy();
     }

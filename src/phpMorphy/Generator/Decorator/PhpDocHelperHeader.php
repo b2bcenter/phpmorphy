@@ -35,7 +35,7 @@ class phpMorphy_Generator_Decorator_PhpDocHelperHeader {
      * @param  $string
      * @return void
      */
-    static function constructFromString($string) {
+    public static function constructFromString($string) {
         $lines = explode("\n", $string);
         $obj = new phpMorphy_Generator_Decorator_PhpDocHelperHeader;
         $any_found = false;

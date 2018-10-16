@@ -26,12 +26,12 @@ interface phpMorphy_AncodesResolver_AncodesResolverInterface {
      * @param int|string $ancodeId
      * @return string
      */
-    function resolve($ancodeId);
+    public function resolve($ancodeId);
 
     /**
      * @abstract
      * @param string $ancode
      * @return string
      */
-    function unresolve($ancode);
+    public function unresolve($ancode);
 }

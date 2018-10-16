@@ -25,10 +25,10 @@ class phpMorphy_Dict_Source_NormalizedAncodes_Flexia extends phpMorphy_Dict_Flex
     protected
         $manager;
 
-    function __construct(phpMorphy_Dict_Source_NormalizedAncodes_AncodesManager $manager, phpMorphy_Dict_Flexia $inner) {
+    public function __construct(phpMorphy_Dict_Source_NormalizedAncodes_AncodesManager $manager, phpMorphy_Dict_Flexia $inner) {
         parent::__construct($inner);
         $this->manager = $manager;
     }
 
-    function getAncodeId() { return $this->manager->resolveAncode(parent::getAncodeId()); }
+    public function getAncodeId() { return $this->manager->resolveAncode(parent::getAncodeId()); }
 }

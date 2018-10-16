@@ -21,17 +21,17 @@
 */
 
 class phpMorphy_Storage_Mem extends phpMorphy_Storage_StorageAbstract {
-    function getType() { return phpMorphy_Storage_Factory::STORAGE_MEM; }
+    public function getType() { return phpMorphy_Storage_Factory::STORAGE_MEM; }
 
-    function getFileSize() {
+    public function getFileSize() {
         return $GLOBALS['__phpmorphy_strlen']($this->resource);
     }
 
-    function readUnsafe($offset, $len) {
+    public function readUnsafe($offset, $len) {
         return $GLOBALS['__phpmorphy_substr']($this->resource, $offset, $len);
     }
 
-    function open($fileName) {
+    public function open($fileName) {
         if(false === ($string = file_get_contents($fileName))) {
             throw new phpMorphy_Exception("Can`t read $fileName file");
         }

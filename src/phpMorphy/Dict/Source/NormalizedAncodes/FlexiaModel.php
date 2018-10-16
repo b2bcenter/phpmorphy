@@ -24,12 +24,12 @@
 class phpMorphy_Dict_Source_NormalizedAncodes_FlexiaModel extends phpMorphy_Dict_FlexiaModelDecorator {
     protected $manager;
 
-    function __construct(phpMorphy_Dict_Source_NormalizedAncodes_AncodesManager $manager, phpMorphy_Dict_FlexiaModel $inner) {
+    public function __construct(phpMorphy_Dict_Source_NormalizedAncodes_AncodesManager $manager, phpMorphy_Dict_FlexiaModel $inner) {
         parent::__construct($inner);
         $this->manager = $manager;
     }
 
-    function getIterator() {
+    public function getIterator() {
         $that = $this;
 
         return new phpMorphy_Util_Iterator_Transform(
@@ -40,11 +40,11 @@ class phpMorphy_Dict_Source_NormalizedAncodes_FlexiaModel extends phpMorphy_Dict
         );
     }
 
-    function offsetGet($offset) {
+    public function offsetGet($offset) {
         return $this->__decorate(parent::offsetGet($offset));
     }
 
-    function __decorate(phpMorphy_Dict_Flexia $flexia) {
+    public function __decorate(phpMorphy_Dict_Flexia $flexia) {
         return new phpMorphy_Dict_Source_NormalizedAncodes_Flexia($this->manager, $flexia);
     }
 }

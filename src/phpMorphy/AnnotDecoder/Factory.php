@@ -36,7 +36,7 @@ class phpMorphy_AnnotDecoder_Factory {
      * @param string $eos
      * @return phpMorphy_AnnotDecoder_Factory
      */
-    static function instance($eos) {
+    public static function instance($eos) {
         if(!isset(self::$instances[$eos])) {
             self::$instances[$eos] = new phpMorphy_AnnotDecoder_Factory($eos);
         }
@@ -44,7 +44,7 @@ class phpMorphy_AnnotDecoder_Factory {
         return self::$instances[$eos];
     }
 
-    function getCommonDecoder() {
+    public function getCommonDecoder() {
         if(!isset($this->cache_common)) {
             $this->cache_common = new phpMorphy_AnnotDecoder_Common($this->eos);
         }
@@ -52,7 +52,7 @@ class phpMorphy_AnnotDecoder_Factory {
         return $this->cache_common;
     }
 
-    function getPredictDecoder() {
+    public function getPredictDecoder() {
         if(!isset($this->cache_predict)) {
             $this->cache_predict = new phpMorphy_AnnotDecoder_Predict($this->eos);
         }

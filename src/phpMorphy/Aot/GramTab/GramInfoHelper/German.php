@@ -28,7 +28,7 @@ class phpMorphy_Aot_GramTab_GramInfoHelper_German
      * @param string[] $grammems
      * @return string
      */
-    function convertPartOfSpeech($partOfSpeech, $grammems) {
+    public function convertPartOfSpeech($partOfSpeech, $grammems) {
         return $partOfSpeech;
     }
 
@@ -36,7 +36,7 @@ class phpMorphy_Aot_GramTab_GramInfoHelper_German
      * @param string $partOfSpeech
      * @return bool
      */
-    function isPartOfSpeechProductive($partOfSpeech) {
+    public function isPartOfSpeechProductive($partOfSpeech) {
         static $map = array(
             "SUB" => 1,
             "VER" => 1,

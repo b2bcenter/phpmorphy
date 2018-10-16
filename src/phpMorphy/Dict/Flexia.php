@@ -26,7 +26,7 @@ class phpMorphy_Dict_Flexia {
         $suffix,
         $ancode_id;
 
-    function __construct($prefix, $suffix, $ancodeId) {
+    public function __construct($prefix, $suffix, $ancodeId) {
         //phpMorphy_Dict_Ancode::checkAncodeId($ancodeId, "Invalid ancode specified for flexia");
 
         $this->setPrefix($prefix);
@@ -34,15 +34,15 @@ class phpMorphy_Dict_Flexia {
         $this->setAncodeId($ancodeId);
     }
 
-    function setPrefix($prefix) { $this->prefix = (string)$prefix; }
-    function setSuffix($suffix) { $this->suffix = (string)$suffix; }
-    function setAncodeId($id) { $this->ancode_id = $id; }
+    public function setPrefix($prefix) { $this->prefix = (string)$prefix; }
+    public function setSuffix($suffix) { $this->suffix = (string)$suffix; }
+    public function setAncodeId($id) { $this->ancode_id = $id; }
 
-    function getPrefix() { return $this->prefix; }
-    function getSuffix() { return $this->suffix; }
-    function getAncodeId() { return $this->ancode_id; }
+    public function getPrefix() { return $this->prefix; }
+    public function getSuffix() { return $this->suffix; }
+    public function getAncodeId() { return $this->ancode_id; }
 
-    function __toString() {
+    public function __toString() {
         return phpMorphy_Dict_ModelsFormatter::create()->formatFlexia($this);
     }
 }

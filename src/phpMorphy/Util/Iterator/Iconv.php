@@ -25,18 +25,18 @@ class phpMorphy_Util_Iterator_Iconv extends IteratorIterator {
 		$encoding,
 		$int_encoding;
 
-	function __construct(Iterator $it, $encoding = null, $internalEncoding = 'UTF-8') {
+	public function __construct(Iterator $it, $encoding = null, $internalEncoding = 'UTF-8') {
 		parent::__construct($it);
 
 		$this->setEncoding($encoding);
 		$this->setInternalEncoding($internalEncoding);
 	}
 
-	function ignoreUnknownChars() {
+	public function ignoreUnknownChars() {
 		$this->insertEncModifier('IGNORE');
 	}
 
-	function translitUnknownChars() {
+	public function translitUnknownChars() {
 		$this->insertEncModifier('IGNORE');
 	}
 
@@ -56,23 +56,23 @@ class phpMorphy_Util_Iterator_Iconv extends IteratorIterator {
 		}
 	}
 
-	function setEncoding($encoding) {
+	public function setEncoding($encoding) {
 		$this->encoding = $encoding;
 	}
 
-	function getEncoding() {
+	public function getEncoding() {
 		return $this->getEncodingWithoutModifiers();
 	}
 
-	function setInternalEncoding($encoding) {
+	public function setInternalEncoding($encoding) {
 		$this->int_encoding = $encoding;
 	}
 
-	function getInternalEncoding() {
+	public function getInternalEncoding() {
 		return $this->int_encoding;
 	}
 
-	function current() {
+	public function current() {
         $string = parent::current();
         
 		if(isset($this->encoding) && $this->encoding !== $this->int_encoding) {

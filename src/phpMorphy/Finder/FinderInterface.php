@@ -26,7 +26,7 @@ interface phpMorphy_Finder_FinderInterface {
      * @param string $word
      * @return void
      */
-    function findWord($word);
+    public function findWord($word);
 
     /**
      * @abstract
@@ -34,11 +34,11 @@ interface phpMorphy_Finder_FinderInterface {
      * @param bool $withBase
      * @return array
      */
-    function decodeAnnot($raw, $withBase);
+    public function decodeAnnot($raw, $withBase);
 
     /**
      * @abstract
      * @return phpMorphy_AnnotDecoder_AnnotDecoderInterface
      */
-    function getAnnotDecoder();
+    public function getAnnotDecoder();
 }

@@ -26,7 +26,7 @@ class phpMorphy_Generator_GramTab {
      * @param string $outputCppFile
      * @return void
      */
-    static function generateCpp($outputHeaderFile, $outputCppFile) {
+    public static function generateCpp($outputHeaderFile, $outputCppFile) {
         $tpl = new phpMorphy_Generator_Template(__DIR__ . '/GramTab/tpl/cpp');
         $helpers = phpMorphy_Dict_GramTab_ConstStorage_Factory::getAllHelpers();
 
@@ -41,7 +41,7 @@ class phpMorphy_Generator_GramTab {
      * @param string $outputFile
      * @return void
      */
-    static function generatePhp($outputFile) {
+    public static function generatePhp($outputFile) {
         $tpl = new phpMorphy_Generator_Template(__DIR__ . '/GramTab/tpl/php');
         $consts = phpMorphy_Dict_GramTab_ConstStorage_Factory::getAllHelpers();
         $helper = new phpMorphy_Generator_GramTab_HelperPhp();

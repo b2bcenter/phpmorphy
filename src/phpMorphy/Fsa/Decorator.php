@@ -36,7 +36,7 @@ abstract class phpMorphy_Fsa_Decorator implements phpMorphy_Fsa_FsaInterface, ph
     /**
      * @param $object phpMorphy_Fsa_FsaInterface
      */
-    function __construct(phpMorphy_Fsa_FsaInterface $object) {
+    public function __construct(phpMorphy_Fsa_FsaInterface $object) {
         $this->setDecorateeObject($object);
     }
     
@@ -109,7 +109,7 @@ abstract class phpMorphy_Fsa_Decorator implements phpMorphy_Fsa_FsaInterface, ph
     /**
      * Implement deep copy paradigm
      */
-    function __clone() {
+    public function __clone() {
         if(isset($this->object)) {
             $this->object = clone $this->object;
         }

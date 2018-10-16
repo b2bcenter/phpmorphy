@@ -32,7 +32,7 @@ class phpMorphy_UserDict_XmlDiff_Command_Add extends
      * @param phpMorphy_UserDict_LogInterface $log
      * @return bool
      */
-    function execute($newLexem, phpMorphy_UserDict_Pattern $pattern, phpMorphy_UserDict_LogInterface $log) {
+    public function execute($newLexem, phpMorphy_UserDict_Pattern $pattern, phpMorphy_UserDict_LogInterface $log) {
         $paradigms = false;
 
         if(false === ($paradigms = $this->findWordMorphy($pattern->getWord()))) {

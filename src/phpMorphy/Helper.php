@@ -37,7 +37,7 @@ class phpMorphy_Helper {
         /** @var bool */
         $is_resolve_pos;
 
-    function __construct(
+    public function __construct(
         phpMorphy_GramInfo_GramInfoInterface $graminfo,
         phpMorphy_GramTab_GramTabInterface $gramtab,
         phpMorphy_AncodesResolver_AncodesResolverInterface $ancodesResolver,
@@ -51,60 +51,60 @@ class phpMorphy_Helper {
         $this->end_of_string = $graminfo->getEnds();
     }
 
-    function setAnnotDecoder(phpMorphy_AnnotDecoder_AnnotDecoderInterface $annotDecoder) {
+    public function setAnnotDecoder(phpMorphy_AnnotDecoder_AnnotDecoderInterface $annotDecoder) {
         $this->annot_decoder = $annotDecoder;
     }
 
     // getters
-    function getEndOfString() {
+    public function getEndOfString() {
         return $this->getGramInfo()->getEnds();
     }
 
-    function getEncoding() {
+    public function getEncoding() {
         return $this->getGramInfo()->getEncoding();
     }
 
-    function hasAnnotDecoder() {
+    public function hasAnnotDecoder() {
         return isset($this->annot_decoder);
     }
 
-    function getAnnotDecoder() {
+    public function getAnnotDecoder() {
         return $this->annot_decoder;
     }
 
-    function getAncodesResolver() {
+    public function getAncodesResolver() {
         return $this->ancodes_resolver;
     }
 
-    function getGramInfo() {
+    public function getGramInfo() {
         return $this->graminfo;
     }
 
-    function getGramTab() {
+    public function getGramTab() {
         return $this->gramtab;
     }
 
-    function isResolvePartOfSpeech() {
+    public function isResolvePartOfSpeech() {
         return $this->is_resolve_pos;
     }
 
     // other
-    function resolvePartOfSpeech($posId) {
+    public function resolvePartOfSpeech($posId) {
         return $this->gramtab->resolvePartOfSpeechId($posId);
     }
 
-    function getGrammems($ancodeId) {
+    public function getGrammems($ancodeId) {
         return $this->gramtab->getGrammems($ancodeId);
     }
 
-    function getPartOfSpeechAndGrammems($ancodeId) {
+    public function getPartOfSpeechAndGrammems($ancodeId) {
         return array(
             $this->gramtab->getPartOfSpeech($ancodeId),
             $this->gramtab->getGrammems($ancodeId)
         );
     }
 
-    function extractPartOfSpeech($annot) {
+    public function extractPartOfSpeech($annot) {
         if($this->is_resolve_pos) {
             return $this->resolvePartOfSpeech($annot['pos_id']);
         } else {
@@ -121,7 +121,7 @@ class phpMorphy_Helper {
     }
 
     // getters
-    function getParadigmCollection($word, $annots) {
+    public function getParadigmCollection($word, $annots) {
         if(!$this->gramtab_consts_included) {
             $this->includeGramTabConsts();
         }
@@ -155,7 +155,7 @@ class phpMorphy_Helper {
         return array($base, $prefix);
     }
 
-    function getPartOfSpeech($annots) {
+    public function getPartOfSpeech($annots) {
         if(false === $annots) {
             return false;
         }
@@ -169,7 +169,7 @@ class phpMorphy_Helper {
         return array_keys($result);
     }
 
-    function getBaseForm($word, $annots) {
+    public function getBaseForm($word, $annots) {
         if(false === $annots) {
             return false;
         }
@@ -179,7 +179,7 @@ class phpMorphy_Helper {
         return $this->composeBaseForms($word, $annots);
     }
 
-    function getPseudoRoot($word, $annots) {
+    public function getPseudoRoot($word, $annots) {
         if(false === $annots) {
             return false;
         }
@@ -202,7 +202,7 @@ class phpMorphy_Helper {
         return array_keys($result);
     }
 
-    function getAllForms($word, $annots) {
+    public function getAllForms($word, $annots) {
         if(false === $annots) {
             return false;
         }
@@ -212,7 +212,7 @@ class phpMorphy_Helper {
         return $this->composeForms($word, $annots);
     }
 
-    function castFormByGramInfo($word, $annots, $partOfSpeech, $grammems, $returnWords = false, $callback = null) {
+    public function castFormByGramInfo($word, $annots, $partOfSpeech, $grammems, $returnWords = false, $callback = null) {
         if(false === $annots) {
             return false;
         }
@@ -285,7 +285,7 @@ class phpMorphy_Helper {
         return $returnWords ? array_keys($result) : $result;
     }
 
-    function getAncode($annots) {
+    public function getAncode($annots) {
         if(false === $annots) {
             return false;
         }
@@ -327,7 +327,7 @@ class phpMorphy_Helper {
         }
     }
 
-    function getGrammarInfoMergeForms($annots) {
+    public function getGrammarInfoMergeForms($annots) {
         if(false === $annots) {
             return false;
         }
@@ -363,7 +363,7 @@ class phpMorphy_Helper {
         return $this->array_unique($result);
     }
 
-    function getGrammarInfo($annots) {
+    public function getGrammarInfo($annots) {
         if(false === $annots) {
             return false;
         }
@@ -403,7 +403,7 @@ class phpMorphy_Helper {
         return $this->array_unique($result);
     }
 
-    function getAllFormsWithResolvedAncodes($word, $annots) {
+    public function getAllFormsWithResolvedAncodes($word, $annots) {
         if(false === $annots) {
             return false;
         }
@@ -413,7 +413,7 @@ class phpMorphy_Helper {
         return $this->composeFormsWithResolvedAncodes($word, $annots);
     }
 
-    function getParadigmData($word, $annots, &$foundFormNo = array()) {
+    public function getParadigmData($word, $annots, &$foundFormNo = array()) {
         if(false === $annots) {
             return false;
         }
@@ -470,7 +470,7 @@ class phpMorphy_Helper {
         return $result;
     }
 
-    function getAllAncodes($word, $annots) {
+    public function getAllAncodes($word, $annots) {
         if(false === $annots) {
             return false;
         }
@@ -484,7 +484,7 @@ class phpMorphy_Helper {
         return $result;
     }
 
-    function decodeAnnot($annotsRaw, $withBase) {
+    public function decodeAnnot($annotsRaw, $withBase) {
         if(is_array($annotsRaw)) {
             return $annotsRaw;
         } else {

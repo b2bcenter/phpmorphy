@@ -31,7 +31,7 @@ class phpMorphy_Dict_Source_NormalizedAncodes_AncodesManager {
         $helper
         ;
 
-    function __construct(phpMorphy_Dict_Source_SourceInterface $source) {
+    public function __construct(phpMorphy_Dict_Source_SourceInterface $source) {
         $this->helper = phpMorphy_Dict_GramTab_ConstStorage_Factory::create($source->getLanguage());
 
         foreach($source->getAncodes() as $ancode) {
@@ -88,19 +88,19 @@ class phpMorphy_Dict_Source_NormalizedAncodes_AncodesManager {
         return $result;
     }
 
-    function getAncodesMap() {
+    public function getAncodesMap() {
         return $this->ancodes_map;
     }
 
-    function getPosesMap() {
+    public function getPosesMap() {
         return $this->poses_map;
     }
 
-    function getGrammemsMap() {
+    public function getGrammemsMap() {
         return $this->grammems_map;
     }
 
-    function resolveAncode($ancodeId) {
+    public function resolveAncode($ancodeId) {
         if(!isset($this->ancodes_map[$ancodeId])) {
             throw new Exception("Unknown ancode_id '$ancodeId' given");
         }
@@ -108,11 +108,11 @@ class phpMorphy_Dict_Source_NormalizedAncodes_AncodesManager {
         return $this->ancodes_map[$ancodeId];
     }
 
-    function getAncodes() {
+    public function getAncodes() {
         return $this->ancodes;
     }
 
-    function getAncode($ancodeId, $resolve = true) {
+    public function getAncode($ancodeId, $resolve = true) {
         $ancode_id = $resolve ? $this->resolveAncode($ancodeId) : (int)$ancodeId;
 
         return $this->ancodes[$ancode_id];

@@ -25,15 +25,15 @@ class phpMorphy_UserDict_XmlDiff_ParadigmContainer {
     /** @var phpMorphy_Paradigm_ParadigmInterface */
     private $collection = array();
 
-    function append(phpMorphy_Paradigm_ParadigmInterface $paradigm) {
+    public function append(phpMorphy_Paradigm_ParadigmInterface $paradigm) {
         $this->collection[] = $paradigm;
     }
 
-    function delete($index) {
+    public function delete($index) {
         array_splice($this->collection, $index, 1);
     }
 
-    function saveToMutableSource(
+    public function saveToMutableSource(
         phpMorphy_Dict_Source_Mutable $source,
         phpMorphy_UserDict_EncodingConverter $converter
     ) {
@@ -44,7 +44,7 @@ class phpMorphy_UserDict_XmlDiff_ParadigmContainer {
         }
     }
 
-    function findWord($word, $onlyLemma = false, &$indices = null) {
+    public function findWord($word, $onlyLemma = false, &$indices = null) {
         $result = array();
         $indices = array();
 

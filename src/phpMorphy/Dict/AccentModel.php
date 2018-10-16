@@ -24,21 +24,21 @@ class phpMorphy_Dict_AccentModel extends phpMorphy_Util_Collection_ArrayBased/*_
     protected
         $id;
 
-    function __construct($id) {
+    public function __construct($id) {
         parent::__construct(/*$this->createStorageCollection(), array('integer', 'NULL')*/);
 
         $this->setId($id);
     }
 
-    function setId($id) {
+    public function setId($id) {
         $this->id = $id;
     }
 
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
-    function append($offset) {
+    public function append($offset) {
         if($offset === null) {
             $this->addEmptyAccent();
         } else {
@@ -46,15 +46,15 @@ class phpMorphy_Dict_AccentModel extends phpMorphy_Util_Collection_ArrayBased/*_
         }
     }
 
-    function addEmptyAccent() {
+    public function addEmptyAccent() {
         parent::append(null);
     }
 
-    static function isEmptyAccent($accent) {
+    public static function isEmptyAccent($accent) {
         return null === $accent;
     }
 
-    function getAccents() {
+    public function getAccents() {
         return $this->getData();
     }
 
@@ -64,7 +64,7 @@ class phpMorphy_Dict_AccentModel extends phpMorphy_Util_Collection_ArrayBased/*_
     }
     */
 
-    function __toString() {
+    public function __toString() {
         return phpMorphy_Dict_ModelsFormatter::create()->formatAccentModel($this);
->   }
+    }
 }

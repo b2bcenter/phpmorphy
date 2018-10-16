@@ -36,7 +36,7 @@ abstract class phpMorphy_Dict_Writer_Decorator extends phpMorphy_Dict_Writer_Wri
     /**
      * @param $object phpMorphy_Dict_Writer_WriterAbstract
      */
-    function __construct(phpMorphy_Dict_Writer_WriterAbstract $object) {
+    public function __construct(phpMorphy_Dict_Writer_WriterAbstract $object) {
         $this->setDecorateeObject($object);
     }
     
@@ -109,7 +109,7 @@ abstract class phpMorphy_Dict_Writer_Decorator extends phpMorphy_Dict_Writer_Wri
     /**
      * Implement deep copy paradigm
      */
-    function __clone() {
+    public function __clone() {
         if(isset($this->object)) {
             $this->object = clone $this->object;
         }

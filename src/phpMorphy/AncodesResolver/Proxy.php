@@ -31,7 +31,7 @@ class phpMorphy_AncodesResolver_Proxy extends phpMorphy_AncodesResolver_Decorato
      * @param string $class
      * @param array $ctorArgs
      */
-    function __construct($class, array $ctorArgs) {
+    public function __construct($class, array $ctorArgs) {
         $this->class = (string)$class;
         $this->args = $ctorArgs;
 

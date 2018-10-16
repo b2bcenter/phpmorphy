@@ -28,7 +28,7 @@ class phpMorphy_Dict_Source_Xml_Section_Flexias extends phpMorphy_Dict_Source_Xm
         return 'flexias';
     }
 
-    function rewind() {
+    public function rewind() {
         $this->current = null;
 
         parent::rewind();

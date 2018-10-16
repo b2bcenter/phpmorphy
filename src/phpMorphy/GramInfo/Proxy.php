@@ -27,7 +27,7 @@ class phpMorphy_GramInfo_Proxy extends phpMorphy_GramInfo_Decorator {
     /**
      * @param phpMorphy_Storage_StorageInterface $storage
      */
-    function __construct(phpMorphy_Storage_StorageInterface $storage) {
+    public function __construct(phpMorphy_Storage_StorageInterface $storage) {
         $this->storage = $storage;
         $this->actAsProxy();
     }

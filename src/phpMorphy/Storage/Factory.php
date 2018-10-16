@@ -34,14 +34,14 @@ class phpMorphy_Storage_Factory {
     /**
      * @param array $shmOptions
      */
-    function __construct($shmOptions = array()) {
+    public function __construct($shmOptions = array()) {
         $this->shm_options = $shmOptions;
     }
 
     /**
      * @return phpMorphy_Shm_CacheInterface
      */
-    function getShmCache() {
+    public function getShmCache() {
         if(!isset($this->shm_cache)) {
             $this->shm_cache = $this->createShmCache($this->shm_options);
         }
@@ -56,7 +56,7 @@ class phpMorphy_Storage_Factory {
      * @param bool $isLazy
      * @return phpMorphy_Storage_File|phpMorphy_Storage_Mem|phpMorphy_Storage_Proxy|phpMorphy_Storage_Shm
      */
-    function create($type, $fileName, $isLazy) {
+    public function create($type, $fileName, $isLazy) {
         if(!$this->isTypeSupported($type)) {
             throw new phpMorphy_Exception("Invalid storage type $type specified");
         }

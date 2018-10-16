@@ -40,11 +40,11 @@ class phpMorphy_UnicodeHelper_Utf8 extends phpMorphy_UnicodeHelper_UnicodeHelper
         3,3,3,3,3,3,3,3, 4,4,4,4,5,5,0,0
     );
 
-    function getFirstCharSize($str) {
+    public function getFirstCharSize($str) {
         return 1 + self::$TAILS_LENGTH_MAP[ord($str[0])];
     }
 
-    function strrev($str) {
+    public function strrev($str) {
         preg_match_all('/./us', $str, $matches);
         return implode('', array_reverse($matches[0]));
         /*
@@ -62,7 +62,7 @@ class phpMorphy_UnicodeHelper_Utf8 extends phpMorphy_UnicodeHelper_UnicodeHelper
         */
     }
 
-    function clearIncompleteCharsAtEnd($str) {
+    public function clearIncompleteCharsAtEnd($str) {
         $strlen = $GLOBALS['__phpmorphy_strlen']($str);
 
         if(!$strlen) {

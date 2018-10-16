@@ -26,7 +26,7 @@ abstract class phpMorphy_Dict_Source_Xml_SectionAbstract implements Iterator {
         $section_name,
         $xml_file;
 
-    function __construct($xmlFile) {
+    public function __construct($xmlFile) {
         $this->xml_file = $xmlFile;
         $this->section_name = $this->getSectionName();
     }
@@ -63,11 +63,11 @@ abstract class phpMorphy_Dict_Source_Xml_SectionAbstract implements Iterator {
         return $reader;
     }
 
-    function current() {
+    public function current() {
         return $this->getCurrentValue();
     }
 
-    function next() {
+    public function next() {
         $this->readNext($this->reader);
         /*
         if($this->valid()) {
@@ -76,11 +76,11 @@ abstract class phpMorphy_Dict_Source_Xml_SectionAbstract implements Iterator {
         */
     }
 
-    function key() {
+    public function key() {
         return $this->getCurrentKey();
     }
 
-    function rewind() {
+    public function rewind() {
         if(!is_null($this->reader)) {
             $this->reader->close();
         }
@@ -90,7 +90,7 @@ abstract class phpMorphy_Dict_Source_Xml_SectionAbstract implements Iterator {
         $this->next();
     }
 
-    function valid() {
+    public function valid() {
         return !is_null($this->reader);
     }
 

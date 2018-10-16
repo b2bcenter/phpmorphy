@@ -24,7 +24,7 @@ class phpMorphy_Dict_Source_Mrd implements phpMorphy_Dict_Source_SourceInterface
     protected
         $manager;
 
-    function __construct($mwzFilePath) {
+    public function __construct($mwzFilePath) {
         $this->manager = $this->createMrdManager($mwzFilePath);
     }
 
@@ -35,12 +35,12 @@ class phpMorphy_Dict_Source_Mrd implements phpMorphy_Dict_Source_SourceInterface
         return $manager;
     }
 
-    function getName() {
+    public function getName() {
         return 'mrd';
     }
 
     // phpMorphy_Dict_Source_SourceInterface
-    function getLanguage() {
+    public function getLanguage() {
         $lang = strtolower($this->manager->getLanguage());
 
         switch($lang) {
@@ -55,27 +55,27 @@ class phpMorphy_Dict_Source_Mrd implements phpMorphy_Dict_Source_SourceInterface
         }
     }
 
-    function getDescription() {
+    public function getDescription() {
         return 'Dialing dictionary file for ' . $this->manager->getLanguage() . ' language';
     }
 
-    function getAncodes() {
+    public function getAncodes() {
         return $this->manager->getGramInfo();
     }
 
-    function getFlexias() {
+    public function getFlexias() {
         return $this->manager->getMrd()->flexias_section;
     }
 
-    function getPrefixes() {
+    public function getPrefixes() {
         return $this->manager->getMrd()->prefixes_section;
     }
 
-    function getAccents() {
+    public function getAccents() {
         return $this->manager->getMrd()->accents_section;
     }
 
-    function getLemmas() {
+    public function getLemmas() {
         return $this->manager->getMrd()->lemmas_section;
     }
 }

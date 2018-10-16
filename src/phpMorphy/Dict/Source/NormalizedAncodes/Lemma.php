@@ -25,12 +25,12 @@ class phpMorphy_Dict_Source_NormalizedAncodes_Lemma extends phpMorphy_Dict_Lemma
     protected
         $manager;
 
-    function __construct(phpMorphy_Dict_Source_NormalizedAncodes_AncodesManager $manager, phpMorphy_Dict_Lemma $inner) {
+    public function __construct(phpMorphy_Dict_Source_NormalizedAncodes_AncodesManager $manager, phpMorphy_Dict_Lemma $inner) {
         parent::__construct($inner);
         $this->manager = $manager;
     }
 
-    function getAncodeId() {
+    public function getAncodeId() {
         return $this->manager->resolveAncode(parent::getAncodeId());
     }
 }

@@ -25,7 +25,7 @@ class phpMorphy_AncodesResolver_ToDialingAncodes implements phpMorphy_AncodesRes
         $ancodes_map,
         $reverse_map;
 
-    function __construct(phpMorphy_Storage_StorageInterface $ancodesMap) {
+    public function __construct(phpMorphy_Storage_StorageInterface $ancodesMap) {
         if(false === ($this->ancodes_map = unserialize($ancodesMap->read(0, $ancodesMap->getFileSize())))) {
             throw new phpMorphy_Exception("Can`t open phpMorphy => Dialing ancodes map");
         }
@@ -33,7 +33,7 @@ class phpMorphy_AncodesResolver_ToDialingAncodes implements phpMorphy_AncodesRes
         $this->reverse_map = array_flip($this->ancodes_map);
     }
 
-    function unresolve($ancode) {
+    public function unresolve($ancode) {
         if(!isset($ancode)) {
             return null;
         }
@@ -45,7 +45,7 @@ class phpMorphy_AncodesResolver_ToDialingAncodes implements phpMorphy_AncodesRes
         return $this->reverse_map[$ancode];
     }
 
-    function resolve($ancodeId) {
+    public function resolve($ancodeId) {
         if(!isset($ancodeId)) {
             return null;
         }

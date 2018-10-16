@@ -27,28 +27,28 @@ interface phpMorphy_Paradigm_ParadigmInterface extends Countable, ArrayAccess, I
      * @abstract
      * @return string
      */
-    function getBaseForm();
+    public function getBaseForm();
 
     /**
      * Returns lemma for this paradigm
      * @abstract
      * @return string
      */
-    function getLemma();
+    public function getLemma();
 
     /**
      * Returns longest common substring for all word forms in this paradigm
      * @abstract
      * @return string
      */
-    function getPseudoRoot();
+    public function getPseudoRoot();
 
     /**
      * Returns all unique word forms for this paradigm
      * @abstract
      * @return string[]
      */
-    function getAllForms();
+    public function getAllForms();
 
     /**
      * Returns word form at given position in paradigm
@@ -56,5 +56,5 @@ interface phpMorphy_Paradigm_ParadigmInterface extends Countable, ArrayAccess, I
      * @param int $index
      * @return void
      */
-    function getWordForm($index);
+    public function getWordForm($index);
 }

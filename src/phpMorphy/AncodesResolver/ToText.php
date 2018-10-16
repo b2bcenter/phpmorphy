@@ -23,11 +23,11 @@
 class phpMorphy_AncodesResolver_ToText implements phpMorphy_AncodesResolver_AncodesResolverInterface {
     protected $gramtab;
 
-    function __construct(phpMorphy_GramTab_GramTabInterface $gramtab) {
+    public function __construct(phpMorphy_GramTab_GramTabInterface $gramtab) {
         $this->gramtab = $gramtab;
     }
 
-    function resolve($ancodeId) {
+    public function resolve($ancodeId) {
         if(!isset($ancodeId)) {
             return null;
         }
@@ -35,7 +35,7 @@ class phpMorphy_AncodesResolver_ToText implements phpMorphy_AncodesResolver_Anco
         return $this->gramtab->ancodeToString($ancodeId);
     }
 
-    function unresolve($ancode) {
+    public function unresolve($ancode) {
         return $this->gramtab->stringToAncode($ancode);
         //throw new phpMorphy_Exception("Can`t convert grammar info in text into ancode id");
     }

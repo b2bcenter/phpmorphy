@@ -23,6 +23,6 @@
 
 
 interface phpMorphy_Dict_Source_NormalizedAncodesInterface {
-    function getPoses();
-    function getGrammems();
+    public function getPoses();
+    public function getGrammems();
 }

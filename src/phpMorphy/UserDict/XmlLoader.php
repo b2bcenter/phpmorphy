@@ -46,7 +46,7 @@ class phpMorphy_UserDict_XmlLoader {
      * @param phpMorphy_UserDict_VisitorInterface $visitor
      * @param phpMorphy_UserDict_EncodingConverter $encodingConverter
      */
-    static function loadFromFile(
+    public static function loadFromFile(
         $filePath,
         phpMorphy_UserDict_VisitorInterface $visitor,
         phpMorphy_UserDict_EncodingConverter $encodingConverter
@@ -60,7 +60,7 @@ class phpMorphy_UserDict_XmlLoader {
      * @param phpMorphy_UserDict_VisitorInterface $visitor
      * @param phpMorphy_UserDict_EncodingConverter $encodingConverter
      */
-    static function loadFromString(
+    public static function loadFromString(
         $xmlString,
         phpMorphy_UserDict_VisitorInterface $visitor,
         phpMorphy_UserDict_EncodingConverter $encodingConverter

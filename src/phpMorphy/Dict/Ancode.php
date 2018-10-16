@@ -27,7 +27,7 @@ class phpMorphy_Dict_Ancode {
         $pos,
         $is_predict;
 
-    function __construct($id, $pos, $isPredict, $grammems = null) {
+    public function __construct($id, $pos, $isPredict, $grammems = null) {
         //self::checkAncodeId($id, "Invalid ancode_id specified in ancode ctor");
 
         $this->grammems = new phpMorphy_Util_Collection_ArrayBased();
@@ -45,32 +45,32 @@ class phpMorphy_Dict_Ancode {
         $this->is_predict = (bool)$isPredict;
     }
 /*
-    static function checkAncodeId($id, $prefix) {
+    public static function checkAncodeId($id, $prefix) {
         if(strlen($id) != 2) {
             throw new Exception("$prefix: Ancode must be exact 2 bytes long, '$id' given");
         }
     }
 */
 
-    function getGrammems() {
+    public function getGrammems() {
         return $this->grammems->getData();
     }
 
-    function setGrammemsFromString($grammems, $separator = ',') {
+    public function setGrammemsFromString($grammems, $separator = ',') {
         $this->grammems->import(new ArrayIterator(array_map('trim', explode(',', $grammems))));
     }
 
-    function setId($id) {
+    public function setId($id) {
         $this->id = $id;
     }
 
-    function addGrammem($grammem) {
+    public function addGrammem($grammem) {
         $this->grammems->append($grammem);
     }
 
-    function getId() { return $this->id; }
-    function getPartOfSpeech() { return $this->pos; }
-    function isPredict() { return $this->is_predict; }
+    public function getId() { return $this->id; }
+    public function getPartOfSpeech() { return $this->pos; }
+    public function isPredict() { return $this->is_predict; }
 
     /*
     protected function createStorageCollection() {
@@ -78,7 +78,7 @@ class phpMorphy_Dict_Ancode {
     }
     */
 
-    function __toString() {
+    public function __toString() {
         return phpMorphy_Dict_ModelsFormatter::create()->formatAncode($this);
     }
 }

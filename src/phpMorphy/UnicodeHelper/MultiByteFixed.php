@@ -29,11 +29,11 @@ class phpMorphy_UnicodeHelper_MultiByteFixed extends phpMorphy_UnicodeHelper_Uni
         $this->char_size = (int)$charSize;
     }
 
-    function getFirstCharSize($str) {
+    public function getFirstCharSize($str) {
         return $this->char_size;
     }
 
-    function strrev($str) {
+    public function strrev($str) {
         return implode('', array_reverse(str_split($str, $this->char_size)));
     }
 
@@ -41,7 +41,7 @@ class phpMorphy_UnicodeHelper_MultiByteFixed extends phpMorphy_UnicodeHelper_Uni
         return $GLOBALS['__phpmorphy_strlen']($str) / $this->char_size;
     }
 
-    function clearIncompleteCharsAtEnd($str) {
+    public function clearIncompleteCharsAtEnd($str) {
         $len = $GLOBALS['__phpmorphy_strlen']($str);
         $mod = $len % $this->char_size;
 

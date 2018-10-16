@@ -25,7 +25,7 @@ class phpMorphy_Generator_GramInfo {
      * @param string $outputDirectory
      * @return void
      */
-    static function generate($outputDirectory) {
+    public static function generate($outputDirectory) {
         $storage_ary = array('File', 'Mem', 'Shm');
 
         $tpl = new phpMorphy_Generator_Template(__DIR__ . '/GramInfo/tpl');

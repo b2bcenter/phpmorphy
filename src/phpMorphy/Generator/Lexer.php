@@ -41,7 +41,7 @@ class phpMorphy_Generator_Lexer implements SeekableIterator, Countable {
     /**
      * @param array $tokens
      */
-    function __construct(array $tokens) {
+    public function __construct(array $tokens) {
         $this->tokens = $tokens;
         $this->rewind();
     }

@@ -29,7 +29,7 @@ class phpMorphy_Util_Collection_ArrayBased implements phpMorphy_Util_Collection_
     /**
      * @param Traversable|null $values
      */
-    function __construct($values = null) {
+    public function __construct($values = null) {
         $this->clear();
 
         if(null !== $values) {
@@ -40,14 +40,14 @@ class phpMorphy_Util_Collection_ArrayBased implements phpMorphy_Util_Collection_
     /**
      * @return array
      */
-    function getData() {
+    public function getData() {
         return $this->data;
     }
 
     /**
      * @return Iterator
      */
-    function getIterator() {
+    public function getIterator() {
         return new ArrayIterator($this->data);
     }
 
@@ -56,7 +56,7 @@ class phpMorphy_Util_Collection_ArrayBased implements phpMorphy_Util_Collection_
      * @param Traversable $values
      * @return void
      */
-    function import($values) {
+    public function import($values) {
         if($values instanceof Traversable || is_array($values)) {
             foreach($values as $v) {
                 $this->append($v);
@@ -70,14 +70,14 @@ class phpMorphy_Util_Collection_ArrayBased implements phpMorphy_Util_Collection_
      * @param mixed $value
      * @return void
      */
-    function append($value) {
+    public function append($value) {
         $this->data[] = $value;
     }
 
     /**
      * @return void
      */
-    function clear() {
+    public function clear() {
         $this->data = array();
     }
 
@@ -85,7 +85,7 @@ class phpMorphy_Util_Collection_ArrayBased implements phpMorphy_Util_Collection_
      * @param int $offset
      * @return bool
      */
-    function offsetExists($offset) {
+    public function offsetExists($offset) {
         return array_key_exists($offset, $this->data);
     }
 
@@ -94,7 +94,7 @@ class phpMorphy_Util_Collection_ArrayBased implements phpMorphy_Util_Collection_
      * @param int $offset
      * @return mixed
      */
-    function offsetGet($offset) {
+    public function offsetGet($offset) {
         if(!$this->offsetExists($offset)) {
             throw new phpMorphy_Exception("Invalid offset($offset) given");
         }
@@ -107,7 +107,7 @@ class phpMorphy_Util_Collection_ArrayBased implements phpMorphy_Util_Collection_
      * @param mixed $value
      * @return void
      */
-    function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value) {
         if(null === $offset) {
             $this->append($value);
         } else {
@@ -119,14 +119,14 @@ class phpMorphy_Util_Collection_ArrayBased implements phpMorphy_Util_Collection_
      * @param int $offset
      * @return void
      */
-    function offsetUnset($offset) {
+    public function offsetUnset($offset) {
         array_splice($this->data, $offset, 1);
     }
 
     /**
      * @return int
      */
-    function count() {
+    public function count() {
         return count($this->data);
     }
 }

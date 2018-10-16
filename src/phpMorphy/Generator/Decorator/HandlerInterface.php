@@ -27,7 +27,7 @@ interface phpMorphy_Generator_Decorator_HandlerInterface {
      * @param string $decoratorClass
      * @return string
      */
-    function generateHeaderDocComment($decorateeClass, $decoratorClass);
+    public function generateHeaderDocComment($decorateeClass, $decoratorClass);
 
     /**
      * @abstract
@@ -35,7 +35,7 @@ interface phpMorphy_Generator_Decorator_HandlerInterface {
      * @param string $decorateeClass
      * @return string
      */
-    function generateCommonMethods($decoratorClass, $decorateeClass);
+    public function generateCommonMethods($decoratorClass, $decorateeClass);
 
     /**
      * @abstract
@@ -47,7 +47,7 @@ interface phpMorphy_Generator_Decorator_HandlerInterface {
      * @param string $passArgs
      * @return string
      */
-    function generateMethod($docComment, $modifiers, $isReturnRef, $name, $args, $passArgs);
+    public function generateMethod($docComment, $modifiers, $isReturnRef, $name, $args, $passArgs);
 
     /**
      * @abstract
@@ -57,5 +57,5 @@ interface phpMorphy_Generator_Decorator_HandlerInterface {
      * @param string[]|null $implements
      * @return string
      */
-    function generateClassDeclaration($docComment, $class, $extends, $implements);
+    public function generateClassDeclaration($docComment, $class, $extends, $implements);
 }

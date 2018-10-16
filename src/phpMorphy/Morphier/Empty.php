@@ -21,16 +21,16 @@
 */
 
 class phpMorphy_Morphier_Empty implements phpMorphy_Morphier_MorphierInterface {
-    function getAnnot($word) { return false; }
-    function getBaseForm($word) { return false; }
-    function getAllForms($word) { return false; }
-    function getAllFormsWithGramInfo($word) { return false; }
-    function getPseudoRoot($word) { return false; }
-    function getPartOfSpeech($word) { return false; }
-    function getParadigmCollection($word) { return false; }
-    function getAllFormsWithAncodes($word) { return false; }
-    function getAncode($word) { return false; }
-    function getGrammarInfoMergeForms($word) { return false; }
-    function getGrammarInfo($word) { return false; }
-    function castFormByGramInfo($word, $partOfSpeech, $grammems, $returnWords = false, $callback = null) { return false; }
+    public function getAnnot($word) { return false; }
+    public function getBaseForm($word) { return false; }
+    public function getAllForms($word) { return false; }
+    public function getAllFormsWithGramInfo($word) { return false; }
+    public function getPseudoRoot($word) { return false; }
+    public function getPartOfSpeech($word) { return false; }
+    public function getParadigmCollection($word) { return false; }
+    public function getAllFormsWithAncodes($word) { return false; }
+    public function getAncode($word) { return false; }
+    public function getGrammarInfoMergeForms($word) { return false; }
+    public function getGrammarInfo($word) { return false; }
+    public function castFormByGramInfo($word, $partOfSpeech, $grammems, $returnWords = false, $callback = null) { return false; }
 }

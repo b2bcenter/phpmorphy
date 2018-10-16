@@ -26,14 +26,14 @@ class phpMorphy_Fsa_State {
 		$transes,
 		$raw_transes;
 
-	function phpMorphy_Fsa_State(phpMorphy_Fsa_FsaInterface $fsa, $index) {
+	public function __construct(phpMorphy_Fsa_FsaInterface $fsa, $index) {
 		$this->fsa = $fsa;
 
 		$this->raw_transes = $fsa->readState($index);
 		$this->transes = $fsa->unpackTranses($this->raw_transes);
 	}
 
-	function getLinks() {
+	public function getLinks() {
 		$result = array();
 
 		for($i = 0, $c = count($this->transes); $i < $c; $i++) {
@@ -49,7 +49,7 @@ class phpMorphy_Fsa_State {
 		return $result;
 	}
 
-	function getSize() { return count($this->transes); }
+	public function getSize() { return count($this->transes); }
 
 	protected function createNormalLink($trans, $raw) {
 		return new phpMorphy_Fsa_Link($this->fsa, $trans, $raw);

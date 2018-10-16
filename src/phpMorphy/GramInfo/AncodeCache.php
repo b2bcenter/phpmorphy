@@ -28,7 +28,7 @@ class phpMorphy_GramInfo_AncodeCache extends phpMorphy_GramInfo_Decorator {
     protected
         $cache;
 
-    function __construct(phpMorphy_GramInfo_GramInfoInterface $inner, $resource) {
+    public function __construct(phpMorphy_GramInfo_GramInfoInterface $inner, $resource) {
         parent::__construct($inner);
 
         if(false === ($this->cache = unserialize($resource->read(0, $resource->getFileSize())))) {
@@ -36,7 +36,7 @@ class phpMorphy_GramInfo_AncodeCache extends phpMorphy_GramInfo_Decorator {
         }
     }
 
-    function readAncodes($info) {
+    public function readAncodes($info) {
         $offset = $info['offset'];
 
         if(isset($this->cache[$offset])) {

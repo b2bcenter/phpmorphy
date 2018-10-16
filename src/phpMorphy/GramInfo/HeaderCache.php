@@ -32,7 +32,7 @@ class phpMorphy_GramInfo_HeaderCache extends phpMorphy_GramInfo_Decorator {
      * @param string $cacheFilePath
      *
      */
-    function __construct(phpMorphy_GramInfo_GramInfoInterface $object, $cacheFilePath) {
+    public function __construct(phpMorphy_GramInfo_GramInfoInterface $object, $cacheFilePath) {
         parent::__construct($object);
 
         $this->cache = $this->readCache($cacheFilePath);
@@ -55,35 +55,35 @@ class phpMorphy_GramInfo_HeaderCache extends phpMorphy_GramInfo_Decorator {
     /**
      * @return string
      */
-    function getLocale()  {
+    public function getLocale()  {
         return $this->cache['lang'];
     }
 
     /**
      * @return string
      */
-    function getEncoding()  {
+    public function getEncoding()  {
         return $this->cache['encoding'];
     }
 
     /**
      * @return int
      */
-    function getCharSize()  {
+    public function getCharSize()  {
         return $this->cache['char_size'];
     }
 
     /**
      * @return string
      */
-    function getEnds() {
+    public function getEnds() {
         return $this->ends;
     }
 
     /**
      * @return array
      */
-    function getHeader() {
+    public function getHeader() {
         return $this->cache;
     }
 }

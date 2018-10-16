@@ -34,7 +34,7 @@ class phpMorphy_Dict_Writer_Csv extends phpMorphy_Dict_Writer_WriterAbstract {
     private $lemmas_file;
     private $is_write_header;
 
-    function __construct(
+    public function __construct(
         $posesFile,
         $grammemsFile,
         $ancodesFile,
@@ -55,7 +55,7 @@ class phpMorphy_Dict_Writer_Csv extends phpMorphy_Dict_Writer_WriterAbstract {
         $this->is_write_header = (bool)$isWriteHeader;
     }
 
-    function write(phpMorphy_Dict_Source_SourceInterface $source) {
+    public function write(phpMorphy_Dict_Source_SourceInterface $source) {
         $this->getObserver()->onStart();
 
         try {

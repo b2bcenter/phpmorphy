@@ -21,7 +21,7 @@
 */
 
 class phpMorphy_Semaphore_Empty implements phpMorphy_Semaphore_SemaphoreInterface {
-    function lock() { }
-    function unlock() { }
-    function remove() { }
+    public function lock() { }
+    public function unlock() { }
+    public function remove() { }
 };

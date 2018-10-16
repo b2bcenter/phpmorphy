@@ -25,7 +25,7 @@
 class phpMorphy_UserDict_Log_ErrorsHandlerException
     implements phpMorphy_UserDict_Log_ErrorsHandlerInterface {
 
-    function handle($message) {
+    public function handle($message) {
         throw new phpMorphy_UserDict_Exception($message);
     }
 }

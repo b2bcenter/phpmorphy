@@ -25,41 +25,41 @@ interface phpMorphy_UserDict_LogInterface {
     /**
      * @param string $lexem
      */
-    function addLexem($lexem);
+    public function addLexem($lexem);
 
     /**
      * @param string $lexem
      */
-    function deleteLexem($lexem);
+    public function deleteLexem($lexem);
 
     /**
      * @param string $lexem
      */
-    function editLexem($lexem);
+    public function editLexem($lexem);
 
     /**
      * @param phpMorphy_UserDict_Pattern $pattern
      * @param phpMorphy_WordForm_WordFormInterface[] $variants
      */
-    function errorAmbiguity(phpMorphy_UserDict_Pattern $pattern, $variants, $isError = true);
+    public function errorAmbiguity(phpMorphy_UserDict_Pattern $pattern, $variants, $isError = true);
 
     /**
      * @param phpMorphy_UserDict_Pattern $pattern
      */
-    function errorPatternNotFound(phpMorphy_UserDict_Pattern $pattern, $isError = true);
+    public function errorPatternNotFound(phpMorphy_UserDict_Pattern $pattern, $isError = true);
 
     /**
      * @param string $patternWord
      */
-    function errorCantDeduceForm($patternWord, $isError = true);
+    public function errorCantDeduceForm($patternWord, $isError = true);
 
     /**
      * @param string $message
      */
-    function infoMessage($message);
+    public function infoMessage($message);
 
     /**
      * @param string $message
      */
-    function errorMessage($message);
+    public function errorMessage($message);
 }

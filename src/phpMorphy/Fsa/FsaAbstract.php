@@ -53,7 +53,7 @@ abstract class phpMorphy_Fsa_FsaAbstract implements phpMorphy_Fsa_FsaInterface {
      * @param bool $isLazy
      * @return phpMorphy_Fsa_FsaInterface
      */
-    static function create(phpMorphy_Storage_StorageInterface $storage, $isLazy) {
+    public static function create(phpMorphy_Storage_StorageInterface $storage, $isLazy) {
         if($isLazy) {
             return new phpMorphy_Fsa_Proxy($storage);
         }
@@ -87,21 +87,21 @@ abstract class phpMorphy_Fsa_FsaAbstract implements phpMorphy_Fsa_FsaInterface {
     /**
      * @return int
      */
-    function getRootTrans() {
+    public function getRootTrans() {
         return $this->root_trans;
     }
 
     /**
      * @return phpMorphy_Fsa_State
      */
-    function getRootState() {
+    public function getRootState() {
         return $this->createState($this->getRootStateIndex());
     }
 
     /**
      * @return string[]
      */
-    function getAlphabet() {
+    public function getAlphabet() {
         if (!isset($this->alphabet)) {
             $this->alphabet = str_split($this->readAlphabet());
         }

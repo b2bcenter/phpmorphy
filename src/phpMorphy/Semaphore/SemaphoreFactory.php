@@ -27,7 +27,7 @@ abstract class phpMorphy_Semaphore_SemaphoreFactory {
      * @param bool $createEmpty
      * @return phpMorphy_Semaphore_SemaphoreInterface
      */
-    static function create($key, $createEmpty = false) {
+    public static function create($key, $createEmpty = false) {
         if(!$createEmpty) {
             if (0 == strcasecmp($GLOBALS['__phpmorphy_substr'](PHP_OS, 0, 3), 'WIN')) {
                 return new phpMorphy_Semaphore_Win($key);

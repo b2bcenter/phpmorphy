@@ -25,26 +25,26 @@ interface phpMorphy_Storage_StorageInterface {
      * Returns name of file
      * @return string
      */
-    function getFileName();
+    public function getFileName();
 
     /**
      * Returns size of file in bytes
      * @abstract
      * @return int
      */
-    function getFileSize();
+    public function getFileSize();
 
     /**
      * Returns resource of this storage
      * @return mixed
      */
-    function getResource();
+    public function getResource();
 
     /**
      * Returns type of this storage
      * @return string
      */
-    function getTypeAsString();
+    public function getTypeAsString();
 
     /**
      * Reads $len bytes from $offset offset
@@ -55,5 +55,5 @@ interface phpMorphy_Storage_StorageInterface {
      * @param bool $exactLength If this set to true, then exception thrown when we read less than $len bytes
      * @return string
      */
-    function read($offset, $length, $exactLength = true);
+    public function read($offset, $length, $exactLength = true);
 }

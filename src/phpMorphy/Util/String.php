@@ -28,7 +28,7 @@ class phpMorphy_Util_String {
      * @param string $separatorChar
      * @return string|false
      */
-    static function getLongestCommonSubstring(array $stringsArray, $isUtf8 = true, $separatorChar = "\0") {
+    public static function getLongestCommonSubstring(array $stringsArray, $isUtf8 = true, $separatorChar = "\0") {
         $strings_count = count($stringsArray);
 
         if($strings_count < 2) {

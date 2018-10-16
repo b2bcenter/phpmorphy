@@ -21,7 +21,7 @@
 */
 
 class phpMorphy_Paradigm_Collection extends phpMorphy_Util_Collection_Typed {
-    function __construct() {
+    public function __construct() {
         parent::__construct(
             new phpMorphy_Util_Collection_ArrayBased(),
             'phpMorphy_Paradigm_ParadigmInterface'
@@ -32,7 +32,7 @@ class phpMorphy_Paradigm_Collection extends phpMorphy_Util_Collection_Typed {
      * @param string|string[] $poses
      * @return phpMorphy_Paradigm_ParadigmInterface[]
      */
-    function getByPartOfSpeech($poses) {
+    public function getByPartOfSpeech($poses) {
         $result = array();
         settype($poses, 'array');
 

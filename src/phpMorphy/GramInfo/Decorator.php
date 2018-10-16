@@ -36,7 +36,7 @@ abstract class phpMorphy_GramInfo_Decorator implements phpMorphy_GramInfo_GramIn
     /**
      * @param $object phpMorphy_GramInfo_GramInfoInterface
      */
-    function __construct(phpMorphy_GramInfo_GramInfoInterface $object) {
+    public function __construct(phpMorphy_GramInfo_GramInfoInterface $object) {
         $this->setDecorateeObject($object);
     }
     
@@ -109,7 +109,7 @@ abstract class phpMorphy_GramInfo_Decorator implements phpMorphy_GramInfo_GramIn
     /**
      * Implement deep copy paradigm
      */
-    function __clone() {
+    public function __clone() {
         if(isset($this->object)) {
             $this->object = clone $this->object;
         }

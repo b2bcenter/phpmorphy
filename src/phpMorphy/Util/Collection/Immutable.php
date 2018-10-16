@@ -22,23 +22,23 @@
 
 
 class phpMorphy_Util_Collection_Immutable extends phpMorphy_Util_Collection_Decorator {
-    function import($values) {
+    public function import($values) {
         throw new phpMorphy_Exception("Collection is immutable");
     }
 
-    function append($value) {
+    public function append($value) {
         throw new phpMorphy_Exception("Collection is immutable");
     }
 
-    function clear() {
+    public function clear() {
         throw new phpMorphy_Exception("Collection is immutable");
     }
 
-    function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value) {
         throw new phpMorphy_Exception("Collection is immutable");
     }
 
-    function offsetUnset($offset) {
+    public function offsetUnset($offset) {
         throw new phpMorphy_Exception("Collection is immutable");
     }
 }

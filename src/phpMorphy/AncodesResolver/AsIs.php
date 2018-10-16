@@ -22,14 +22,14 @@
 
 class phpMorphy_AncodesResolver_AsIs implements phpMorphy_AncodesResolver_AncodesResolverInterface {
     // This ctor for ReflectionClass::newInstanceArgs($args) with $args = array()
-    function __construct() {
+    public function __construct() {
     }
 
-    function resolve($ancodeId) {
+    public function resolve($ancodeId) {
         return $ancodeId;
     }
 
-    function unresolve($ancode) {
+    public function unresolve($ancode) {
         return $ancode;
     }
 }

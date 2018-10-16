@@ -1,4 +1,4 @@
-	function getAlphabetNum() {
+	public function getAlphabetNum() {
 		if(!isset($this->alphabet_num)) {
 			$this->alphabet_num = array_map('ord', $this->getAlphabet());
 		}

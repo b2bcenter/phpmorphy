@@ -95,11 +95,11 @@ class phpMorphy_Dict_Source_ValidatingSource_Validator implements phpMorphy_Dict
         return $this->ancodes;
     }
 
-    function validateFlexiaId($id) { return $this->flexias->hasId($id); }
-    function validateAccentId($id) { return $this->accents->hasId($id); }
-    function validateSessionId($id) { return $this->sessions->hasId($id); }
-    function validatePrefixId($id) { return $this->prefixes->hasId($id); }
-    function validateAncodeId($id) { return $this->ancodes->hasId($id); }
-    function validatePartOfSpeechId($id) {  return $this->poses->hasId($id); }
-    function validateGrammemId($id) { return $this->grammems->hasId($id); }
+    public function validateFlexiaId($id) { return $this->flexias->hasId($id); }
+    public function validateAccentId($id) { return $this->accents->hasId($id); }
+    public function validateSessionId($id) { return $this->sessions->hasId($id); }
+    public function validatePrefixId($id) { return $this->prefixes->hasId($id); }
+    public function validateAncodeId($id) { return $this->ancodes->hasId($id); }
+    public function validatePartOfSpeechId($id) {  return $this->poses->hasId($id); }
+    public function validateGrammemId($id) { return $this->grammems->hasId($id); }
 }

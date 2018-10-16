@@ -27,7 +27,7 @@ class phpMorphy_Generator_PhpFileParser_FileDescriptor {
         /** @var phpMorphy_Generator_PhpFileParser_phpDoc */
         $phpDoc;
 
-    function finalize() {
+    public function finalize() {
         if(null !== $this->phpDoc) {
             foreach($this->classes as $class) {
                 if(

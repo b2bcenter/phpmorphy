@@ -28,7 +28,7 @@ class phpMorphy_Dict_Source_Xml_Section_Poses extends phpMorphy_Dict_Source_Xml_
         return 'poses';
     }
 
-    function rewind() {
+    public function rewind() {
         $this->current = null;
 
         parent::rewind();

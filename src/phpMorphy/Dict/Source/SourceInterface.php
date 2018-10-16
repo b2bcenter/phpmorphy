@@ -24,37 +24,37 @@ interface phpMorphy_Dict_Source_SourceInterface {
     /**
      * @return string
      */
-    function getName();
+    public function getName();
     /**
      * ISO3166 country code separated by underscore(_) from ISO639 language code
      * ru_RU, uk_UA for example
      * @return string
      */
-    function getLanguage();
+    public function getLanguage();
     /**
      * Any string
      * @return string
      */
-    function getDescription();
+    public function getDescription();
 
     /**
      * @return Iterator over objects of phpMorphy_Dict_Ancode
      */
-    function getAncodes();
+    public function getAncodes();
     /**
      * @return Iterator over objects of phpMorphy_Dict_FlexiaModel
      */
-    function getFlexias();
+    public function getFlexias();
     /**
      * @return Iterator over objects of phpMorphy_Dict_PrefixSet
      */
-    function getPrefixes();
+    public function getPrefixes();
     /**
      * @return Iterator over objects of phpMorphy_Dict_AccentModel
      */
-    function getAccents();
+    public function getAccents();
     /**
      * @return Iterator over objects of phpMorphy_Dict_Lemma
      */
-    function getLemmas();
+    public function getLemmas();
 }

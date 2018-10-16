@@ -30,7 +30,7 @@ abstract class phpMorphy_Storage_StorageAbstract implements phpMorphy_Storage_St
     /**
      * @param string $fileName
      */
-    function __construct($fileName) {
+    public function __construct($fileName) {
         $this->file_name = (string)$fileName;
         $this->resource = $this->open($fileName);
     }
@@ -38,21 +38,21 @@ abstract class phpMorphy_Storage_StorageAbstract implements phpMorphy_Storage_St
     /**
      * @return string
      */
-    function getFileName() {
+    public function getFileName() {
         return $this->file_name;
     }
 
     /**
      * @return mixed
      */
-    function getResource() {
+    public function getResource() {
         return $this->resource;
     }
 
     /**
      * @return string
      */
-    function getTypeAsString() {
+    public function getTypeAsString() {
         return (string)$this->getType();
     }
 
@@ -63,7 +63,7 @@ abstract class phpMorphy_Storage_StorageAbstract implements phpMorphy_Storage_St
      * @param bool $exactLength
      * @return string
      */
-    function read($offset, $len, $exactLength = true) {
+    public function read($offset, $len, $exactLength = true) {
         if ($offset >= $this->getFileSize()) {
             throw new phpMorphy_Exception(
                 "Can`t read $len bytes beyond end of '" . $this->getFileName()
@@ -93,13 +93,13 @@ abstract class phpMorphy_Storage_StorageAbstract implements phpMorphy_Storage_St
      * @param int $len
      * @return string
      */
-    abstract function readUnsafe($offset, $len);
+    abstract public function readUnsafe($offset, $len);
 
     /**
      * @abstract
      * @return string|int
      */
-    abstract function getType();
+    abstract public function getType();
 
     /**
      * Open $fileName and returns that resource

@@ -27,5 +27,5 @@ interface phpMorphy_AnnotDecoder_AnnotDecoderInterface {
      * @param bool $withBase
      * @return array
      */
-    function decode($annotsRaw, $withBase);
+    public function decode($annotsRaw, $withBase);
 }

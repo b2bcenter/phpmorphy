@@ -33,7 +33,7 @@ abstract class phpMorphy_Util_Hunspell_AffixAbstract {
 		$is_empty
 		;
 
-	function __construct($find, $remove, $append, $morph = null) {
+	public function __construct($find, $remove, $append, $morph = null) {
 		$this->remove_len = mb_strlen((string)$remove);
 		$this->remove = $remove;
 		$this->append = $append;
@@ -46,11 +46,11 @@ abstract class phpMorphy_Util_Hunspell_AffixAbstract {
 		$this->reg = $this->getRegExp($find);
 	}
 
-	function getRemoveLength() { return $this->remove_len; }
-	function isMorphDescription() { return isset($this->morph); }
-	function getMorphDescription() { return $this->morph; }
+	public function getRemoveLength() { return $this->remove_len; }
+	public function isMorphDescription() { return isset($this->morph); }
+	public function getMorphDescription() { return $this->morph; }
 
-	function isMatch($word) {
+	public function isMatch($word) {
 		if($this->is_empty) {
 			return true;
 		}
@@ -72,7 +72,7 @@ abstract class phpMorphy_Util_Hunspell_AffixAbstract {
 		return $find === '.';
 	}
 
-	abstract function generateWord($word);
+	abstract public function generateWord($word);
 
 	abstract protected function simpleMatch($word);
 	abstract protected function getRegExp($find);

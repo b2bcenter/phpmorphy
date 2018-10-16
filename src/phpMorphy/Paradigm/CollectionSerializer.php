@@ -27,7 +27,7 @@ class phpMorphy_Paradigm_CollectionSerializer {
      * @param bool $asText
      * @return string
      */
-    function serialize($collection, $asText) {
+    public function serialize($collection, $asText) {
         $result = array();
 
         foreach($collection as $paradigm) {

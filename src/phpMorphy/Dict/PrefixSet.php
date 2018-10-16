@@ -24,17 +24,17 @@ class phpMorphy_Dict_PrefixSet extends phpMorphy_Util_Collection_ArrayBased/*_Ty
     protected
         $id;
 
-    function __construct($id) {
+    public function __construct($id) {
         parent::__construct(/*$this->createStorageCollection(), 'string'*/);
 
         $this->setId($id);
     }
 
-    function setId($id) {
+    public function setId($id) {
         $this->id = $id;
     }
 
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
@@ -42,7 +42,7 @@ class phpMorphy_Dict_PrefixSet extends phpMorphy_Util_Collection_ArrayBased/*_Ty
      * @param bool $extendIfEmpty
      * @return string[]
      */
-    function getPrefixes($extendIfEmpty = false) {
+    public function getPrefixes($extendIfEmpty = false) {
         if($extendIfEmpty && !$this->count()) {
              return array('');
         } else {
@@ -56,7 +56,7 @@ class phpMorphy_Dict_PrefixSet extends phpMorphy_Util_Collection_ArrayBased/*_Ty
     }
     */
 
-    function __toString() {
+    public function __toString() {
         return phpMorphy_Dict_ModelsFormatter::create()->formatPrefixSet($this);
     }
 }

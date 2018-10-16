@@ -27,14 +27,14 @@ class phpMorphy_Shm_Header {
         $files_map = array(),
         $free_map = array();
 
-    function __construct($segmentId, $maxSize) {
+    public function __construct($segmentId, $maxSize) {
         $this->max_size = (int)$maxSize;
         $this->segment_id = $segmentId;
 
         $this->clear();
     }
 
-    function lookup($filePath) {
+    public function lookup($filePath) {
         if(!$this->exists($filePath)) {
             throw new phpMorphy_Exception("'$filePath' not found in shm");
         }
@@ -42,11 +42,11 @@ class phpMorphy_Shm_Header {
         return $this->files_map[$this->normalizePath($filePath)];
     }
 
-    function exists($filePath) {
+    public function exists($filePath) {
         return isset($this->files_map[$this->normalizePath($filePath)]);
     }
 
-    function register($filePath, $fh) {
+    public function register($filePath, $fh) {
         if($this->exists($filePath)) {
             throw new phpMorphy_Exception("Can`t register, '$filePath' already exists");
         }
@@ -71,7 +71,7 @@ class phpMorphy_Shm_Header {
         return $entry;
     }
 
-    function delete($filePath) {
+    public function delete($filePath) {
         $data = $this->lookup($filePath);
 
         unset($this->files_map[$this->normalizePath($filePath)]);
@@ -79,12 +79,12 @@ class phpMorphy_Shm_Header {
         $this->freeBlock($data['offset'], $data['size']);
     }
 
-    function clear() {
+    public function clear() {
         $this->files_map = array();
         $this->free_map = array(0 => $this->max_size);
     }
 
-    function getAllFiles() {
+    public function getAllFiles() {
         return $this->files_map;
     }
 

@@ -25,7 +25,7 @@
 class phpMorphy_Dict_Source_ValidatingSource_ValidatorSection implements Countable{
     protected $map = array();
 
-    function insertId($id) {
+    public function insertId($id) {
         if($this->hasId($id)) {
             return true;
         }
@@ -34,7 +34,7 @@ class phpMorphy_Dict_Source_ValidatingSource_ValidatorSection implements Countab
         return false;
     }
 
-    function hasId($id) {
+    public function hasId($id) {
         return isset($this->map[$id]);
     }
 

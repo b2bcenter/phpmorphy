@@ -34,7 +34,7 @@ class phpMorphy_Storage_Proxy extends phpMorphy_Storage_Decorator {
      * @param string $fileName
      * @param phpMorphy_Storage_Factory $factory
      */
-    function __construct($type, $fileName, phpMorphy_Storage_Factory $factory) {
+    public function __construct($type, $fileName, phpMorphy_Storage_Factory $factory) {
         $this->file_name = (string)$fileName;
         $this->type = $type;
         $this->factory = $factory;

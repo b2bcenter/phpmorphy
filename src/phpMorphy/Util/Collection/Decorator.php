@@ -36,7 +36,7 @@ abstract class phpMorphy_Util_Collection_Decorator implements phpMorphy_Util_Col
     /**
      * @param $object phpMorphy_Util_Collection_CollectionInterface
      */
-    function __construct(phpMorphy_Util_Collection_CollectionInterface $object) {
+    public function __construct(phpMorphy_Util_Collection_CollectionInterface $object) {
         $this->setDecorateeObject($object);
     }
     
@@ -109,7 +109,7 @@ abstract class phpMorphy_Util_Collection_Decorator implements phpMorphy_Util_Col
     /**
      * Implement deep copy paradigm
      */
-    function __clone() {
+    public function __clone() {
         if(isset($this->object)) {
             $this->object = clone $this->object;
         }

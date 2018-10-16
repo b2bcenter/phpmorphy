@@ -21,7 +21,7 @@
 */
 
 class phpMorphy_Dict_Writer_Observer_Empty implements phpMorphy_Dict_Writer_Observer_ObserverInterface {
-    function onStart() { }
-    function onLog($message) { }
-    function onEnd() { }
+    public function onStart() { }
+    public function onLog($message) { }
+    public function onEnd() { }
 }

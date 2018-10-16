@@ -22,4 +22,6 @@
 
 
 class phpMorphy_UserDict_EditCommand_Update extends phpMorphy_UserDict_EditCommand_CommandAbstract {
+    public function apply(phpMorphy_Paradigm_MutableDecorator $paradigm) {
+    }
 }

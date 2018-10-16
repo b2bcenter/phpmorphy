@@ -21,9 +21,9 @@
 */
 
 class phpMorphy_Fsa_LinkAnnot extends phpMorphy_Fsa_LinkAbstract {
-	function isAnnotation() { return true; }
+	public function isAnnotation() { return true; }
 
-	function getAnnotation() {
+	public function getAnnotation() {
 		return $this->fsa->getAnnot($this->raw_trans);
 	}
 };

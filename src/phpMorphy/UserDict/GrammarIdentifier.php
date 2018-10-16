@@ -33,7 +33,7 @@ class phpMorphy_UserDict_GrammarIdentifier {
      * @param string|null $pos
      * @param string[] $grammems
      */
-    function __construct($pos, $grammems) {
+    public function __construct($pos, $grammems) {
         $this->pos = isset($pos) ? trim($pos) : null;
         $this->grammems = (array)$grammems;
 
@@ -47,7 +47,7 @@ class phpMorphy_UserDict_GrammarIdentifier {
      * @param string $grammems
      * @return phpMorphy_UserDict_GrammarIdentifier
      */
-    static function constructFromPosAndGrammems($pos, $grammems) {
+    public static function constructFromPosAndGrammems($pos, $grammems) {
         $grammems = array_filter(array_map('trim', explode(',', $grammems)), 'strlen');
 
         $clazz = __CLASS__;
@@ -62,7 +62,7 @@ class phpMorphy_UserDict_GrammarIdentifier {
      * @param string $string
      * @return phpMorphy_UserDict_GrammarIdentifier
      */
-    static function constructFromString($string) {
+    public static function constructFromString($string) {
         $string = trim($string);
 
         $sp_pos = strpos($string, ' ');
@@ -89,7 +89,7 @@ class phpMorphy_UserDict_GrammarIdentifier {
      * @param string[] $grammems
      * @return phpMorphy_UserDict_GrammarIdentifier
      */
-    static function construct($pos, $grammems) {
+    public static function construct($pos, $grammems) {
         $clazz = __CLASS__;
 
         return new $clazz($pos, (array)$grammems);
@@ -98,21 +98,21 @@ class phpMorphy_UserDict_GrammarIdentifier {
     /**
      * @return bool
      */
-    function hasPartOfSpeech() {
+    public function hasPartOfSpeech() {
         return null !== $this->getPartOfSpeech();
     }
 
     /**
      * @return string
      */
-    function getPartOfSpeech() {
+    public function getPartOfSpeech() {
         return $this->pos;
     }
 
     /**
      * @return string[]
      */
-    function getGrammems() {
+    public function getGrammems() {
 
         return $this->grammems;
     }
@@ -122,7 +122,7 @@ class phpMorphy_UserDict_GrammarIdentifier {
      * @param string[] $grammems
      * @return bol
      */
-    function match($partOfSpeech, array $grammems) {
+    public function match($partOfSpeech, array $grammems) {
         /*
         $partOfSpeech = EncodingConverter::defaultCase($partOfSpeech);
         $grammems = array_map(array('EncodingConverter', 'defaultCase'), $grammems);
@@ -144,7 +144,7 @@ class phpMorphy_UserDict_GrammarIdentifier {
     /**
      * @return string
      */
-    function  __toString() {
+    public function  __toString() {
         $string = $this->hasPartOfSpeech() ?
             $this->getPartOfSpeech() :
             '*';

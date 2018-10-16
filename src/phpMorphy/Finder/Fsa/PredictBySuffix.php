@@ -25,7 +25,7 @@ class phpMorphy_Finder_Fsa_PredictBySuffix extends phpMorphy_Finder_Fsa_Finder {
         $min_suf_len,
         $unicode;
 
-    function __construct(phpMorphy_Fsa_FsaInterface $fsa, phpMorphy_AnnotDecoder_AnnotDecoderInterface $annotDecoder, $encoding, $minimalSuffixLength = 4) {
+    public function __construct(phpMorphy_Fsa_FsaInterface $fsa, phpMorphy_AnnotDecoder_AnnotDecoderInterface $annotDecoder, $encoding, $minimalSuffixLength = 4) {
         parent::__construct($fsa, $annotDecoder);
 
         $this->min_suf_len = (int)$minimalSuffixLength;

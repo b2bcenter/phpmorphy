@@ -28,11 +28,11 @@ class phpMorphy_WordForm_WithFormNo extends phpMorphy_WordForm_WordForm {
     /**
      * @param int $form_no
      */
-    function __construct($form_no) {
+    public function __construct($form_no) {
         $this->form_no = (int)$form_no;
     }
 
-    function getFormNo() {
+    public function getFormNo() {
         return $this->form_no;
     }
 }

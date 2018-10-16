@@ -21,9 +21,9 @@
 */
 
 class phpMorphy_Storage_File extends phpMorphy_Storage_StorageAbstract  {
-    function getType() { return phpMorphy_Storage_Factory::STORAGE_FILE; }
+    public function getType() { return phpMorphy_Storage_Factory::STORAGE_FILE; }
 
-    function getFileSize() {
+    public function getFileSize() {
         if(false === ($stat = fstat($this->resource))) {
             throw new phpMorphy_Exception('Can`t invoke fstat for ' . $this->file_name . ' file');
         }
@@ -31,7 +31,7 @@ class phpMorphy_Storage_File extends phpMorphy_Storage_StorageAbstract  {
         return $stat['size'];
     }
 
-    function readUnsafe($offset, $len) {
+    public function readUnsafe($offset, $len) {
         if(0 !== fseek($this->resource, $offset)) {
             throw new phpMorphy_Exception("Can`t seek to $offset offset");
         }
@@ -39,7 +39,7 @@ class phpMorphy_Storage_File extends phpMorphy_Storage_StorageAbstract  {
         return fread($this->resource, $len);
     }
 
-    function open($fileName) {
+    public function open($fileName) {
         if(false === ($fh = fopen($fileName, 'rb'))) {
             throw new phpMorphy_Exception("Can`t open $this->file_name file");
         }

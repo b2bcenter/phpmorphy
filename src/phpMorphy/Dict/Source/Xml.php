@@ -25,7 +25,7 @@ class phpMorphy_Dict_Source_Xml implements phpMorphy_Dict_Source_SourceInterface
         $xml_file,
         $locale;
 
-    function __construct($xmlFile) {
+    public function __construct($xmlFile) {
         $this->xml_file = $xmlFile;
 
         foreach(new phpMorphy_Dict_Source_Xml_Section_Options($xmlFile) as $key => $value) {
@@ -40,35 +40,35 @@ class phpMorphy_Dict_Source_Xml implements phpMorphy_Dict_Source_SourceInterface
         }
     }
 
-    function getName() {
+    public function getName() {
         return 'morphyXml';
     }
 
-    function getLanguage() {
+    public function getLanguage() {
         return $this->locale;
     }
 
-    function getDescription() {
+    public function getDescription() {
         return "Morphy xml file '{$this->xml_file}'";
     }
 
-    function getAncodes() {
+    public function getAncodes() {
         return new phpMorphy_Dict_Source_Xml_Section_Ancodes($this->xml_file);
     }
 
-    function getFlexias() {
+    public function getFlexias() {
         return new phpMorphy_Dict_Source_Xml_Section_Flexias($this->xml_file);
     }
 
-    function getPrefixes() {
+    public function getPrefixes() {
         return new phpMorphy_Dict_Source_Xml_Section_Prefixes($this->xml_file);
     }
 
-    function getLemmas() {
+    public function getLemmas() {
         return new phpMorphy_Dict_Source_Xml_Section_Lemmas($this->xml_file);
     }
 
-    function getAccents() {
+    public function getAccents() {
         // HACK: all lemmas points to accent model with 0 index and length = 4096
         $accent_model = new phpMorphy_Dict_AccentModel(0);
         $accent_model->import(new ArrayIterator(array_fill(0, 4096, null)));

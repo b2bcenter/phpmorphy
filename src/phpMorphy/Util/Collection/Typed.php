@@ -48,7 +48,7 @@ class phpMorphy_Util_Collection_Typed extends phpMorphy_Util_Collection_Decorato
      * @param string $validType
      *
      */
-    function __construct(phpMorphy_Util_Collection_CollectionInterface $inner, $validType, $allowNull = false) {
+    public function __construct(phpMorphy_Util_Collection_CollectionInterface $inner, $validType, $allowNull = false) {
         parent::__construct($inner);
 
         $this->allow_null = (bool)$allowNull;
@@ -68,12 +68,12 @@ class phpMorphy_Util_Collection_Typed extends phpMorphy_Util_Collection_Decorato
      * @param mixed $value
      * @return void
      */
-    function append($value) {
+    public function append($value) {
         $this->assertType($value);
         parent::append($value);
     }
 
-    function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value) {
         $this->assertType($value);
         parent::offsetSet($offset, $value);
     }

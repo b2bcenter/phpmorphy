@@ -28,23 +28,23 @@ class phpMorphy_Aot_Rml_IniFile {
 		$ini,
 		$rml;
 
-	function __construct() {
+	public function __construct() {
 		$this->ini = $this->parseFile($this->getIniPath());
 	}
 
-	function getGramTabPath($language) {
+	public function getGramTabPath($language) {
 		return $this->getValue($this->getGramTabPathKey($language));
 	}
 
-	function export() {
+	public function export() {
 		return $this->ini;
 	}
 
-	function keyExists($key) {
+	public function keyExists($key) {
 		return array_key_exists($key, $this->ini);
 	}
 
-	function getValue($key) {
+	public function getValue($key) {
 		if(!$this->keyExists($key)) {
 			throw new phpMorphy_Aot_Rml_Exception("Key $key not exists in rml.ini");
 		}

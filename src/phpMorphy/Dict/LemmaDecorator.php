@@ -36,7 +36,7 @@ abstract class phpMorphy_Dict_LemmaDecorator extends phpMorphy_Dict_Lemma implem
     /**
      * @param $object phpMorphy_Dict_Lemma
      */
-    function __construct(phpMorphy_Dict_Lemma $object) {
+    public function __construct(phpMorphy_Dict_Lemma $object) {
         $this->setDecorateeObject($object);
     }
     
@@ -109,7 +109,7 @@ abstract class phpMorphy_Dict_LemmaDecorator extends phpMorphy_Dict_Lemma implem
     /**
      * Implement deep copy paradigm
      */
-    function __clone() {
+    public function __clone() {
         if(isset($this->object)) {
             $this->object = clone $this->object;
         }

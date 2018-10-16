@@ -24,14 +24,14 @@ class phpMorphy_Generator_GramInfo_Helper extends phpMorphy_Generator_HelperAbst
     /**
      * @return string
      */
-    function getParentClassName() {
-        return 'phpMorphy_GramInfo_GramInfoAbstract';
+    public function getParentClassName() {
+        return phpMorphy_GramInfo_GramInfoAbstract::class;
     }
 
     /**
      * @return string
      */
-    function getClassName() {
+    public function getClassName() {
         $storage_type = ucfirst($this->storage->getType());
 
         return "phpMorphy_GramInfo_$storage_type";
@@ -40,21 +40,21 @@ class phpMorphy_Generator_GramInfo_Helper extends phpMorphy_Generator_HelperAbst
     /**
      * @return string
      */
-    function prolog() {
+    public function prolog() {
         return $this->storage->prolog();
     }
 
     /**
      * @return string
      */
-    function getInfoHeaderSize() {
+    public function getInfoHeaderSize() {
         return 20;
     }
 
     /**
      * @return string
      */
-    function getStartOffset() {
+    public function getStartOffset() {
         return '0x100';
     }
 }

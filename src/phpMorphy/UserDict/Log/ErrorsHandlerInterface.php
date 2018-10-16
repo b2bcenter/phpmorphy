@@ -26,5 +26,5 @@ interface phpMorphy_UserDict_Log_ErrorsHandlerInterface {
     /**
      * @param string $message
      */
-    function handle($message);
+    public function handle($message);
 }

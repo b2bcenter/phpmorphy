@@ -31,7 +31,7 @@ class phpMorphy_FilesBundle {
      * @param string $dirName
      * @param string $lang
      */
-    function __construct($dirName, $lang) {
+    public function __construct($dirName, $lang) {
         $this->dir = rtrim($dirName, "\\/" . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
         $this->setLang($lang);
     }
@@ -39,14 +39,14 @@ class phpMorphy_FilesBundle {
     /**
      * @return string
      */
-    function getDirectory() {
+    public function getDirectory() {
         return $this->dir;
     }
 
     /**
      * @return string
      */
-    function getLang() {
+    public function getLang() {
         return $this->lang;
     }
 
@@ -54,7 +54,7 @@ class phpMorphy_FilesBundle {
      * @param string $lang
      * @return void
      */
-    function setLang($lang) {
+    public function setLang($lang) {
         //$this->lang = $GLOBALS['__phpmorphy_strtolower']($lang);
         $this->lang = strtolower($lang);
     }
@@ -62,49 +62,49 @@ class phpMorphy_FilesBundle {
     /**
      * @return string
      */
-    function getCommonAutomatFile() {
+    public function getCommonAutomatFile() {
         return $this->genFileName('common_aut');
     }
 
     /**
      * @return string
      */
-    function getPredictAutomatFile() {
+    public function getPredictAutomatFile() {
         return $this->genFileName('predict_aut');
     }
 
     /**
      * @return string
      */
-    function getGramInfoFile() {
+    public function getGramInfoFile() {
         return $this->genFileName('morph_data');
     }
 
     /**
      * @return string
      */
-    function getGramInfoAncodesCacheFile() {
+    public function getGramInfoAncodesCacheFile() {
         return $this->genFileName('morph_data_ancodes_cache');
     }
 
     /**
      * @return string
      */
-    function getAncodesMapFile() {
+    public function getAncodesMapFile() {
         return $this->genFileName('morph_data_ancodes_map');
     }
 
     /**
      * @return string
      */
-    function getGramTabFile() {
+    public function getGramTabFile() {
         return $this->genFileName('gramtab');
     }
 
     /**
      * @return string
      */
-    function getGramTabFileWithTextIds() {
+    public function getGramTabFileWithTextIds() {
         return $this->genFileName('gramtab_txt');
     }
 
@@ -112,7 +112,7 @@ class phpMorphy_FilesBundle {
      * @param string $type
      * @return string
      */
-    function getDbaFile($type) {
+    public function getDbaFile($type) {
         if(!isset($type)) {
             $type = 'db3';
         }
@@ -123,7 +123,7 @@ class phpMorphy_FilesBundle {
     /**
      * @return string
      */
-    function getGramInfoHeaderCacheFile() {
+    public function getGramInfoHeaderCacheFile() {
         return $this->genFileName('morph_data_header_cache');
     }
 

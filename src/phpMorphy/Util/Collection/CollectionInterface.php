@@ -29,18 +29,18 @@ interface phpMorphy_Util_Collection_CollectionInterface extends
      * @param Traversable $values
      * @return void
      */
-    function import($values);
+    public function import($values);
 
     /**
      * @abstract
      * @param mixed $value
      * @return void
      */
-    function append($value);
+    public function append($value);
 
     /**
      * @abstract
      * @return void
      */
-    function clear();
+    public function clear();
 }

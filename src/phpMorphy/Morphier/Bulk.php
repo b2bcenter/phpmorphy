@@ -38,7 +38,7 @@ class phpMorphy_Morphier_Bulk implements phpMorphy_Morphier_MorphierInterface {
      * @param phpMorphy_Fsa_FsaInterface $fsa
      * @param phpMorphy_Helper $helper
      */
-    function __construct(phpMorphy_Fsa_FsaInterface $fsa, phpMorphy_Helper $helper) {
+    public function __construct(phpMorphy_Fsa_FsaInterface $fsa, phpMorphy_Helper $helper) {
         $this->fsa = $fsa;
         $this->root_trans = $fsa->getRootTrans();
 
@@ -51,28 +51,28 @@ class phpMorphy_Morphier_Bulk implements phpMorphy_Morphier_MorphierInterface {
     /**
      * @return phpMorphy_Fsa_FsaInterface
      */
-    function getFsa() {
+    public function getFsa() {
         return $this->fsa;
     }
 
     /**
      * @return phpMorphy_Helper
      */
-    function getHelper() {
+    public function getHelper() {
         return $this->helper;
     }
 
     /**
      * @return phpMorphy_GramInfo_GramInfoInterface
      */
-    function getGraminfo() {
+    public function getGraminfo() {
         return $this->graminfo;
     }
 
     /**
      * @return array
      */
-    function getNotFoundWords() {
+    public function getNotFoundWords() {
         return $this->notfound;
     }
 
@@ -88,7 +88,7 @@ class phpMorphy_Morphier_Bulk implements phpMorphy_Morphier_MorphierInterface {
      * @param string[] $words
      * @return array
      */
-    function getAnnot($words) {
+    public function getAnnot($words) {
         $result = array();
 
         foreach($this->findWord($words) as $annot => $found_words) {
@@ -106,7 +106,7 @@ class phpMorphy_Morphier_Bulk implements phpMorphy_Morphier_MorphierInterface {
      * @param string[] $words
      * @return array
      */
-    function getBaseForm($words) {
+    public function getBaseForm($words) {
         $annots = $this->findWord($words);
 
         return $this->composeForms($annots, true, false, false);
@@ -116,7 +116,7 @@ class phpMorphy_Morphier_Bulk implements phpMorphy_Morphier_MorphierInterface {
      * @param string[] $words
      * @return array
      */
-    function getAllForms($words) {
+    public function getAllForms($words) {
         $annots = $this->findWord($words);
 
         return $this->composeForms($annots, false, false, false);
@@ -126,7 +126,7 @@ class phpMorphy_Morphier_Bulk implements phpMorphy_Morphier_MorphierInterface {
      * @param string[] $words
      * @return array
      */
-    function getPseudoRoot($words) {
+    public function getPseudoRoot($words) {
         $annots = $this->findWord($words);
 
         return $this->composeForms($annots, false, true, false);
@@ -136,7 +136,7 @@ class phpMorphy_Morphier_Bulk implements phpMorphy_Morphier_MorphierInterface {
      * @param string[] $words
      * @return array
      */
-    function getPartOfSpeech($words) {
+    public function getPartOfSpeech($words) {
         $annots = $this->findWord($words);
 
         return $this->composeForms($annots, false, false, true);
@@ -174,7 +174,7 @@ class phpMorphy_Morphier_Bulk implements phpMorphy_Morphier_MorphierInterface {
      * @param string[] $words
      * @return array
      */
-    function getAncode($words) {
+    public function getAncode($words) {
         return $this->processAnnotsWithHelper($words, 'getAncode');
     }
 
@@ -182,7 +182,7 @@ class phpMorphy_Morphier_Bulk implements phpMorphy_Morphier_MorphierInterface {
      * @param string[] $words
      * @return array
      */
-    function getGrammarInfoMergeForms($words) {
+    public function getGrammarInfoMergeForms($words) {
         return $this->processAnnotsWithHelper($words, 'getGrammarInfoMergeForms');
     }
 
@@ -190,7 +190,7 @@ class phpMorphy_Morphier_Bulk implements phpMorphy_Morphier_MorphierInterface {
      * @param string[] $words
      * @return array
      */
-    function getGrammarInfo($words) {
+    public function getGrammarInfo($words) {
         return $this->processAnnotsWithHelper($words, 'getGrammarInfo');
     }
 
@@ -198,7 +198,7 @@ class phpMorphy_Morphier_Bulk implements phpMorphy_Morphier_MorphierInterface {
      * @param string[] $words
      * @return array
      */
-    function getAllFormsWithAncodes($words) {
+    public function getAllFormsWithAncodes($words) {
         return $this->processAnnotsWithHelper($words, 'getAllFormsWithResolvedAncodes', true);
     }
 
@@ -206,7 +206,7 @@ class phpMorphy_Morphier_Bulk implements phpMorphy_Morphier_MorphierInterface {
      * @param string[] $words
      * @return array
      */
-    function getParadigmCollection($words) {
+    public function getParadigmCollection($words) {
         return $this->processAnnotsWithHelper($words, 'getParadigmCollection', true);
     }
 

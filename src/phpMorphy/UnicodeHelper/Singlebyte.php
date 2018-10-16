@@ -21,15 +21,15 @@
 */
 
 class phpMorphy_UnicodeHelper_Singlebyte extends phpMorphy_UnicodeHelper_UnicodeHelperAbstract {
-    function getFirstCharSize($str) {
+    public function getFirstCharSize($str) {
         return 1;
     }
 
-    function strrev($str) {
+    public function strrev($str) {
         return strrev($str);
     }
 
-    function clearIncompleteCharsAtEnd($str) {
+    public function clearIncompleteCharsAtEnd($str) {
         return $str;
     }
 

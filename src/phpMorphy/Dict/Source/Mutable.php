@@ -54,7 +54,7 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
         $lemmas,
         $is_dirty = false;
 
-    function __construct() {
+    public function __construct() {
         $this->ancodes = $this->createContainer();
         $this->flexias = $this->createContainer();
         $this->prefixes = $this->createContainer();
@@ -65,11 +65,11 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
         return new phpMorphy_Dict_Source_Mutable_Container($useIdentity);
     }
 
-    function setName($name) {
+    public function setName($name) {
         $this->name = trim($name);
     }
 
-    function setLanguage($lang) {
+    public function setLanguage($lang) {
         $tokens = explode('_', $lang);
 
         if(count($tokens) != 2) {
@@ -79,16 +79,16 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
         $this->lang = $lang;
     }
 
-    function setDescription($desc) {
+    public function setDescription($desc) {
         $this->desc = trim($desc);
     }
 
-    function appendAncode(phpMorphy_Dict_Ancode $ancode, $reuseIfExists = true) {
+    public function appendAncode(phpMorphy_Dict_Ancode $ancode, $reuseIfExists = true) {
         $this->is_dirty = true;
         return $this->ancodes->append($ancode, $reuseIfExists);
     }
 
-    function appendFlexiaModel(phpMorphy_Dict_FlexiaModel $model, $reuseIfExists = true, $check = true) {
+    public function appendFlexiaModel(phpMorphy_Dict_FlexiaModel $model, $reuseIfExists = true, $check = true) {
         if($check && !$this->checkConsistencyForFlexiaModel($model)) {
             throw new phpMorphy_Exception("Flexia model in non consistent state");
         }
@@ -97,12 +97,12 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
         return $this->flexias->append($model, $reuseIfExists);
     }
 
-    function appendPrefix(phpMorphy_Dict_PrefixSet $prefix, $reuseIfExists = true) {
+    public function appendPrefix(phpMorphy_Dict_PrefixSet $prefix, $reuseIfExists = true) {
         $this->is_dirty = true;
         return $this->prefixes->append($prefix, $reuseIfExists);
     }
 
-    function appendLemma(phpMorphy_Dict_Lemma $lemma, $check = true) {
+    public function appendLemma(phpMorphy_Dict_Lemma $lemma, $check = true) {
         if($check && !$this->checkConsistencyForLemma($lemma)) {
             throw new phpMorphy_Exception("Lemma in non consistent state");
         }
@@ -111,15 +111,15 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
         return $this->lemmas->append($lemma, true);
     }
 
-    function deletePrefixSet($prefixSetId) {
+    public function deletePrefixSet($prefixSetId) {
         $this->prefixes->deleteById($prefixSetId);
     }
 
-    function deleteAncode($ancodeId) {
+    public function deleteAncode($ancodeId) {
         $this->ancodes->deleteById($ancodeId);
     }
 
-    function deleteFlexiaModel($modelId) {
+    public function deleteFlexiaModel($modelId) {
         $model = $this->flexias->getById($modelId);
 
         /* @var $flexia phpMorphy_Dict_Flexia */
@@ -130,7 +130,7 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
         $this->flexias->deleteById($modelId);
     }
 
-    function deleteLemma($lemmaId) {
+    public function deleteLemma($lemmaId) {
         /* @var $lemma phpMorphy_Dict_Lemma */
         $lemma = $this->lemmas->getById($lemmaId);
 
@@ -176,7 +176,7 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
         return true;
     }
 
-    function checkForConsistency(&$error = null) {
+    public function checkForConsistency(&$error = null) {
         foreach($this->flexias as $model) {
             if(!$this->checkConsistencyForFlexiaModel($model)) {
                 $error = "FlexiaModel with '" . $model->getId() . "' id in non consistent state";
@@ -198,7 +198,7 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
         return true;
     }
 
-    function deleteUnusedModels() {
+    public function deleteUnusedModels() {
         $this->ancodes->deleteUnused();
         $this->flexias->deleteUnused();
         $this->prefixes->deleteUnused();
@@ -209,7 +209,7 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
         }
     }
 
-    function clearModels() {
+    public function clearModels() {
         $this->ancodes->clear();
         $this->flexias->clear();
         $this->prefixes->clear();
@@ -227,11 +227,11 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
         }
     }
 
-    function getName() {
+    public function getName() {
         return $this->name;
     }
 
-    function getLanguage() {
+    public function getLanguage() {
         if(null === $this->lang) {
             throw new phpMorphy_Exception("Language not specified");
         }
@@ -239,7 +239,7 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
         return $this->lang;
     }
 
-    function getDescription() {
+    public function getDescription() {
         if(strlen($this->description)) {
             return $this->description;
         }
@@ -251,7 +251,7 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
      * @param mixed $id
      * @return phpMorphy_Dict_FlexiaModel
      */
-    function getFlexiaModelById($id) {
+    public function getFlexiaModelById($id) {
         return $this->flexias->getById($id);
     }
 
@@ -259,7 +259,7 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
      * @param mixed $id
      * @return phpMorphy_Dict_PrefixSet
      */
-    function getPrefixSetById($id) {
+    public function getPrefixSetById($id) {
         return $this->prefixes->getById($id);
     }
 
@@ -267,31 +267,31 @@ class phpMorphy_Dict_Source_Mutable implements phpMorphy_Dict_Source_SourceInter
      * @param mixed $id
      * @return phpMorphy_Dict_Ancode
      */
-    function getAncodeById($id) {
+    public function getAncodeById($id) {
         return $this->ancodes->getById($id);
     }
 
-    function getAncodes() {
+    public function getAncodes() {
         $this->checkForConsistencyInternal();
         return $this->ancodes->getIterator();
     }
 
-    function getFlexias() {
+    public function getFlexias() {
         $this->checkForConsistencyInternal();
         return $this->flexias->getIterator();
     }
 
-    function getPrefixes() {
+    public function getPrefixes() {
         $this->checkForConsistencyInternal();
         return $this->prefixes->getIterator();
     }
 
-    function getAccents() {
+    public function getAccents() {
         $this->checkForConsistencyInternal();
         return new ArrayIterator(array());
     }
 
-    function getLemmas() {
+    public function getLemmas() {
         $this->checkForConsistencyInternal();
         return $this->lemmas->getIterator();
     }

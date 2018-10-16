@@ -29,7 +29,7 @@ abstract class phpMorphy_Aot_GramTab_GramInfoHelperAbstract
      * @param  $language
      * @return phpMorphy_Aot_GramTab_GramInfoHelperInterface
      */
-    static function createByLanguage($language) {
+    public static function createByLanguage($language) {
         switch(strtolower($language)) {
             case 'russian':
                 return new phpMorphy_Aot_GramTab_GramInfoHelper_Russian();

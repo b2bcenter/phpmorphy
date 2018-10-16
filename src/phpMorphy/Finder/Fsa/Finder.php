@@ -27,14 +27,14 @@ class phpMorphy_Finder_Fsa_Finder extends phpMorphy_Finder_FinderAbstract {
         $fsa,
         $root;
 
-    function __construct(phpMorphy_Fsa_FsaInterface $fsa, phpMorphy_AnnotDecoder_AnnotDecoderInterface $annotDecoder) {
+    public function __construct(phpMorphy_Fsa_FsaInterface $fsa, phpMorphy_AnnotDecoder_AnnotDecoderInterface $annotDecoder) {
         parent::__construct($annotDecoder);
 
         $this->fsa = $fsa;
         $this->root = $this->fsa->getRootTrans();
     }
 
-    function getFsa() {
+    public function getFsa() {
         return $this->fsa;
     }
 

@@ -31,7 +31,7 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
          */
         $helper;
 
-    function __construct(phpMorphy_Finder_FinderInterface $finder, phpMorphy_Helper $helper) {
+    public function __construct(phpMorphy_Finder_FinderInterface $finder, phpMorphy_Helper $helper) {
         $this->finder = $finder;
 
         $this->helper = clone $helper;
@@ -41,18 +41,18 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
     /**
      * @return phpMorphy_Finder_FinderInterface
      */
-    function getFinder() {
+    public function getFinder() {
         return $this->finder;
     }
 
     /**
      * @return phpMorphy_Helper
      */
-    function getHelper() {
+    public function getHelper() {
         return $this->helper;
     }
 
-    function getAnnot($word) {
+    public function getAnnot($word) {
         if(false === ($annots = $this->finder->findWord($word))) {
             return false;
         }
@@ -60,7 +60,7 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
         return $this->helper->decodeAnnot($annots, true);
     }
 
-    function getParadigmCollection($word) {
+    public function getParadigmCollection($word) {
         if(false === ($annots = $this->finder->findWord($word))) {
             return false;
         }
@@ -68,7 +68,7 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
         return $this->helper->getParadigmCollection($word, $annots);
     }
 
-    function getAllFormsWithAncodes($word) {
+    public function getAllFormsWithAncodes($word) {
         if(false === ($annots = $this->finder->findWord($word))) {
             return false;
         }
@@ -76,7 +76,7 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
         return $this->helper->getAllFormsWithResolvedAncodes($word, $annots);
     }
 
-    function getPartOfSpeech($word) {
+    public function getPartOfSpeech($word) {
         if(false === ($annots = $this->finder->findWord($word))) {
             return false;
         }
@@ -84,7 +84,7 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
         return $this->helper->getPartOfSpeech($annots);
     }
 
-    function getBaseForm($word) {
+    public function getBaseForm($word) {
         if(false === ($annots = $this->finder->findWord($word))) {
             return false;
         }
@@ -92,7 +92,7 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
         return $this->helper->getBaseForm($word, $annots);
     }
 
-    function getPseudoRoot($word) {
+    public function getPseudoRoot($word) {
         if(false === ($annots = $this->finder->findWord($word))) {
             return false;
         }
@@ -100,7 +100,7 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
         return $this->helper->getPseudoRoot($word, $annots);
     }
 
-    function getAllForms($word) {
+    public function getAllForms($word) {
         if(false === ($annots = $this->finder->findWord($word))) {
             return false;
         }
@@ -108,7 +108,7 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
         return $this->helper->getAllForms($word, $annots);
     }
 
-    function getAncode($word) {
+    public function getAncode($word) {
         if(false === ($annots = $this->finder->findWord($word))) {
             return false;
         }
@@ -116,7 +116,7 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
         return $this->helper->getAncode($annots);
     }
 
-    function getGrammarInfo($word) {
+    public function getGrammarInfo($word) {
         if(false === ($annots = $this->finder->findWord($word))) {
             return false;
         }
@@ -124,7 +124,7 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
         return $this->helper->getGrammarInfo($annots);
     }
 
-    function getGrammarInfoMergeForms($word) {
+    public function getGrammarInfoMergeForms($word) {
         if(false === ($annots = $this->finder->findWord($word))) {
             return false;
         }
@@ -132,7 +132,7 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
         return $this->helper->getGrammarInfoMergeForms($annots);
     }
 
-    function castFormByGramInfo($word, $partOfSpeech, $grammems, $returnOnlyWord = false, $callback = null) {
+    public function castFormByGramInfo($word, $partOfSpeech, $grammems, $returnOnlyWord = false, $callback = null) {
         if(false === ($annots = $this->finder->findWord($word))) {
             return false;
         }
@@ -140,7 +140,7 @@ abstract class phpMorphy_Morphier_MorphierAbstract implements phpMorphy_Morphier
         return $this->helper->castFormByGramInfo($word, $annots);
     }
 
-    function castFormByPattern($word, $patternWord, $returnOnlyWord = false, $callback = null) {
+    public function castFormByPattern($word, $patternWord, $returnOnlyWord = false, $callback = null) {
         if(false === ($orig_annots = $this->finder->findWord($word))) {
             return false;
         }

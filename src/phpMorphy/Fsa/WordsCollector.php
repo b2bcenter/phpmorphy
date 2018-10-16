@@ -25,11 +25,11 @@ class phpMorphy_Fsa_WordsCollector {
         $items = array(),
         $limit;
 
-    function __construct($collectLimit) {
+    public function __construct($collectLimit) {
         $this->limit = $collectLimit;
     }
 
-    function collect($word, $annot) {
+    public function collect($word, $annot) {
         if(count($this->items) < $this->limit) {
             $this->items[$word] = $annot;
             return true;
@@ -38,7 +38,7 @@ class phpMorphy_Fsa_WordsCollector {
         }
     }
 
-    function getItems() { return $this->items; }
-    function clear() { $this->items = array(); }
-    function getCallback() { return array($this, 'collect'); }
+    public function getItems() { return $this->items; }
+    public function clear() { $this->items = array(); }
+    public function getCallback() { return array($this, 'collect'); }
 };

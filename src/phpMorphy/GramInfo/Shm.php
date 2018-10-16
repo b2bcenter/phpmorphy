@@ -21,11 +21,11 @@
 */
 
 class phpMorphy_GramInfo_Shm extends phpMorphy_GramInfo_GramInfoAbstract {
-    function getGramInfoHeaderSize() {
+    public function getGramInfoHeaderSize() {
         return 20;
     }
 
-    function readGramInfoHeader($offset) {
+    public function readGramInfoHeader($offset) {
         $__shm = $this->resource['shm_id']; $__offset = $this->resource['offset'];
 
         $result = unpack(
@@ -63,7 +63,7 @@ class phpMorphy_GramInfo_Shm extends phpMorphy_GramInfo_GramInfoAbstract {
         return $result;
     }
 
-    function readAncodes($info) {
+    public function readAncodes($info) {
         $__shm = $this->resource['shm_id']; $__offset = $this->resource['offset'];
 
         // TODO: this can be wrong due to aligning ancodes section
@@ -84,7 +84,7 @@ class phpMorphy_GramInfo_Shm extends phpMorphy_GramInfo_GramInfoAbstract {
         return $this->splitAncodes($ancodes, $map);
     }
 
-    function readFlexiaData($info) {
+    public function readFlexiaData($info) {
         $__shm = $this->resource['shm_id']; $__offset = $this->resource['offset'];
 
         $offset = $info['offset'] + 20;
@@ -98,7 +98,7 @@ class phpMorphy_GramInfo_Shm extends phpMorphy_GramInfo_GramInfoAbstract {
                 return explode($this->ends, shmop_read($__shm, $__offset + ($offset), $info['affixes_size'] - $this->ends_size));
     }
 
-    function readAllGramInfoOffsets() {
+    public function readAllGramInfoOffsets() {
         return $this->readSectionIndex($this->header['flex_index_offset'], $this->header['flex_count']);
     }
 
@@ -109,7 +109,7 @@ class phpMorphy_GramInfo_Shm extends phpMorphy_GramInfo_GramInfoAbstract {
         return array_values(unpack("V$count", shmop_read($__shm, $__offset + ($offset), $count * 4)));
     }
 
-    function readAllFlexia() {
+    public function readAllFlexia() {
         $__shm = $this->resource['shm_id']; $__offset = $this->resource['offset'];
 
         $result = array();
@@ -133,7 +133,7 @@ class phpMorphy_GramInfo_Shm extends phpMorphy_GramInfo_GramInfoAbstract {
         return $result;
     }
 
-    function readAllPartOfSpeech() {
+    public function readAllPartOfSpeech() {
         $__shm = $this->resource['shm_id']; $__offset = $this->resource['offset'];
 
         $result = array();
@@ -157,7 +157,7 @@ class phpMorphy_GramInfo_Shm extends phpMorphy_GramInfo_GramInfoAbstract {
         return $result;
     }
 
-    function readAllGrammems() {
+    public function readAllGrammems() {
         $__shm = $this->resource['shm_id']; $__offset = $this->resource['offset'];
 
         $result = array();
@@ -182,7 +182,7 @@ class phpMorphy_GramInfo_Shm extends phpMorphy_GramInfo_GramInfoAbstract {
         return $result;
     }
 
-    function readAllAncodes() {
+    public function readAllAncodes() {
         $__shm = $this->resource['shm_id']; $__offset = $this->resource['offset'];
 
         $result = array();

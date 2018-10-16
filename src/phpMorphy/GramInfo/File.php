@@ -21,11 +21,11 @@
 */
 
 class phpMorphy_GramInfo_File extends phpMorphy_GramInfo_GramInfoAbstract {
-    function getGramInfoHeaderSize() {
+    public function getGramInfoHeaderSize() {
         return 20;
     }
 
-    function readGramInfoHeader($offset) {
+    public function readGramInfoHeader($offset) {
         $__fh = $this->resource;
         fseek($__fh, $offset);
         $result = unpack(
@@ -63,7 +63,7 @@ class phpMorphy_GramInfo_File extends phpMorphy_GramInfo_GramInfoAbstract {
         return $result;
     }
 
-    function readAncodes($info) {
+    public function readAncodes($info) {
         $__fh = $this->resource;
 
         // TODO: this can be wrong due to aligning ancodes section
@@ -84,7 +84,7 @@ class phpMorphy_GramInfo_File extends phpMorphy_GramInfo_GramInfoAbstract {
         return $this->splitAncodes($ancodes, $map);
     }
 
-    function readFlexiaData($info) {
+    public function readFlexiaData($info) {
         $__fh = $this->resource;
 
         $offset = $info['offset'] + 20;
@@ -98,7 +98,7 @@ class phpMorphy_GramInfo_File extends phpMorphy_GramInfo_GramInfoAbstract {
         fseek($__fh, $offset);        return explode($this->ends, fread($__fh, $info['affixes_size'] - $this->ends_size));
     }
 
-    function readAllGramInfoOffsets() {
+    public function readAllGramInfoOffsets() {
         return $this->readSectionIndex($this->header['flex_index_offset'], $this->header['flex_count']);
     }
 
@@ -109,7 +109,7 @@ class phpMorphy_GramInfo_File extends phpMorphy_GramInfo_GramInfoAbstract {
         return array_values(unpack("V$count", fread($__fh, $count * 4)));
     }
 
-    function readAllFlexia() {
+    public function readAllFlexia() {
         $__fh = $this->resource;
 
         $result = array();
@@ -133,7 +133,7 @@ class phpMorphy_GramInfo_File extends phpMorphy_GramInfo_GramInfoAbstract {
         return $result;
     }
 
-    function readAllPartOfSpeech() {
+    public function readAllPartOfSpeech() {
         $__fh = $this->resource;
 
         $result = array();
@@ -157,7 +157,7 @@ class phpMorphy_GramInfo_File extends phpMorphy_GramInfo_GramInfoAbstract {
         return $result;
     }
 
-    function readAllGrammems() {
+    public function readAllGrammems() {
         $__fh = $this->resource;
 
         $result = array();
@@ -182,7 +182,7 @@ class phpMorphy_GramInfo_File extends phpMorphy_GramInfo_GramInfoAbstract {
         return $result;
     }
 
-    function readAllAncodes() {
+    public function readAllAncodes() {
         $__fh = $this->resource;
 
         $result = array();

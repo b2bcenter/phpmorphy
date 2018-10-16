@@ -26,25 +26,25 @@ class phpMorphy_Dict_PartOfSpeech {
         $name,
         $is_predict;
 
-    function __construct($id, $name, $isPredict) {
+    public function __construct($id, $name, $isPredict) {
         $this->id = (int)$id;
         $this->is_predict = (bool)$isPredict;
         $this->name = (string)$name;
     }
 
-    function getName() {
+    public function getName() {
         return $this->name;
     }
 
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
-    function isPredict() {
+    public function isPredict() {
         return $this->is_predict;
     }
 
-    function __toString() {
+    public function __toString() {
         return phpMorphy_Dict_ModelsFormatter::create()->formatPartOfSpeech($this);
     }
 }

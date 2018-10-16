@@ -21,6 +21,6 @@
 */
 
 interface phpMorphy_Semaphore_SemaphoreInterface {
-    function lock();
-    function unlock();
+    public function lock();
+    public function unlock();
 }

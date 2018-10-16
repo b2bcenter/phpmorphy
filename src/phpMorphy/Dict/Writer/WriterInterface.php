@@ -21,5 +21,5 @@
 */
 
 interface phpMorphy_Dict_Writer_WriterInterface {
-    function write(phpMorphy_Dict_Source_SourceInterface $source);
+    public function write(phpMorphy_Dict_Source_SourceInterface $source);
 }

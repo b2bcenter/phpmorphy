@@ -26,5 +26,5 @@ interface phpMorphy_GrammemsProvider_GrammemsProviderInterface {
      * @param string $partOfSpeech
      * @return array
      */
-    function getGrammems($partOfSpeech);
+    public function getGrammems($partOfSpeech);
 }

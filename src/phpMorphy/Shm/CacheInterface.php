@@ -21,11 +21,11 @@
 */
 
 interface phpMorphy_Shm_CacheInterface {
-    function close();
-    function get($filePath);
-    function clear();
-    function delete($filePath);
-    function reload($filePath);
-    function reloadIfExists($filePath);
-    function free();
+    public function close();
+    public function get($filePath);
+    public function clear();
+    public function delete($filePath);
+    public function reload($filePath);
+    public function reloadIfExists($filePath);
+    public function free();
 }

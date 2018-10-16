@@ -21,13 +21,13 @@
 */
 
 class phpMorphy_Util_Hunspell_AffixFileReader extends IteratorIterator {
-	function __construct($fileName, $defaultEncoding) {
+	public function __construct($fileName, $defaultEncoding) {
 		parent::__construct($this->createIterators($this->createIterators($fileName)));
 
 		$this->setEncoding($defaultEncoding);
 	}
 
-	function setEncoding($enc) {
+	public function setEncoding($enc) {
 		$this->getInnerIterator()->setEncoding($enc);
 	}
 
@@ -42,7 +42,7 @@ class phpMorphy_Util_Hunspell_AffixFileReader extends IteratorIterator {
 		);
 	}
     
-	function current() {
+	public function current() {
 		return explode(
 			' ',
 			preg_replace('~\s{2,}~', ' ', trim(parent::current()))

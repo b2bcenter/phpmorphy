@@ -47,7 +47,7 @@ class phpMorphy_UserDict_XmlDiff_Generator implements phpMorphy_UserDict_Visitor
      * @param phpMorphy_UserDict_LogInterface $log
      * @param phpMorphy_UserDict_EncodingConverter $encodingConverter
      */
-    function __construct(
+    public function __construct(
         phpMorphy_MorphyInterface $morphy,
         phpMorphy_UserDict_LogInterface $log,
         phpMorphy_UserDict_EncodingConverter $encodingConverter
@@ -76,7 +76,7 @@ class phpMorphy_UserDict_XmlDiff_Generator implements phpMorphy_UserDict_Visitor
      * @param phpMorphy_UserDict_LogInterface $observer
      * @param phpMorphy_UserDict_EncodingConverter $encodingConverter
      */
-    static function convertFromXmlToXml(
+    public static function convertFromXmlToXml(
         $inputXmlFilePath,
         $outputXmlFilePath,
         phpMorphy_MorphyInterface $morphy,
@@ -97,7 +97,7 @@ class phpMorphy_UserDict_XmlDiff_Generator implements phpMorphy_UserDict_Visitor
     /**
      * @param string $xmlFilePath
      */
-    function loadFromXml($xmlFilePath) {
+    public function loadFromXml($xmlFilePath) {
         phpMorphy_UserDict_XmlLoader::loadFromFile(
             $xmlFilePath,
             $this,
@@ -108,7 +108,7 @@ class phpMorphy_UserDict_XmlDiff_Generator implements phpMorphy_UserDict_Visitor
     /**
      * @param phpMorphy_Dict_Writer_WriterInterface $writer
      */
-    function save(phpMorphy_Dict_Writer_WriterInterface $writer) {
+    public function save(phpMorphy_Dict_Writer_WriterInterface $writer) {
         if(self::DELETE_UNUNSED_MODELS_ON_SAVE) {
             $this->source->deleteUnusedModels();
         }
@@ -116,7 +116,7 @@ class phpMorphy_UserDict_XmlDiff_Generator implements phpMorphy_UserDict_Visitor
         $writer->write($this->source);
     }
 
-    function clear() {
+    public function clear() {
         $this->source->clearModels();
     }
 
@@ -139,7 +139,7 @@ class phpMorphy_UserDict_XmlDiff_Generator implements phpMorphy_UserDict_Visitor
      * @param string $newLexem
      * @param phpMorphy_UserDict_Pattern $pattern
      */
-    function addLexem($newLexem, phpMorphy_UserDict_Pattern $pattern) {
+    public function addLexem($newLexem, phpMorphy_UserDict_Pattern $pattern) {
         return $this->add_command->execute($newLexem, $pattern, $this->log);
     }
 

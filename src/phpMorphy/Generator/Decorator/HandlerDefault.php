@@ -29,7 +29,7 @@ class phpMorphy_Generator_Decorator_HandlerDefault implements
     /**
      * @return string
      */
-    function generateHeaderDocComment($decorateeClass, $decoratorClass) {
+    public function generateHeaderDocComment($decorateeClass, $decoratorClass) {
         return $this->indentText(
             phpMorphy_Generator_Decorator_PhpDocHelper::generateHeaderPhpDoc(
                 $decorateeClass,
@@ -47,13 +47,13 @@ class phpMorphy_Generator_Decorator_HandlerDefault implements
      * @param string[]|null $implements
      * @return string
      */
-    function generateClassDeclaration($docComment, $class, $extends, $implements) {
+    public function generateClassDeclaration($docComment, $class, $extends, $implements) {
         $docComment = $this->unindentText($docComment);
 
         $text = $docComment . PHP_EOL . 'abstract class ' . $class;
 
         $implements = false === $implements ? array() : $implements;
-        $implements[] = 'phpMorphy_DecoratorInterface';
+        $implements[] = phpMorphy_DecoratorInterface::class;
 
         if(null !== $extends) {
             $text .= ' extends ' . implode(', ', $extends);
@@ -71,7 +71,7 @@ class phpMorphy_Generator_Decorator_HandlerDefault implements
      * @param string $decorateeClass
      * @return string
      */
-    function generateCommonMethods($decoratorClass, $decorateeClass) {
+    public function generateCommonMethods($decoratorClass, $decorateeClass) {
         $ctor = <<<EOF
 /** @var $decorateeClass */
 private \$object;
@@ -173,7 +173,7 @@ EOF;
      * @param string $passArgs
      * @return string
      */
-    function generateMethod($docComment, $modifiers, $isReturnRef, $name, $args, $passArgs) {
+    public function generateMethod($docComment, $modifiers, $isReturnRef, $name, $args, $passArgs) {
         $ref = $isReturnRef ? '&' : '';
         $docComment = $this->unindentText($docComment);
         $args = $this->unindentText($args);

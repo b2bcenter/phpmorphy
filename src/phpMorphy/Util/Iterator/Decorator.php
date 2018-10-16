@@ -36,7 +36,7 @@ abstract class phpMorphy_Util_Iterator_Decorator implements Iterator, phpMorphy_
     /**
      * @param $object Iterator
      */
-    function __construct(Iterator $object) {
+    public function __construct(Iterator $object) {
         $this->setDecorateeObject($object);
     }
     
@@ -109,7 +109,7 @@ abstract class phpMorphy_Util_Iterator_Decorator implements Iterator, phpMorphy_
     /**
      * Implement deep copy paradigm
      */
-    function __clone() {
+    public function __clone() {
         if(isset($this->object)) {
             $this->object = clone $this->object;
         }

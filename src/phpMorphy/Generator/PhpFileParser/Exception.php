@@ -22,7 +22,7 @@
 
 
 class phpMorphy_Generator_PhpFileParser_Exception extends Exception {
-    function __construct($msg, array $token = null) {
+    public function __construct($msg, array $token = null) {
         $msg = null === $token ? $msg : $msg . ', at ' . $token[2] . ' line';
 
         parent::__construct($msg);

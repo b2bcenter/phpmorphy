@@ -28,7 +28,7 @@ class phpMorphy_Aot_GramTab_Reader extends IteratorIterator {
         $factory,
         $encoding;
 
-    function __construct($fileName, $encoding, phpMorphy_Aot_GramTab_GramInfoFactory $factory) {
+    public function __construct($fileName, $encoding, phpMorphy_Aot_GramTab_GramInfoFactory $factory) {
         parent::__construct($this->createIterators($fileName, $encoding));
 
         $this->factory = $factory;
@@ -46,7 +46,7 @@ class phpMorphy_Aot_GramTab_Reader extends IteratorIterator {
         );
     }
 
-    function current() {
+    public function current() {
         $line = trim(parent::current());
         // split by ' '(space) and \t
         $line = preg_replace('~[\x20\x09]+~', ' ', $line);

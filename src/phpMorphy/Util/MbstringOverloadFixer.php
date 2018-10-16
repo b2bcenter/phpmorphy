@@ -41,7 +41,7 @@ class phpMorphy_Util_MbstringOverloadFixer {
     /**
      * @return void
      */
-    static function fix() {
+    public static function fix() {
         if(
             extension_loaded('mbstring') &&
             2 == (ini_get('mbstring.func_overload') & 2)

@@ -29,7 +29,7 @@ class phpMorphy_Dict_Source_NormalizedAncodes
     protected
         $manager;
 
-    static function wrap(phpMorphy_Dict_Source_SourceInterface $source) {
+    public static function wrap(phpMorphy_Dict_Source_SourceInterface $source) {
         if($source instanceof phpMorphy_Dict_Source_NormalizedAncodes) {
             return $source;
         }
@@ -37,7 +37,7 @@ class phpMorphy_Dict_Source_NormalizedAncodes
         return new phpMorphy_Dict_Source_NormalizedAncodes($source);
     }
 
-    function __construct(phpMorphy_Dict_Source_SourceInterface $inner) {
+    public function __construct(phpMorphy_Dict_Source_SourceInterface $inner) {
         parent::__construct($inner);
 
         $this->manager = $this->createManager($inner);
@@ -47,24 +47,24 @@ class phpMorphy_Dict_Source_NormalizedAncodes
         return new phpMorphy_Dict_Source_NormalizedAncodes_AncodesManager($inner);
     }
 
-    function getPoses() {
+    public function getPoses() {
         return array_values($this->manager->getPosesMap());
     }
 
-    function getGrammems() {
+    public function getGrammems() {
         return array_values($this->manager->getGrammemsMap());
     }
 
-    function getAncodes() {
+    public function getAncodes() {
         return $this->manager->getAncodes();
     }
 
-    function getFlexias() {
-        return $this->createDecoratingIterator(parent::getFlexias(), 'phpMorphy_Dict_Source_NormalizedAncodes_FlexiaModel');
+    public function getFlexias() {
+        return $this->createDecoratingIterator(parent::getFlexias(), phpMorphy_Dict_Source_NormalizedAncodes_FlexiaModel::class);
     }
 
-    function getLemmas() {
-        return $this->createDecoratingIterator(parent::getLemmas(), 'phpMorphy_Dict_Source_NormalizedAncodes_Lemma');
+    public function getLemmas() {
+        return $this->createDecoratingIterator(parent::getLemmas(), phpMorphy_Dict_Source_NormalizedAncodes_Lemma::class);
     }
 
     protected function createDecoratingIterator(Traversable $it, $newClass) {

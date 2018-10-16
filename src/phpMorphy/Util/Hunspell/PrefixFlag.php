@@ -30,5 +30,5 @@ class phpMorphy_Util_Hunspell_PrefixFlag extends phpMorphy_Util_Hunspell_AffixFl
 		);
 	}
 
-	function isSuffix() { return false; }
+	public function isSuffix() { return false; }
 }

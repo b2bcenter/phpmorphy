@@ -21,12 +21,12 @@
 */
 
 class phpMorphy_Fsa_Link extends phpMorphy_Fsa_LinkAbstract {
-	function isAnnotation() { return false; }
+	public function isAnnotation() { return false; }
 
-	function getDest() { return $this->trans['dest']; }
-	function getAttr() { return $this->trans['attr']; }
+	public function getDest() { return $this->trans['dest']; }
+	public function getAttr() { return $this->trans['attr']; }
 
-	function getTargetState() {
+	public function getTargetState() {
 		return $this->createState($this->trans['dest']);
 	}
 

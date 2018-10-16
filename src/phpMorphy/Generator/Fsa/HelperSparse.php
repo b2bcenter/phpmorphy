@@ -24,49 +24,49 @@ class phpMorphy_Generator_Fsa_HelperSparse extends phpMorphy_Generator_Fsa_Helpe
     /**
      * @return string
      */
-    function getType() {
+    public function getType() {
         return 'Sparse';
     }
 
     /**
      * @return string
      */
-    function checkEmpty($var) {
+    public function checkEmpty($var) {
         return "($var & 0x0200)";
     }
 
     /**
      * @return string
      */
-    function getRootTransOffset() {
+    public function getRootTransOffset() {
         return $this->getOffsetInFsa($this->getTransSize());
     }
 
     /**
      * @return string
      */
-    function getDest($var) {
+    public function getDest($var) {
         return "(($var) >> 10) & 0x3FFFFF";
     }
 
     /**
      * @return string
      */
-    function getAnnotIdx($var) {
+    public function getAnnotIdx($var) {
         return "(($var & 0xFF) << 22) | (($var >> 10) & 0x3FFFFF)";
     }
 
     /**
      * @return string
      */
-    function getIndexByTrans($transVar, $charVar) {
+    public function getIndexByTrans($transVar, $charVar) {
         return "(($transVar >> 10) & 0x3FFFFF) + $charVar + 1";
     }
 
     /**
      * @return string
      */
-    function getAnnotIndexByTrans($transVar) {
+    public function getAnnotIndexByTrans($transVar) {
         return "($transVar >> 10) & 0x3FFFFF";
     }
 }

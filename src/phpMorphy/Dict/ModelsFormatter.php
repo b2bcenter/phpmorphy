@@ -25,7 +25,7 @@ class phpMorphy_Dict_ModelsFormatter {
      * @static
      * @return phpMorphy_Dict_ModelsFormatter
      */
-    static function create() {
+    public static function create() {
         static $instance;
 
         if(is_null($instance)) {
@@ -39,7 +39,7 @@ class phpMorphy_Dict_ModelsFormatter {
      * @param phpMorphy_Dict_PrefixSet $set
      * @return string
      */
-    function formatPrefixSet(phpMorphy_Dict_PrefixSet $set) {
+    public function formatPrefixSet(phpMorphy_Dict_PrefixSet $set) {
         return $this->formatSimpleModel(
             'PrefixSet',
             array(
@@ -53,7 +53,7 @@ class phpMorphy_Dict_ModelsFormatter {
      * @param phpMorphy_Dict_Lemma $lemma
      * @return string
      */
-    function formatLemma(phpMorphy_Dict_Lemma $lemma) {
+    public function formatLemma(phpMorphy_Dict_Lemma $lemma) {
         return $this->formatSimpleModel(
             'Lemma',
             array(
@@ -71,7 +71,7 @@ class phpMorphy_Dict_ModelsFormatter {
      * @param phpMorphy_Dict_PartOfSpeech $pos
      * @return string
      */
-    function formatPartOfSpeech(phpMorphy_Dict_PartOfSpeech $pos) {
+    public function formatPartOfSpeech(phpMorphy_Dict_PartOfSpeech $pos) {
         return $this->formatSimpleModel(
             'PartOfSpeech',
             array(
@@ -86,7 +86,7 @@ class phpMorphy_Dict_ModelsFormatter {
      * @param phpMorphy_Dict_Grammem $grammem
      * @return string
      */
-    function formatGrammem(phpMorphy_Dict_Grammem $grammem) {
+    public function formatGrammem(phpMorphy_Dict_Grammem $grammem) {
         return $this->formatSimpleModel(
             'Grammem',
             array(
@@ -101,7 +101,7 @@ class phpMorphy_Dict_ModelsFormatter {
      * @param phpMorphy_Dict_FlexiaModel $model
      * @return string
      */
-    function formatFlexiaModel(phpMorphy_Dict_FlexiaModel $model) {
+    public function formatFlexiaModel(phpMorphy_Dict_FlexiaModel $model) {
         $flexias = array();
         $flexia_indent = '  ';
         foreach($model as $flexia) {
@@ -117,7 +117,7 @@ class phpMorphy_Dict_ModelsFormatter {
      * @param phpMorphy_Dict_Flexia $flexia
      * @return string
      */
-    function formatFlexia(phpMorphy_Dict_Flexia $flexia) {
+    public function formatFlexia(phpMorphy_Dict_Flexia $flexia) {
         return $this->formatSimpleModel(
             'Flexia',
             array(
@@ -132,7 +132,7 @@ class phpMorphy_Dict_ModelsFormatter {
      * @param phpMorphy_Dict_Ancode $ancode
      * @return string
      */
-    function formatAncode(phpMorphy_Dict_Ancode $ancode) {
+    public function formatAncode(phpMorphy_Dict_Ancode $ancode) {
         return $this->formatSimpleModel(
             'Ancode',
             array(
@@ -147,7 +147,7 @@ class phpMorphy_Dict_ModelsFormatter {
      * @param phpMorphy_Dict_AccentModel $model
      * @return string
      */
-    function formatAccentModel(phpMorphy_Dict_AccentModel $model) {
+    public function formatAccentModel(phpMorphy_Dict_AccentModel $model) {
         $this->formatSimpleModel(
             'AccentModel',
             array(

@@ -24,22 +24,22 @@ class phpMorphy_Generator_StorageHelper_File implements phpMorphy_Generator_Stor
     /**
      * @return string
      */
-    function getType() {
+    public function getType() {
         return 'file';
     }
 
     /**
      * @return string
      */
-    function prolog() { return '$__fh = $this->resource'; }
+    public function prolog() { return '$__fh = $this->resource'; }
 
     /**
      * @return string
      */
-    function seek($offset) { return 'fseek($__fh, ' . $offset . ')'; }
+    public function seek($offset) { return 'fseek($__fh, ' . $offset . ')'; }
 
     /**
      * @return string
      */
-    function read($offset, $len) { return "fread(\$__fh, $len)"; }
+    public function read($offset, $len) { return "fread(\$__fh, $len)"; }
 }

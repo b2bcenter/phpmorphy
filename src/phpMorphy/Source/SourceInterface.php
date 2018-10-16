@@ -27,5 +27,5 @@ interface phpMorphy_Source_SourceInterface {
      * @param string $key
      * @return string|false
      */
-    function getValue($key);
+    public function getValue($key);
 }

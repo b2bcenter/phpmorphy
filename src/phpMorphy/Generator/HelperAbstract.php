@@ -30,7 +30,7 @@ abstract class phpMorphy_Generator_HelperAbstract {
      * @param phpMorphy_Generator_Template $tpl
      * @param phpMorphy_Generator_StorageHelperInterface $storage
      */
-    function __construct(phpMorphy_Generator_Template $tpl, phpMorphy_Generator_StorageHelperInterface $storage) {
+    public function __construct(phpMorphy_Generator_Template $tpl, phpMorphy_Generator_StorageHelperInterface $storage) {
         $this->tpl = $tpl;
         $this->storage = $storage;
     }
@@ -38,7 +38,7 @@ abstract class phpMorphy_Generator_HelperAbstract {
     /**
      * @return phpMorphy_Generator_StorageHelperInterface
      */
-    function getStorage() {
+    public function getStorage() {
         return $this->storage;
     }
 
@@ -47,7 +47,7 @@ abstract class phpMorphy_Generator_HelperAbstract {
      * @param string $suffix
      * @return void
      */
-    function out($str, $suffix) {
+    public function out($str, $suffix) {
         if(strlen($str)) {
             echo $str, $suffix;
         }

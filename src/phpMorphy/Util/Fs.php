@@ -29,7 +29,7 @@ class phpMorphy_Util_Fs {
      * @param bool $isRecursive
      * @return int
      */
-    static function applyToEachFile($rootDir, $matchRegExp, $fn, $isRecursive = true) {
+    public static function applyToEachFile($rootDir, $matchRegExp, $fn, $isRecursive = true) {
         $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($rootDir));
         $count = 0;
 
@@ -56,7 +56,7 @@ class phpMorphy_Util_Fs {
      * @param Closure|string|null $log
      * @return void
      */
-    static function deleteEmptyDirectories($dir, $log = null) {
+    public static function deleteEmptyDirectories($dir, $log = null) {
         $iterator = new DirectoryIterator($dir);
         $files_in_dir = 0;
 

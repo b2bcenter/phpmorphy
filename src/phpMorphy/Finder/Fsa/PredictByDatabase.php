@@ -27,7 +27,7 @@ class phpMorphy_Finder_Fsa_PredictByDatabase extends phpMorphy_Finder_Fsa_Finder
         $graminfo,
         $min_postfix_match;
 
-    function __construct(
+    public function __construct(
         phpMorphy_Fsa_FsaInterface $fsa,
         phpMorphy_AnnotDecoder_AnnotDecoderInterface $annotDecoder,
         $encoding,

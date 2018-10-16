@@ -33,7 +33,7 @@ abstract class phpMorphy_UserDict_XmlDiff_Command_CommandAbstract {
     /** @var phpMorphy_MorphyInterface */
     protected $morphy;
 
-    function __construct(
+    public function __construct(
         phpMorphy_UserDict_EncodingConverter $encodingConverter,
         phpMorphy_UserDict_PatternMatcher $patternMatcher,
         phpMorphy_MorphyInterface $morphy

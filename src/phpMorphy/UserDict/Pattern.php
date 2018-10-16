@@ -31,7 +31,7 @@ class phpMorphy_UserDict_Pattern {
      * @param string $word
      * @param phpMorphy_UserDict_GrammarIdentifier $grammar
      */
-    function __construct($word, phpMorphy_UserDict_GrammarIdentifier $grammar) {
+    public function __construct($word, phpMorphy_UserDict_GrammarIdentifier $grammar) {
         $this->word = $word;
         $this->grammar = $grammar;
     }
@@ -40,7 +40,7 @@ class phpMorphy_UserDict_Pattern {
      * @param string $string
      * @return phpMorphy_UserDict_Pattern
      */
-    static function constructFromString($string) {
+    public static function constructFromString($string) {
         $string = trim($string);
 
         $sp_pos = strpos($string, ' ');
@@ -68,14 +68,14 @@ class phpMorphy_UserDict_Pattern {
     /**
      * @return string
      */
-    function getWord() {
+    public function getWord() {
         return $this->word;
     }
 
     /**
      * @return phpMorphy_UserDict_GrammarIdentifier
      */
-    function getGrammarIdentifier() {
+    public function getGrammarIdentifier() {
         return $this->grammar;
     }
 
@@ -83,7 +83,7 @@ class phpMorphy_UserDict_Pattern {
      * @param string $word
      * @return bool
      */
-    function matchWord($word) {
+    public function matchWord($word) {
         return $word === $this->getWord();
     }
 
@@ -93,7 +93,7 @@ class phpMorphy_UserDict_Pattern {
      * @param string[] $grammems
      * @return bool
      */
-    function match($word, $partOfSpeech, array $grammems) {
+    public function match($word, $partOfSpeech, array $grammems) {
         if(!$this->matchWord($word)) {
             return false;
         }
@@ -104,7 +104,7 @@ class phpMorphy_UserDict_Pattern {
     /**
      * @return string
      */
-    function  __toString() {
+    public function  __toString() {
         return $this->getWord() . ' [' . $this->getGrammarIdentifier() . ']';
     }
 }

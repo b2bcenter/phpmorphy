@@ -25,7 +25,7 @@ abstract class phpMorphy_UserDict_EditCommand_CommandAbstract {
     /** @var phpMorphy_UserDict_PatternMatcher */
     protected $pattern_matcher;
 
-    function __construct(phpMorphy_UserDict_PatternMatcher $matcher) {
+    public function __construct(phpMorphy_UserDict_PatternMatcher $matcher) {
         $this->pattern_matcher = $matcher;
     }
 
@@ -33,5 +33,5 @@ abstract class phpMorphy_UserDict_EditCommand_CommandAbstract {
      * @param phpMorphy_Paradigm_MutableDecorator $paradigm
      * @return void
      */
-    abstract function apply(phpMorphy_Paradigm_MutableDecorator $paradigm);
+    abstract public function apply(phpMorphy_Paradigm_MutableDecorator $paradigm);
 }

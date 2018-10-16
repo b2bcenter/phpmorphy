@@ -28,11 +28,11 @@ class phpMorphy_Paradigm_Formatter {
     const SUFFIX_SEPARATOR = '>';
     const COMMON_GRAMMEMS_SEPARATOR = '|';
 
-    static function create() {
+    public static function create() {
         return new phpMorphy_Paradigm_Formatter();
     }
 
-    function format(phpMorphy_Paradigm_ParadigmInterface $paradigm, $indent = '') {
+    public function format(phpMorphy_Paradigm_ParadigmInterface $paradigm, $indent = '') {
         ob_start();
 
         try {
@@ -50,7 +50,7 @@ class phpMorphy_Paradigm_Formatter {
         return ob_get_clean();
     }
 
-    function printWordForm(phpMorphy_WordForm_WordFormInterface $form) {
+    public function printWordForm(phpMorphy_WordForm_WordFormInterface $form) {
         echo
             $form->getWord() , ' [',
             $form->getCommonPrefix() , self::COMMON_PREFIX_SEPARATOR,

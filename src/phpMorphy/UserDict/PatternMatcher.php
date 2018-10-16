@@ -29,7 +29,7 @@ class phpMorphy_UserDict_PatternMatcher {
      * @param void &$formIndex
      * @return phpMorphy_WordForm_WordFormInterface
      */
-    function findSuitableFormByPattern(
+    public function findSuitableFormByPattern(
         $paradigms,
         phpMorphy_UserDict_Pattern $pattern,
         $isMatchOnlyLemmas,
@@ -61,7 +61,7 @@ class phpMorphy_UserDict_PatternMatcher {
      * @param bool $isMatchOnlyLemmas
      * @return array(0 => phpMorphy_WordForm_WordFormAbstract[], 1 => int[])
      */
-    function findSuitableFormsByPattern(
+    public function findSuitableFormsByPattern(
         $paradigmsCollection,
         phpMorphy_UserDict_Pattern $pattern,
         $isMatchOnlyLemmas

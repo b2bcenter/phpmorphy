@@ -26,34 +26,34 @@ interface phpMorphy_GramTab_GramTabInterface {
      * @param string|int $ancodeId
      * @return string[]|int[]
      */
-    function getGrammems($ancodeId);
+    public function getGrammems($ancodeId);
 
     /**
      * @abstract
      * @param string|int $ancodeId
      * @return string|int
      */
-    function getPartOfSpeech($ancodeId);
+    public function getPartOfSpeech($ancodeId);
 
     /**
      * @abstract
      * @param string[]|int[] $ids
      * @return string[]|int[]
      */
-    function resolveGrammemIds($ids);
+    public function resolveGrammemIds($ids);
 
     /**
      * @abstract
      * @param string|int $id
      * @return string|int
      */
-    function resolvePartOfSpeechId($id);
+    public function resolvePartOfSpeechId($id);
 
     /**
      * @abstract
      * @return void
      */
-    function includeConsts();
+    public function includeConsts();
 
     /**
      * @abstract
@@ -61,14 +61,14 @@ interface phpMorphy_GramTab_GramTabInterface {
      * @param string|int $commonAncode
      * @return string|int
      */
-    function ancodeToString($ancodeId, $commonAncode = null);
+    public function ancodeToString($ancodeId, $commonAncode = null);
 
     /**
      * @abstract
      * @param string $string
      * @return string|int
      */
-    function stringToAncode($string);
+    public function stringToAncode($string);
 
     /**
      * @abstract
@@ -76,5 +76,5 @@ interface phpMorphy_GramTab_GramTabInterface {
      * @param string[]|int[] $grammemIds
      * @return string
      */
-    function toString($partOfSpeechId, $grammemIds);
+    public function toString($partOfSpeechId, $grammemIds);
 }

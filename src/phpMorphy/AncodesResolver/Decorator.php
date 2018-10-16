@@ -36,7 +36,7 @@ abstract class phpMorphy_AncodesResolver_Decorator implements phpMorphy_AncodesR
     /**
      * @param $object phpMorphy_AncodesResolver_AncodesResolverInterface
      */
-    function __construct(phpMorphy_AncodesResolver_AncodesResolverInterface $object) {
+    public function __construct(phpMorphy_AncodesResolver_AncodesResolverInterface $object) {
         $this->setDecorateeObject($object);
     }
     
@@ -109,7 +109,7 @@ abstract class phpMorphy_AncodesResolver_Decorator implements phpMorphy_AncodesR
     /**
      * Implement deep copy paradigm
      */
-    function __clone() {
+    public function __clone() {
         if(isset($this->object)) {
             $this->object = clone $this->object;
         }

@@ -33,7 +33,7 @@ abstract class phpMorphy_AnnotDecoder_AnnotDecoderAbstract implements phpMorphy_
     /**
      * @param string $endOfString
      */
-    function __construct($endOfString) {
+    public function __construct($endOfString) {
         $this->end_of_string = (string)$endOfString;
 
         $this->unpack_str = $this->getUnpackString();
@@ -58,7 +58,7 @@ abstract class phpMorphy_AnnotDecoder_AnnotDecoderAbstract implements phpMorphy_
      * @param bool $withBase
      * @return array
      */
-    function decode($annotRaw, $withBase) {
+    public function decode($annotRaw, $withBase) {
         if(empty($annotRaw)) {
             throw new phpMorphy_Exception("Empty annot given");
         }

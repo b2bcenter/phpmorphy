@@ -23,7 +23,7 @@
 class phpMorphy_Aot_GramTab_File extends phpMorphy_Util_Collection_Immutable {
     protected $collection;
 
-    function __construct($fileName, $encoding, phpMorphy_Aot_GramTab_GramInfoFactory $factory) {
+    public function __construct($fileName, $encoding, phpMorphy_Aot_GramTab_GramInfoFactory $factory) {
         $this->collection = $this->createStorageCollection();
 
         parent::__construct($this->collection);

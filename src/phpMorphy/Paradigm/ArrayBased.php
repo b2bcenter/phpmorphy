@@ -27,7 +27,7 @@ class phpMorphy_Paradigm_ArrayBased
     /**
      * @param null|phpMorphy_Paradigm_ParadigmInterface $paradigm
      */
-    function __construct(phpMorphy_Paradigm_ParadigmInterface $paradigm = null) {
+    public function __construct(phpMorphy_Paradigm_ParadigmInterface $paradigm = null) {
         if(null !== $paradigm) {
             foreach($paradigm as $wf) {
                 $this->append($wf);
@@ -35,7 +35,7 @@ class phpMorphy_Paradigm_ArrayBased
         }
     }
 
-    function updateCommonData() {
+    public function updateCommonData() {
         $this->updateBases();
         $this->updateCommonGrammems();
     }
@@ -93,7 +93,7 @@ class phpMorphy_Paradigm_ArrayBased
      * @param int $index
      * @return void
      */
-    function getWordForm($index) {
+    public function getWordForm($index) {
         return $this->offsetGet($index);
     }
 
@@ -101,7 +101,7 @@ class phpMorphy_Paradigm_ArrayBased
      * Returns all unique word forms for this paradigm
      * @return void
      */
-    function getAllForms() {
+    public function getAllForms() {
         $result = array();
 
         foreach($this as $wf) {
@@ -115,7 +115,7 @@ class phpMorphy_Paradigm_ArrayBased
      * Returns longest common substring from all word forms in this paradigm
      * @return string
      */
-    function getPseudoRoot() {
+    public function getPseudoRoot() {
         return $this[0]->getBase();
     }
 
@@ -123,7 +123,7 @@ class phpMorphy_Paradigm_ArrayBased
      * Returns lemma for this paradigm
      * @return string
      */
-    function getLemma() {
+    public function getLemma() {
         return $this[0]->getWord();
     }
 
@@ -132,7 +132,7 @@ class phpMorphy_Paradigm_ArrayBased
      * @see phpMorphy_Paradigm_ParadigmInterface::getLemma()
      * @return string
      */
-    function getBaseForm() {
+    public function getBaseForm() {
         return $this->getLemma();
     }
 }

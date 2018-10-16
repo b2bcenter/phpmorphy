@@ -24,20 +24,20 @@ interface phpMorphy_Generator_StorageHelperInterface {
     /**
      * @return string
      */
-    function getType();
+    public function getType();
 
     /**
      * @return string
      */
-    function prolog();
+    public function prolog();
 
     /**
      * @return string
      */
-    function seek($offset);
+    public function seek($offset);
 
     /**
      * @return string
      */
-    function read($offset, $len);
+    public function read($offset, $len);
 }

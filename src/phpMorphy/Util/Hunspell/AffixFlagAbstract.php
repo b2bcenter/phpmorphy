@@ -31,21 +31,21 @@ abstract class phpMorphy_Util_Hunspell_AffixFlagAbstract {
 		$this->cross_product = $cross;
 	}
 
-	static function create($type, $name, $cross) {
-		$affix_class = $type == 'SFX' ? 'phpMorphy_Util_Hunspell_SuffixFlag' : 'phpMorphy_Util_Hunspell_PrefixFlag';
+	static public function create($type, $name, $cross) {
+		$affix_class = $type == 'SFX' ? phpMorphy_Util_Hunspell_SuffixFlag::class : phpMorphy_Util_Hunspell_PrefixFlag::class;
 
 		return new $affix_class($name, $cross);
 	}
 
-	function getName() {
+	public function getName() {
 		return $this->name;
 	}
 
-	function isCrossProduct() {
+	public function isCrossProduct() {
 		return $this->cross_product;
 	}
 
-	function generateWords($word, &$words, $wordMorph = null, &$morphs = null) {
+	public function generateWords($word, &$words, $wordMorph = null, &$morphs = null) {
 		$maxRemoveLength = 0;
 
 		foreach($this->affixes as $affix) {
@@ -63,12 +63,12 @@ abstract class phpMorphy_Util_Hunspell_AffixFlagAbstract {
 		return $maxRemoveLength;
 	}
 
-	function addAffix($find, $remove, $append, $morph = null) {
+	public function addAffix($find, $remove, $append, $morph = null) {
 		$this->affixes[] = $this->createAffix(
 			$find, $remove, $append, $morph
 		);
 	}
 
 	abstract protected function createAffix($find, $remove, $append, $morph);
-	abstract function isSuffix();
+	abstract public function isSuffix();
 }

@@ -41,7 +41,7 @@ class phpMorphy_WordForm_WordForm implements phpMorphy_WordForm_WordFormInterfac
     /**
      * @param phpMorphy_WordForm_WordForm|array $data
      */
-    function __construct($data) {
+    public function __construct($data) {
         if(is_array($data)) {
             $this->assigmFromArray($data);
         } else if($data instanceof phpMorphy_WordForm_WordForm) {
@@ -51,7 +51,7 @@ class phpMorphy_WordForm_WordForm implements phpMorphy_WordForm_WordFormInterfac
         }
     }
 
-    function assigmFromArray(array $data) {
+    public function assigmFromArray(array $data) {
         $this->common_prefix = $data['common_prefix'];
         $this->form_prefix = $data['form_prefix'];
         $this->base = $data['base'];
@@ -65,7 +65,7 @@ class phpMorphy_WordForm_WordForm implements phpMorphy_WordForm_WordFormInterfac
      * @param phpMorphy_WordForm_WordFormInterface $wordForm
      * @return phpMorphy_WordForm_WordForm
      */
-    function assignFromWordForm(phpMorphy_WordForm_WordFormInterface $wordForm) {
+    public function assignFromWordForm(phpMorphy_WordForm_WordFormInterface $wordForm) {
         $this->common_prefix = ($wordForm->getCommonPrefix());
         $this->form_prefix = ($wordForm->getFormPrefix());
         $this->base = ($wordForm->getBase());
@@ -81,7 +81,7 @@ class phpMorphy_WordForm_WordForm implements phpMorphy_WordForm_WordFormInterfac
      * @param string[] $grammems
      * @return void
      */
-    function setCommonGrammems(array $grammems) {
+    public function setCommonGrammems(array $grammems) {
         $this->grammems = array_merge($grammems, $this->getFormGrammems());
         $this->common_grammems_count = count($grammems);
     }
@@ -90,7 +90,7 @@ class phpMorphy_WordForm_WordForm implements phpMorphy_WordForm_WordFormInterfac
      * @param string[] $grammems
      * @return void
      */
-    function setFormGrammems(array $grammems) {
+    public function setFormGrammems(array $grammems) {
         $this->grammems = array_merge($this->getCommonGrammems(), $grammems);
     }
 
@@ -98,7 +98,7 @@ class phpMorphy_WordForm_WordForm implements phpMorphy_WordForm_WordFormInterfac
      * @param string $partOfSpeech
      * @return void
      */
-    function setPartOfSpeech($partOfSpeech) {
+    public function setPartOfSpeech($partOfSpeech) {
         $this->part_of_speech = (string)$partOfSpeech;
     }
 
@@ -106,7 +106,7 @@ class phpMorphy_WordForm_WordForm implements phpMorphy_WordForm_WordFormInterfac
      * @param string $suffix
      * @return void
      */
-    function setSuffix($suffix) {
+    public function setSuffix($suffix) {
         $this->suffix = (string)$suffix;
     }
 
@@ -114,7 +114,7 @@ class phpMorphy_WordForm_WordForm implements phpMorphy_WordForm_WordFormInterfac
      * @param string $prefix
      * @return void
      */
-    function setFormPrefix($prefix) {
+    public function setFormPrefix($prefix) {
         $this->form_prefix = (string)$prefix;
     }
 
@@ -122,7 +122,7 @@ class phpMorphy_WordForm_WordForm implements phpMorphy_WordForm_WordFormInterfac
      * @param string $common_prefix
      * @return void
      */
-    function setCommonPrefix($common_prefix) {
+    public function setCommonPrefix($common_prefix) {
         $this->common_prefix = (string)$common_prefix;
     }
 
@@ -130,77 +130,77 @@ class phpMorphy_WordForm_WordForm implements phpMorphy_WordForm_WordFormInterfac
      * @param string $base
      * @return void
      */
-    function setBase($base) {
+    public function setBase($base) {
         $this->base = (string)$base;
     }
 
     /**
      * @return string
      */
-    function getCommonGrammems() {
+    public function getCommonGrammems() {
         return array_slice($this->grammems, 0, $this->common_grammems_count);
     }
 
     /**
      * @return string
      */
-    function getFormGrammems() {
+    public function getFormGrammems() {
         return array_slice($this->grammems, $this->common_grammems_count);
     }
 
     /**
      * @return string
      */
-    function getBase() {
+    public function getBase() {
         return $this->base;
     }
 
     /**
      * @return string
      */
-    function getSuffix() {
+    public function getSuffix() {
         return $this->suffix;
     }
 
     /**
      * @return string
      */
-    function getFormPrefix() {
+    public function getFormPrefix() {
         return $this->form_prefix;
     }
 
     /**
      * @return string
      */
-    function getCommonPrefix() {
+    public function getCommonPrefix() {
         return $this->common_prefix;
     }
 
     /**
      * @return string
      */
-    function getPrefix() {
+    public function getPrefix() {
         return $this->getCommonPrefix() . $this->getFormPrefix();
     }
 
     /**
      * @return string[]
      */
-    function getGrammems() {
+    public function getGrammems() {
         return $this->grammems;
     }
 
     /**
      * @return string
      */
-    function getPartOfSpeech() {
+    public function getPartOfSpeech() {
         return $this->part_of_speech;
     }
 
     /**
      * @return string
      */
-    function getWord() {
+    public function getWord() {
         return $this->common_prefix . $this->form_prefix . $this->base . $this->suffix;
     }
 
@@ -208,7 +208,7 @@ class phpMorphy_WordForm_WordForm implements phpMorphy_WordForm_WordFormInterfac
      * @param string[]|int[] $grammems
      * @return bool
      */
-    function hasGrammems($grammems) {
+    public function hasGrammems($grammems) {
         $grammems = (array)$grammems;
 
         $grammes_count = count($grammems);
@@ -218,7 +218,7 @@ class phpMorphy_WordForm_WordForm implements phpMorphy_WordForm_WordFormInterfac
     /**
      * @return bool
      */
-    static function compareGrammems($a, $b) {
+    public static function compareGrammems($a, $b) {
         return count($a) == count($b) && count(array_diff($a, $b)) == 0;
     }
 }

@@ -27,7 +27,7 @@ class phpMorphy_Generator_ReflectionHelper {
      * @param ReflectionMethod $method
      * @return string
      */
-    function generateArgsPass(ReflectionMethod $method) {
+    public function generateArgsPass(ReflectionMethod $method) {
         return implode(
             ', ',
             array_map(
@@ -44,7 +44,7 @@ class phpMorphy_Generator_ReflectionHelper {
      * @param int $modifiersFilter
      * @return string
      */
-    function generateMethodModifiers(ReflectionMethod $method, $modifiersFilter) {
+    public function generateMethodModifiers(ReflectionMethod $method, $modifiersFilter) {
         return implode(
             ' ',
             $this->modifiersToArray($method->getModifiers() & ~$modifiersFilter)
@@ -55,7 +55,7 @@ class phpMorphy_Generator_ReflectionHelper {
      * @param ReflectionMethod $method
      * @return string
      */
-    function generateMethodArguments(ReflectionMethod $method) {
+    public function generateMethodArguments(ReflectionMethod $method) {
         if($method->isInternal()) {
             // This code can`t handle constants, it replaces its with value
             return implode(
@@ -85,7 +85,7 @@ class phpMorphy_Generator_ReflectionHelper {
      * @param int $modifiersFilter
      * @return string
      */
-    function generateMethodSignature(ReflectionMethod $method, $modifiersFilter) {
+    public function generateMethodSignature(ReflectionMethod $method, $modifiersFilter) {
         $modifiers = $this->generateMethodModifiers($method, $modifiersFilter);
 
         $ref = $method->returnsReference() ? '&' : '';
@@ -222,7 +222,7 @@ class phpMorphy_Generator_ReflectionHelper {
      * @param ReflectionClass $refClass
      * @return null|string[]
      */
-    function getParent(ReflectionClass $refClass) {
+    public function getParent(ReflectionClass $refClass) {
         if($refClass->isInterface()) {
             return false;
         } else {
@@ -246,7 +246,7 @@ class phpMorphy_Generator_ReflectionHelper {
      * @param ReflectionClass $refClass
      * @return null|string[]
      */
-    function getInterfaces(ReflectionClass $refClass) {
+    public function getInterfaces(ReflectionClass $refClass) {
         $interfaces = $this->getDirectInterfaces($refClass);
 
         if(false === $interfaces) {
@@ -299,7 +299,7 @@ class phpMorphy_Generator_ReflectionHelper {
     /**
      * @return ReflectionMethod[]
      */
-    function getOverridableMethods(ReflectionClass $refClass) {
+    public function getOverridableMethods(ReflectionClass $refClass) {
         if($refClass->isFinal()) {
             return array();
         }
@@ -324,7 +324,7 @@ class phpMorphy_Generator_ReflectionHelper {
      * @param ReflectionMethod $method
      * @return bool
      */
-    function isOverridableMethod(ReflectionMethod $method) {
+    public function isOverridableMethod(ReflectionMethod $method) {
         return !(
             $method->isStatic() ||
             $method->isFinal() ||

@@ -27,7 +27,7 @@ class phpMorphy_GramTab_Proxy extends phpMorphy_GramTab_Decorator {
     /**
      * @param phpMorphy_Storage_StorageInterface $storage
      */
-    function __construct(phpMorphy_Storage_StorageInterface $storage) {
+    public function __construct(phpMorphy_Storage_StorageInterface $storage) {
         $this->storage = $storage;
         $this->actAsProxy();
     }

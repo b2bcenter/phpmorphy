@@ -26,7 +26,7 @@ class phpMorphy_Generator_Decorator_Generator {
      * @param string $decorateeClass
      * @return string
      */
-    static function getDecoratorClassName($decorateeClass) {
+    public static function getDecoratorClassName($decorateeClass) {
         $decorateeClass = preg_replace('~([^_]+)_(\1)(Interface|Abstract)?$~', '\1_', $decorateeClass);
 
         return $decorateeClass . 'Decorator';
@@ -40,7 +40,7 @@ class phpMorphy_Generator_Decorator_Generator {
      * @param null|phpMorphy_Generator_Decorator_HandlerInterface $handler
      * @return string
      */
-    static function generate(
+    public static function generate(
         $decorateeClass,
         $decoratorClass = null,
         phpMorphy_Generator_Decorator_HandlerInterface $handler = null

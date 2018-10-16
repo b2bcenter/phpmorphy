@@ -39,7 +39,7 @@ class phpMorphy_Aot_GramTab_GramInfo {
      * @param bool $isPredict
      *
      */
-    function __construct($partOfSpeech, $grammems, $ancodeId, $isPredict) {
+    public function __construct($partOfSpeech, $grammems, $ancodeId, $isPredict) {
 /*
         if(strlen($ancode) != 2) {
             throw new phpMorphy_Aot_GramTab_Exception("Invalid ancode '$ancode' given, ancode length must be 2 bytes long");
@@ -53,23 +53,23 @@ class phpMorphy_Aot_GramTab_GramInfo {
         $this->grammems = (array)$grammems;
     }
 
-    function getPartOfSpeech() {
+    public function getPartOfSpeech() {
         return $this->pos;
     }
 
-    function getPartOfSpeechLong() {
+    public function getPartOfSpeechLong() {
         return $this->pos;
     }
 
-    function getAncodeId() {
+    public function getAncodeId() {
         return $this->ancode_id;
     }
 
-    function getGrammems() {
+    public function getGrammems() {
         return $this->grammems;
     }
 
-    function isPartOfSpeechProductive() {
+    public function isPartOfSpeechProductive() {
         return $this->is_predict;
     }
 };

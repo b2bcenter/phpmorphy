@@ -29,7 +29,7 @@ class phpMorphy_UserDict_EditCommand_Delete extends phpMorphy_UserDict_EditComma
      * @param phpMorphy_UserDict_Pattern $pattern
      * @return phpMorphy_UserDict_EditCommand_Delete
      */
-    function __construct(
+    public function __construct(
         phpMorphy_UserDict_PatternMatcher $matcher,
         phpMorphy_UserDict_Pattern $pattern
     ) {
@@ -42,7 +42,7 @@ class phpMorphy_UserDict_EditCommand_Delete extends phpMorphy_UserDict_EditComma
      * @param phpMorphy_Paradigm_MutableDecorator $paradigm
      * @return void
      */
-    function apply(phpMorphy_Paradigm_MutableDecorator $paradigm) {
+    public function apply(phpMorphy_Paradigm_MutableDecorator $paradigm) {
         list($forms, $indices) = $this->pattern_matcher->findSuitableFormsByPattern(
             array($paradigm),
             $this->pattern,

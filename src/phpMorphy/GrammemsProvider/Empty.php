@@ -21,11 +21,11 @@
 */
 
 class phpMorphy_GrammemsProvider_Empty extends phpMorphy_GrammemsProvider_GrammemsProviderAbstract {
-    function getAllGrammemsGrouped() {
+    public function getAllGrammemsGrouped() {
         return array();
     }
 
-    function getGrammems($partOfSpeech) {
+    public function getGrammems($partOfSpeech) {
         return false;
     }
 }

@@ -29,7 +29,7 @@ class phpMorphy_Dict_Lemma {
         $prefix_id,
         $ancode_id;
 
-    function __construct($base, $flexiaId, $accentId) {
+    public function __construct($base, $flexiaId, $accentId) {
         $this->base = (string)$base;
         $this->flexia_id = (int)$flexiaId;
         $this->accent_id = (int)$accentId;
@@ -43,19 +43,19 @@ class phpMorphy_Dict_Lemma {
         }
     }
 
-    function setId($id) {
+    public function setId($id) {
         $this->id = $id;
     }
 
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
-    function hasId() {
+    public function hasId() {
         return null !== $this->getId();
     }
 
-    function setPrefixId($prefixId) {
+    public function setPrefixId($prefixId) {
         if(is_null($prefixId)) {
             throw new phpMorphy_Exception("NULL prefix_id specified");
         }
@@ -67,7 +67,7 @@ class phpMorphy_Dict_Lemma {
         }
     }
 
-    function setAncodeId($ancodeId) {
+    public function setAncodeId($ancodeId) {
         if(is_null($ancodeId)) {
             throw new phpMorphy_Exception("NULL id specified");
         }
@@ -75,16 +75,16 @@ class phpMorphy_Dict_Lemma {
         $this->ancode_id = $ancodeId;
     }
 
-    function getBase() { return $this->base; }
-    function getFlexiaId() { return $this->flexia_id; }
-    function getAccentId() { return $this->accent_id; }
-    function getPrefixId() { return $this->prefix_id; }
-    function getAncodeId() { return $this->ancode_id; }
+    public function getBase() { return $this->base; }
+    public function getFlexiaId() { return $this->flexia_id; }
+    public function getAccentId() { return $this->accent_id; }
+    public function getPrefixId() { return $this->prefix_id; }
+    public function getAncodeId() { return $this->ancode_id; }
 
-    function hasPrefixId() { return isset($this->prefix_id); }
-    function hasAncodeId() { return isset($this->ancode_id); }
+    public function hasPrefixId() { return isset($this->prefix_id); }
+    public function hasAncodeId() { return isset($this->ancode_id); }
 
-    function __toString() {
+    public function __toString() {
         return phpMorphy_Dict_ModelsFormatter::create()->formatLemma($this);
     }
 }
