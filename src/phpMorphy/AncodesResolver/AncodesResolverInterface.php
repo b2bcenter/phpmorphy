@@ -30,7 +30,7 @@ interface phpMorphy_AncodesResolver_AncodesResolverInterface {
 
     /**
      * @abstract
-     * @param string $ancode
+     * @param string  $ancode
      * @return string
      */
     public function unresolve($ancode);
