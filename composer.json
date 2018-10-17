@@ -4,7 +4,7 @@
     "keywords": ["phpMorphy"],
     "homepage": "http://phpmorphy.sourceforge.net/",
     "type": "library",
-    "license": "GNU GPL 2.1",
+    "license": "LGPL-2.1",
     "authors": [
         {
             "name": "Kamaev Vladimir",
